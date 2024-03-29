@@ -1,27 +1,36 @@
 # authentication/views.py
 import os
 import random  # Make sure to import random module
-from CJob.models import CustomUser  # 导入你的自定义用户模型
+from .models import CustomUser
 import certifi
 from django.core.mail import send_mail
-from django.shortcuts import render
-from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect
 
 os.environ['SSL_CERT_FILE'] = certifi.where()
 
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+
 
 def login_view(request):
-    # If the form has been submitted...
     if request.method == 'POST':
-        # Process the data in form.cleaned_data
-        # (this is where you would authenticate the user)
-        pass
-    # If a GET (or any other method) we'll create a blank form
-    else:
-        pass
+        email = request.POST.get('email')
+        password = request.POST.get('password')
 
+        # 使用 Django 的 authenticate 函数进行用户认证
+        user = authenticate(request, email=email, password=password)
+
+        if user is not None:
+            # 使用 Django 的 login 函数进行用户登录
+            login(request, user)
+            # 重定向到 CJob 应用的首页
+            print("登陆成功")
+            return redirect('CJob:index')
+        else:
+            # 如果认证失败，返回登录页面并显示错误消息
+            error_message = "Invalid username or password."
+            return render(request, 'login.html', {'error_message': error_message})
+
+    # 如果是 GET 请求，渲染空的登录表单
     return render(request, 'login.html', {})
 
 
@@ -55,16 +64,14 @@ def verify_email(request):
         print(
             entered_code, stored_code
         )
-        # print("断点1")
         if entered_code == stored_code:
-            # print("断点2")
             create_user_from_session(request)
-            # print("断点3")
-            return redirect('index')  # Assuming 'index' is your home view
+            return redirect('login')  # Assuming 'index' is your home view
         else:
             return render(request, 'verify_email.html', {'error': 'Invalid verification code'})
 
     return render(request, 'verify_email.html', {})
+
 
 # def index(request):
 
@@ -79,7 +86,6 @@ def send_verification_email(email, code):
     )
 
 
-
 def create_user_from_session(request):
     print("Entering create_user_from_session function")
     email = request.session.get('email')
@@ -88,7 +94,7 @@ def create_user_from_session(request):
     print("Password:", password)
 
     try:
-        user = User.objects.create_user(username=email, email=email, password=password)
+        user = CustomUser.objects.create_user(username=email, email=email, password=password)
         print("User created successfully")
         login(request, user)
         print("User logged in")
