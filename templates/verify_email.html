@@ -1,0 +1,17 @@
+<!-- authentication/templates/verify_email.html -->
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="verify-email-container">
+    <form method="post">
+        {% csrf_token %}
+        <h2>Verify Your Email</h2>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <input type="text" name="verification_code" placeholder="Enter Verification Code" required><br><br>
+        <input type="submit" value="Verify">
+    </form>
+</div>
+{% endblock %}

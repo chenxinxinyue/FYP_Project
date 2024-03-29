@@ -1,11 +1,11 @@
 import os
 import django
 import certifi
-import os
 from django.core.mail import send_mail
 
+import os
+
 # 设置 SSL 证书的环境变量
-os.environ['SSL_CERT_FILE'] = certifi.where()
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FYP_Project.settings')
 django.setup()
