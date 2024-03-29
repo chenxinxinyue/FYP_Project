@@ -5,7 +5,7 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("CJob", "0003_rename_user_customuser"),
+        ("MainApp", "0003_rename_user_customuser"),
     ]
 
     operations = [

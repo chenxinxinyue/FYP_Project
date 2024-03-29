@@ -1,14 +1,15 @@
-# authentication/views.py
+# Authenticatoin/views.py
 import os
 import random  # Make sure to import random module
 from .models import CustomUser
 import certifi
 from django.core.mail import send_mail
+from django.shortcuts import render, redirect
 
 os.environ['SSL_CERT_FILE'] = certifi.where()
 
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+
+# from django.contrib.auth import authenticate, login
 
 
 def login_view(request):
@@ -16,15 +17,16 @@ def login_view(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        # 使用 Django 的 authenticate 函数进行用户认证
-        user = authenticate(request, email=email, password=password)
+        # 使用 CustomUserManager 中的 authenticate 方法进行用户认证
+        user = CustomUser.objects.authenticate(request, email=email, password=password)
+        print(user)
 
         if user is not None:
-            # 使用 Django 的 login 函数进行用户登录
-            login(request, user)
-            # 重定向到 CJob 应用的首页
+            # 如果认证成功，使用 Django 的 login 函数进行用户登录
+            # login(request, user)
+            # 重定向到 MainApp 应用的首页
             print("登陆成功")
-            return redirect('CJob:index')
+            return redirect('MainApp:index')
         else:
             # 如果认证失败，返回登录页面并显示错误消息
             error_message = "Invalid username or password."
@@ -78,7 +80,7 @@ def verify_email(request):
 
 def send_verification_email(email, code):
     send_mail(
-        'Verification Code for CJob Registration',
+        'Verification Code for MainApp Registration',
         f'Your verification code is: {code}',
         'recommendjob@gmail.com',
         [email],

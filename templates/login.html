@@ -1,4 +1,4 @@
-<!--/login.html -->
+<!-- /login.html -->
 
 {% extends "base_generic.html" %}
 
@@ -6,12 +6,15 @@
 <div class="login-container">
     <form method="post">
         {% csrf_token %}
-        <h2>login to CJob</h2>
-        <input type="text" name="email" placeholder="email" required>
-        <input type="password" name="password" placeholder="password" required>
-        <a href="{% url 'password_reset' %}">forget password?</a>
-        <input type="submit" value="sign in">
-        <a href="{% url 'register' %}">don't have an account? register</a>
+        <h2>Login to CJob</h2>
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <input type="text" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <a href="{% url 'password_reset' %}">Forgot password?</a>
+        <input type="submit" value="Sign In">
+        <a href="{% url 'register' %}">Don't have an account? Register</a>
     </form>
 </div>
 {% endblock %}

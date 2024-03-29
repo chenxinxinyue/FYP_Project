@@ -5,7 +5,7 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("CJob", "0001_initial"),
+        ("MainApp", "0001_initial"),
     ]
 
     operations = [

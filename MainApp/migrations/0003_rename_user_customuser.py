@@ -5,7 +5,7 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("CJob", "0002_alter_user_managers_alter_user_phone_number"),
+        ("MainApp", "0002_alter_user_managers_alter_user_phone_number"),
         ("admin", "0003_logentry_add_action_flag_choices"),
         ("auth", "0012_alter_user_first_name_max_length"),
     ]

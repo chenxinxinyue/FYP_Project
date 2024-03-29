@@ -1,4 +1,3 @@
-
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.db import models
@@ -24,6 +23,22 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('Superuser must have is_superuser=True.')
 
         return self.create_user(username, email, password, **extra_fields)
+
+    def authenticate(self, request, username=None, email=None, password=None, **kwargs):
+        """
+        Authenticate a user based on email address as the username.
+        """
+        if email:
+            try:
+                user = self.get(email=email)
+            except self.model.DoesNotExist:
+                # Run the default password hasher once to reduce the timing
+                # difference between an existing and a nonexistent user (#20760).
+                self.model().set_password(password)
+            else:
+                if user.check_password(password):
+                    return user
+        return None
 
 
 class CustomUser(AbstractUser):
