@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body>
+    <h2>User Registration</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form id="registration-form" method="post">
+        {% csrf_token %}
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <label for="confirm_password">Confirm Password:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password" required><br>
+        <label for="verification_code">Verification Code:</label><br>
+        <input type="text" id="verification_code" name="verification_code" required><br>
+        <input type="submit" value="Register">
+        <button type="button" id="send-verification-code">Send Verification Code</button>
+    </form>
+
+    <script>
+        document.getElementById('send-verification-code').addEventListener('click', function() {
+            var email = document.getElementById('email').value;
+            // 发送邮件请求的代码
+            // 这里可以使用 JavaScript 或者发送 AJAX 请求到后端来处理发送验证码的逻辑
+        });
+    </script>
+</body>
+</html>

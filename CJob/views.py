@@ -45,7 +45,7 @@ def register(request):
         verification_code = generate_verification_code()
         request.session['verification_code'] = verification_code
 
-        return render(request, 'register.html', {'verification_code': verification_code})
+        return render(request, 'register_1.html', {'verification_code': verification_code})
 
 
 from django.shortcuts import render, redirect
@@ -65,6 +65,6 @@ def login(request):
         else:
             # 登录失败时的处理逻辑
             error_message = "Invalid username or password. Please try again."
-            return render(request, 'login.html', {'error_message': error_message})
+            return render(request, 'login_1.html', {'error_message': error_message})
     else:
-        return render(request, 'login.html')
+        return render(request, 'login_1.html')

@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-    <h2>Login</h2>
-    {% if error_message %}
-        <p>{{ error_message }}</p>
-    {% endif %}
+<!--/login.html -->
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="login-container">
     <form method="post">
         {% csrf_token %}
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" value="Login">
+        <h2>login to CJob</h2>
+        <input type="text" name="username" placeholder="username" required>
+        <input type="password" name="password" placeholder="password" required>
+        <input type="submit" value="sign in">
+        <a href="{% url 'password_reset' %}">forget password?</a>
+        <a href="{% url 'register' %}">don't have an account? register</a>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}
