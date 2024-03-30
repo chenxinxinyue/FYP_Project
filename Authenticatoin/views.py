@@ -1,10 +1,20 @@
 # Authenticatoin/views.py
 import os
-import random  # Make sure to import random module
+
+import html2text
+
 from .models import CustomUser
 import certifi
-from django.core.mail import send_mail
+import random
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.auth.forms import PasswordResetForm
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.contrib.auth import get_user_model
 
 os.environ['SSL_CERT_FILE'] = certifi.where()
 
@@ -41,12 +51,15 @@ def register_view(request):
         email = request.POST.get('email')
         password1 = request.POST.get('password')
         password2 = request.POST.get('confirm_password')
+        # 检查邮箱是否已经被注册
+        if CustomUser.objects.filter(email=email).exists():
+            return render(request, 'register.html', {'error': 'Email is already registered'})
 
         if password1 != password2:
             return render(request, 'register.html', {'error': 'Passwords do not match'})
 
         verification_code = str(random.randint(100000, 999999))  # Generate a 6-digit verification code
-        send_verification_email(email, verification_code)
+        send_verification_email_for_register(email, verification_code)
         # print("Generated Verification Code:", verification_code)  # Print the generated verification code
 
         # Store necessary data in session for verification
@@ -75,10 +88,7 @@ def verify_email(request):
     return render(request, 'verify_email.html', {})
 
 
-# def index(request):
-
-
-def send_verification_email(email, code):
+def send_verification_email_for_register(email, code):
     send_mail(
         'Verification Code for MainApp Registration',
         f'Your verification code is: {code}',
@@ -89,17 +99,17 @@ def send_verification_email(email, code):
 
 
 def create_user_from_session(request):
-    print("Entering create_user_from_session function")
+    # print("Entering create_user_from_session function")
     email = request.session.get('email')
     password = request.session.get('password')
-    print("Email:", email)
-    print("Password:", password)
+    # print("Email:", email)
+    # print("Password:", password)
 
     try:
         user = CustomUser.objects.create_user(username=email, email=email, password=password)
         print("User created successfully")
-        login(request, user)
-        print("User logged in")
+        # login(request, user)
+        # print("User logged in")
         del request.session['verification_code']
         del request.session['email']
         del request.session['password']
@@ -107,7 +117,94 @@ def create_user_from_session(request):
         print("An error occurred:", e)
 
 
+def send_verification_email_for_reset_password(email, message_text):
+    send_mail(
+        'Verification Code for MainApp Reset password',
+        message_text,
+        'recommendjob@gmail.com',
+        [email],
+        fail_silently=False,
+    )
+
 def password_reset_view(request):
-    # 这里可以使用Django内置的密码重置视图和表单，或自定义逻辑
-    # 省略具体实现细节
-    return render(request, 'password_reset.html', {})
+    if request.method == 'POST':
+        form = PasswordResetForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            try:
+                user = CustomUser.objects.get(email=email)
+            except CustomUser.DoesNotExist:
+                user = None
+
+            if user:
+                # Generate a password reset token
+                token = default_token_generator.make_token(user)
+                uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+                # # Construct password reset link
+                # reset_link = request.build_absolute_uri(
+                #     f"/password_reset_confirm/{uid}/{token}/"
+                # )
+                #
+                # # Send password reset email
+                # message_html = render_to_string('password_reset_email.html', {
+                #     'user': user,
+                #     'reset_link': reset_link,
+                # })
+                #
+                # # 将 HTML 转换为纯文本
+                # html_to_text = html2text.HTML2Text()
+                # message_text = html_to_text.handle(message_html)
+                #
+                # # 发送邮件
+                # send_verification_email_for_reset_password(email, message_text)
+
+                reset_link = request.build_absolute_uri(
+                    f"/login/password_reset_confirm/{uid}/{token}/"
+                )
+
+                # 构建纯文本消息
+                message_text = f"Hello {user.username},\n\n" \
+                               f"You requested a password reset for your account. Please click the link below to reset your password:\n\n" \
+                               f"{reset_link}\n\n" \
+                               f"If you didn't request a password reset, please ignore this email.\n\n" \
+                               f"Regards,\nYour Website Team"
+
+                # 发送邮件
+                send_verification_email_for_reset_password(email, message_text)
+
+                messages.success(request,
+                                 'An email with password reset instructions has been sent to your email address.')
+                return redirect('login')
+            else:
+                messages.error(request, 'No user found with this email address.')
+    else:
+        form = PasswordResetForm()
+
+    return render(request, 'password_reset.html', {'form': form})
+
+
+def password_reset_confirm_view(request, uidb64, token):
+    try:
+        uid = str(urlsafe_base64_decode(uidb64), 'utf-8')
+        user = CustomUser.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+        user = None
+
+    if user is not None and default_token_generator.check_token(user, token):
+        if request.method == 'POST':
+            new_password = request.POST.get('new_password')
+            confirm_password = request.POST.get('confirm_password')
+            if new_password == confirm_password:
+                user.set_password(new_password)
+                user.save()
+                messages.success(request,
+                                 'Your password has been reset successfully. You can now log in with your new password.')
+                return redirect('login')
+            else:
+                messages.error(request, 'Passwords do not match. Please try again.')
+    else:
+        messages.error(request, 'Invalid reset password link.')
+        return redirect('login')
+
+    return render(request, 'password_reset_confirm.html')
