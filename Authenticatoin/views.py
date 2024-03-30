@@ -2,7 +2,7 @@
 import os
 
 import html2text
-
+from django.core.mail import send_mail
 from .models import CustomUser
 import certifi
 import random
@@ -15,6 +15,9 @@ from django.contrib.auth.forms import PasswordResetForm
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib.auth import get_user_model
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import mark_safe
 
 os.environ['SSL_CERT_FILE'] = certifi.where()
 
@@ -117,71 +120,44 @@ def create_user_from_session(request):
         print("An error occurred:", e)
 
 
-def send_verification_email_for_reset_password(email, message_text):
+def send_verification_email_for_reset_password(email, message_html):
     send_mail(
-        'Verification Code for MainApp Reset password',
-        message_text,
-        'recommendjob@gmail.com',
+        'Password Reset for YourAccount',
+        '',
+        'no-reply@yourwebsite.com',
         [email],
         fail_silently=False,
+        html_message=message_html,
     )
+
 
 def password_reset_view(request):
     if request.method == 'POST':
-        form = PasswordResetForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data['email']
+        email = request.POST.get('email')
+        if email:
             try:
                 user = CustomUser.objects.get(email=email)
-            except CustomUser.DoesNotExist:
-                user = None
-
-            if user:
                 # Generate a password reset token
                 token = default_token_generator.make_token(user)
                 uid = urlsafe_base64_encode(force_bytes(user.pk))
-
-                # # Construct password reset link
-                # reset_link = request.build_absolute_uri(
-                #     f"/password_reset_confirm/{uid}/{token}/"
-                # )
-                #
-                # # Send password reset email
-                # message_html = render_to_string('password_reset_email.html', {
-                #     'user': user,
-                #     'reset_link': reset_link,
-                # })
-                #
-                # # 将 HTML 转换为纯文本
-                # html_to_text = html2text.HTML2Text()
-                # message_text = html_to_text.handle(message_html)
-                #
-                # # 发送邮件
-                # send_verification_email_for_reset_password(email, message_text)
-
+                # Construct password reset link
                 reset_link = request.build_absolute_uri(
                     f"/login/password_reset_confirm/{uid}/{token}/"
                 )
-
-                # 构建纯文本消息
-                message_text = f"Hello {user.username},\n\n" \
-                               f"You requested a password reset for your account. Please click the link below to reset your password:\n\n" \
-                               f"{reset_link}\n\n" \
-                               f"If you didn't request a password reset, please ignore this email.\n\n" \
-                               f"Regards,\nYour Website Team"
-
-                # 发送邮件
-                send_verification_email_for_reset_password(email, message_text)
-
+                # Send password reset email
+                message_html = render_to_string('password_reset_email.html', {
+                    'user': user,
+                    'reset_link': reset_link,
+                })
+                send_verification_email_for_reset_password(email, message_html)
                 messages.success(request,
                                  'An email with password reset instructions has been sent to your email address.')
                 return redirect('login')
-            else:
+            except CustomUser.DoesNotExist:
                 messages.error(request, 'No user found with this email address.')
-    else:
-        form = PasswordResetForm()
-
-    return render(request, 'password_reset.html', {'form': form})
+        else:
+            messages.error(request, 'Please provide an email address.')
+    return render(request, 'password_reset.html')
 
 
 def password_reset_confirm_view(request, uidb64, token):

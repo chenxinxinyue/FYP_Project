@@ -76,6 +76,24 @@
         input[type="submit"]:hover {
             background-color: #555;
         }
+        .alert {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        
+        .alert.success {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+        
+        .alert.error {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
 
     </style>
 </head>
@@ -85,6 +103,15 @@
     </header>
 
     <main>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="{% if message.tags %}alert {{ message.tags }}{% else %}alert{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>
