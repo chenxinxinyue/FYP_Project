@@ -1,8 +1,17 @@
 {% extends "base_generic.html" %}
-{% block content %}        
+
+{% block content %}
+<div class="header">
+    {% if user %}
+    <span>Hi, {{ user.username }}</span>
+    <a href="{% url 'Authentication:login' %}">Logout</a>
+    {% endif %}
+</div>
+
 <div class="menu-container">
-    <h2>Upload Your CSV File Here</h2>
+    <h2>Upload Your CV Here</h2>
     <form action="/upload" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <input type="file" name="file" id="file">
         <input type="submit" value="Upload">
     </form>

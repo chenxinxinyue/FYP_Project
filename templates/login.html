@@ -12,9 +12,9 @@
         {% endif %}
         <input type="text" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
-        <a href="{% url 'password_reset' %}">Forgot password?</a>
+        <a href="{% url 'Authentication:password_reset' %}">Forgot password?</a>
         <input type="submit" value="Sign In">
-        <a href="{% url 'register' %}">Don't have an account? Register</a>
+        <a href="{% url 'Authentication:register' %}">Don't have an account? Register</a>
     </form>
 </div>
 {% endblock %}

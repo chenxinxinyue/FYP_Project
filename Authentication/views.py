@@ -18,11 +18,26 @@ from django.shortcuts import render, redirect
 from .models import CustomUser
 
 
+# def login_view(request):
+#     if request.method == 'POST':
+#         username = request.POST['email']
+#         password = request.POST['password']
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             return redirect('MainApp:index')  # 登录成功后重定向到你的首页或其他页面
+#         else:
+#             error_message = "Invalid username or password."
+#             return render(request, 'login.html', {'error_message': error_message})
+#     else:
+#         return render(request, 'login.html')
+#
+
 def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-
+        print(email)
         # Authenticate the user using the authenticate method in CustomUserManager
         user = CustomUser.objects.authenticate(request, email=email, password=password)
 
@@ -60,7 +75,7 @@ def register_view(request):
         request.session['email'] = email
         request.session['password'] = password1
 
-        return redirect('verify_email')
+        return redirect('Authentication:verify_email')
 
     return render(request, 'register.html', {})
 
@@ -74,7 +89,7 @@ def verify_email(request):
         )
         if entered_code == stored_code:
             create_user_from_session(request)
-            return redirect('login')  # Assuming 'index' is your home view
+            return redirect('Authentication:login')
         else:
             return render(request, 'verify_email.html', {'error': 'Invalid verification code'})
 
@@ -137,7 +152,7 @@ def password_reset_view(request):
                 send_verification_email_for_reset_password(email, message_html)
                 messages.success(request,
                                  'An email with password reset instructions has been sent to your email address.')
-                return redirect('login')
+                return redirect('Authentication:login')
             except CustomUser.DoesNotExist:
                 messages.error(request, 'No user found with this email address.')
         else:
@@ -166,6 +181,6 @@ def password_reset_confirm_view(request, uidb64, token):
                 messages.error(request, 'Passwords do not match. Please try again.')
     else:
         messages.error(request, 'Invalid reset password link.')
-        return redirect('login')
+        return redirect('Authentication:login')
 
     return render(request, 'password_reset_confirm.html')
