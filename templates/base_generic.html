@@ -31,18 +31,6 @@
             bottom: 0;
             width: 100%;
         }
-        .menu-container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .button-container {
-            margin-top: 20px; /* 设置顶部间距 */
-            text-align: center; /* 让按钮居中显示 */
-        }
         button[type="submit"] {
             width: 100%;
             padding: 10px;
@@ -57,16 +45,17 @@
         button[type="submit"]:hover {
             background-color: #555;
         }
-
         input[type="text"],
         input[type="password"],
-        input[type="submit"] {
+        input[type="submit"],
+        input[type="file"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
+            font-size: 16px;
         }
         input[type="submit"] {
             background-color: #333;
@@ -76,19 +65,29 @@
         input[type="submit"]:hover {
             background-color: #555;
         }
+        .menu-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
         .alert {
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid transparent;
             border-radius: 4px;
         }
-        
         .alert.success {
             color: #3c763d;
             background-color: #dff0d8;
             border-color: #d6e9c6;
         }
-        
         .alert.error {
             color: #a94442;
             background-color: #f2dede;
@@ -98,26 +97,26 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to CJob</h1>
-    </header>
+<header>
+    <h1>Welcome to CJob</h1>
+</header>
 
-    <main>
-        {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                    <div class="{% if message.tags %}alert {{ message.tags }}{% else %}alert{% endif %}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-        {% block content %}
-        {% endblock %}
-    </main>
+<main>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="{% if message.tags %}alert {{ message.tags }}{% else %}alert{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</main>
 
-    <footer>
-        <p>&copy; {% now "Y" %} CJob. All rights reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; {% now "Y" %} CJob. All rights reserved.</p>
+</footer>
 </body>
 </html>

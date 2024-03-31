@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+{% block content %}        
+<div class="menu-container">
+    <h2>Upload Your CSV File Here</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <input type="submit" value="Upload">
+    </form>
+</div>
+{% endblock %}

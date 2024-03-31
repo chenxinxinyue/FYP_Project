@@ -1,4 +1,4 @@
-# Authenticatoin/urls.py
+# Authentication/urls.py
 
 from django.urls import path
 from . import views

@@ -3,7 +3,7 @@ from . import views
 app_name = 'MainApp'
 
 urlpatterns = [
-    path('', views.home, name='index'),
-    path('register/', views.register, name='register'),
-    path('login/', views.login, name='login'),
+    path('', views.index, name='index'),
+    path('upload/', views.upload_view, name='upload'),
+
 ]

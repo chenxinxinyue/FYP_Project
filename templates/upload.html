@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block title %}File Upload{% endblock title %}
+
+{% block content %}
+<div class="menu-container">
+    <h2>Upload a File</h2>
+    <!-- Make sure to replace 'file_upload' with the actual URL name from your urls.py -->
+    <form action="{% url 'file_upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="fileInput">Choose a file to upload:</label>
+        <input type="file" id="fileInput" name="file" required>
+        <div class="button-container">
+            <button type="submit">Upload File</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

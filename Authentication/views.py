@@ -1,8 +1,6 @@
 # Authenticatoin/views.py
 import os
 
-import html2text
-from django.core.mail import send_mail
 from .models import CustomUser
 import certifi
 import random
@@ -11,18 +9,13 @@ from django.contrib import messages
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.contrib.auth.forms import PasswordResetForm
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from django.contrib.auth import get_user_model
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.utils.html import mark_safe
 
 os.environ['SSL_CERT_FILE'] = certifi.where()
 
-
-# from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from .models import CustomUser
 
 
 def login_view(request):
@@ -30,22 +23,19 @@ def login_view(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        # 使用 CustomUserManager 中的 authenticate 方法进行用户认证
+        # Authenticate the user using the authenticate method in CustomUserManager
         user = CustomUser.objects.authenticate(request, email=email, password=password)
-        print(user)
 
         if user is not None:
-            # 如果认证成功，使用 Django 的 login 函数进行用户登录
-            # login(request, user)
-            # 重定向到 MainApp 应用的首页
-            print("登陆成功")
+            request.session['user_id'] = user.id
+            print("Login Successful")
+            print(user.id)
             return redirect('MainApp:index')
         else:
             # 如果认证失败，返回登录页面并显示错误消息
             error_message = "Invalid username or password."
             return render(request, 'login.html', {'error_message': error_message})
 
-    # 如果是 GET 请求，渲染空的登录表单
     return render(request, 'login.html', {})
 
 
@@ -102,17 +92,12 @@ def send_verification_email_for_register(email, code):
 
 
 def create_user_from_session(request):
-    # print("Entering create_user_from_session function")
     email = request.session.get('email')
     password = request.session.get('password')
-    # print("Email:", email)
-    # print("Password:", password)
 
     try:
         user = CustomUser.objects.create_user(username=email, email=email, password=password)
         print("User created successfully")
-        # login(request, user)
-        # print("User logged in")
         del request.session['verification_code']
         del request.session['email']
         del request.session['password']
