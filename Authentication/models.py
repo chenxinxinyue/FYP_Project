@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.conf import settings
 
 
 class CustomUserManager(BaseUserManager):
@@ -48,3 +49,16 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+
+class Resume(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='resume')
+    summary = models.TextField(blank=True, null=True)
+    experience = models.TextField(blank=True, null=True)
+    education = models.TextField(blank=True, null=True)
+    skills = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.user.username}'s Resume"
+
+
