@@ -21,9 +21,12 @@
             text-align: center;
         }
 
+
         main {
             padding: 20px;
+            margin-bottom: 60px; /* Adjust this value based on the height of your footer */
         }
+
 
         footer {
             background-color: #333;
@@ -134,7 +137,7 @@
 <script>
     // get all messages
     const messageElements = document.querySelectorAll('.messages .alert');
-    
+
     messageElements.forEach(messageElement => {
         // set time count for 3 seconds
         setTimeout(() => {

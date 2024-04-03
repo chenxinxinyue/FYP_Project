@@ -1,4 +1,54 @@
+
 {% extends "base_generic.html" %}
 
 {% block content %}
+<div class="container">
+    <h1>Profile</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-section">
+            <h2>Study</h2>
+            {{ study_form.as_p }}
+        </div>
+        
+        <div class="form-section">
+            <h2>Experience</h2>
+            {{ experience_form.management_form }}
+            <div id="experience-form-list">
+                {% for form in experience_form %}
+                    <div class="form-inline">
+                        {{ form.as_p }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="button" id="add-experience">+</button>
+        </div>
+        
+        <div class="form-section">
+            <h2>CV</h2>
+            {{ cv_form.as_p }}
+        </div>
+        
+        <div class="form-section">
+            <h2>Preference</h2>
+            {{ preference_form.management_form }}
+            <div id="preference-form-list">
+                {% for form in preference_form %}
+                    <div class="form-inline">
+                        {{ form.as_p }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="button" id="add-preference">+</button>
+        </div>
+
+        <button type="submit">Save Profile</button>
+    </form>
+</div>
+
+<script type="text/javascript">
+// JavaScript to dynamically add forms for experience and preference sections
+</script>
+
 {% endblock %}

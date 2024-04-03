@@ -3,6 +3,10 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+{#    <div class="menu-container">#}
+{#        #}
+{#    #}
+{#    </div>#}
     <div class="header">
         {% if user %}
             <span>Hi, {{ user.username }}</span><br>
@@ -18,7 +22,7 @@
         <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             {% csrf_token %}
             <input type="file" name="file" id="file">
-            <input type="submit" value="Upload">
+            <input type="submit" value="Find suggested job">
             <p id="error-message" style="color: red; display: none;">Please upload a PDF or Word document.</p>
         </form>
     </div>
