@@ -49,37 +49,3 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
-
-
-class Resume(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='resume')
-    summary = models.TextField(blank=True, null=True)
-    experience = models.TextField(blank=True, null=True)
-    education = models.TextField(blank=True, null=True)
-    skills = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return f"{self.user.username}'s Resume"
-
-
-class Study(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    degree = models.CharField(max_length=100)
-    school = models.CharField(max_length=100)
-
-
-class Experience(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    job_title = models.CharField(max_length=100)
-    job_description = models.TextField()
-    job_duration = models.CharField(max_length=100)
-
-
-class CV(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    cv_file = models.FileField(upload_to='cvs/')
-
-
-class Preference(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    preference = models.CharField(max_length=100)

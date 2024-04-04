@@ -3,7 +3,7 @@
 {% block title %}File Upload{% endblock title %}
 
 {% block content %}
-<div class="menu-container">
+<div class="base_container">
     <h2>Upload a File</h2>
     <!-- Make sure to replace 'file_upload' with the actual URL name from your urls.py -->
     <form action="{% url 'file_upload' %}" method="post" enctype="multipart/form-data">

@@ -2,12 +2,12 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from Authentication.models import Resume, CustomUser  # 确保正确导入 Resume 模型
+# from Authentication.models import Resume, CustomUser  # 确保正确导入 Resume 模型
 from .models import Job  # 确保正确导入 Resume 模型
 from .utils import extract_keywords  # 假设你有一个工具函数来提取简历中的关键词
 from django.shortcuts import render, redirect
-from Authentication.forms import StudyForm, ExperienceForm, CVForm, PreferenceForm
-from Authentication.models import CustomUser, Study, Experience, CV, Preference
+from .forms import StudyForm, ExperienceForm, CVForm, PreferenceForm
+from .models import CustomUser, Study, Experience, CV, Preference, Resume
 
 CustomUser = get_user_model()
 
@@ -40,8 +40,6 @@ def profile_view(request):
 
     # initial forms
     if user:
-        # Retrieve existing data from the database and create an empty instance
-        # if it is not present
         study, _ = Study.objects.get_or_create(user=user)
         experiences = Experience.objects.filter(user=user)
         cv, _ = CV.objects.get_or_create(user=user)
@@ -52,7 +50,6 @@ def profile_view(request):
         cv_form = CVForm(request.POST or None, request.FILES or None, instance=cv)
         preference_forms = [PreferenceForm(request.POST or None, instance=preference) for preference in preferences]
 
-        # If it's a POST request, process the form data
         if request.method == 'POST':
             if (study_form.is_valid() and
                     all([form.is_valid() for form in experience_forms]) and
@@ -73,7 +70,9 @@ def profile_view(request):
                     preference.user = user
                     preference.save()
 
+                # Redirect to index after saving
                 return redirect('MainApp:index')
+
 
     else:
         return redirect('MainApp:login')
@@ -82,7 +81,8 @@ def profile_view(request):
         'study_form': study_form,
         'experience_forms': experience_forms,
         'cv_form': cv_form,
-        'preference_forms': preference_forms
+        'preference_forms': preference_forms,
+        # 'new_experience_form': new_experience_form
     }
     return render(request, 'profile.html', context)
 

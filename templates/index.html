@@ -1,56 +1,63 @@
+{#<!-- /index.html -->#}
+{##}
+{#{% extends "base_generic.html" %}#}
+{##}
+{#{% block content %}#}
+{#    <ul class="nav nav-pills nav-justified">#}
+{#        <li role="presentation" class="active"><a href="#">Home</a></li>#}
+{#        <li role="presentation"><a href="{% url 'MainApp:profile' %}">Profile</a></li>#}
+{#        <li role="presentation"><a href="{% url 'MainApp:favorites' %}">Favorites</a></li>#}
+{#        <li role="presentation"><a href="{% url 'Authentication:login' %}">Logout</a></li>#}
+{#    </ul>#}
+{##}
+{#    <div class="base_container">#}
+{#        <h2>Upload Your CV Here</h2>#}
+{#        <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">#}
+{#            {% csrf_token %}#}
+{#            <input type="file" name="file" id="file">#}
+{#            <input type="submit" value="Find suggested job">#}
+{#            <p id="error-message" style="color: red; display: none;">Please upload a PDF or Word document.</p>#}
+{#        </form>#}
+{#    </div>#}
+{##}
+{#    <script>#}
+{#        function validateForm() {#}
+{#            var fileInput = document.getElementById('file');#}
+{#            var errorMessage = document.getElementById('error-message');#}
+{#            var allowedExtensions = ['pdf', 'doc', 'docx'];#}
+{#            var fileExtension = fileInput.value.split('.').pop().toLowerCase();#}
+{##}
+{#            if (allowedExtensions.indexOf(fileExtension) === -1) {#}
+{#                errorMessage.style.display = 'block';#}
+{#                return false; // Prevent form submission#}
+{#            } else {#}
+{#                errorMessage.style.display = 'none';#}
+{#                return true; // Allow form submission#}
+{#            }#}
+{#        }#}
+{##}
+{#        window.onload = function () {#}
+{#            var form = document.querySelector('form');#}
+{#            form.addEventListener('submit', function (event) {#}
+{#                if (!validateForm()) {#}
+{#                    event.preventDefault(); // Prevent form submission if validation fails#}
+{#                }#}
+{#            });#}
+{#        };#}
+{#    </script>#}
+{##}
+{#{% endblock %}#}
+
 <!-- /index.html -->
 
 {% extends "base_generic.html" %}
 
 {% block content %}
-{#    <div class="menu-container">#}
-{#        #}
-{#    #}
-{#    </div>#}
-    <div class="header">
-        {% if user %}
-            <span>Hi, {{ user.username }}</span><br>
-            <a href="{% url 'MainApp:profile' %}" class="link">Profile</a><br>
-            <a href="{% url 'MainApp:favorites' %}" class="link">Favorite</a><br>
-            <a href="{% url 'Authentication:login' %}" class="link">Logout</a>
-        {% endif %}
-    </div>
-
-
-    <div class="menu-container">
-        <h2>Upload Your CV Here</h2>
-        <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-            {% csrf_token %}
-            <input type="file" name="file" id="file">
-            <input type="submit" value="Find suggested job">
-            <p id="error-message" style="color: red; display: none;">Please upload a PDF or Word document.</p>
-        </form>
-    </div>
-
-    <script>
-        function validateForm() {
-            var fileInput = document.getElementById('file');
-            var errorMessage = document.getElementById('error-message');
-            var allowedExtensions = ['pdf', 'doc', 'docx'];
-            var fileExtension = fileInput.value.split('.').pop().toLowerCase();
-
-            if (allowedExtensions.indexOf(fileExtension) === -1) {
-                errorMessage.style.display = 'block';
-                return false; // Prevent form submission
-            } else {
-                errorMessage.style.display = 'none';
-                return true; // Allow form submission
-            }
-        }
-
-        window.onload = function () {
-            var form = document.querySelector('form');
-            form.addEventListener('submit', function (event) {
-                if (!validateForm()) {
-                    event.preventDefault(); // Prevent form submission if validation fails
-                }
-            });
-        };
-    </script>
+    <ul class="nav nav-pills nav-justified">
+        <li role="presentation" class="active"><a href="{% url 'MainApp:index' %}">Home</a></li>
+        <li role="presentation"><a href="{% url 'MainApp:profile' %}">Profile</a></li>
+        <li role="presentation"><a href="{% url 'MainApp:favorites' %}">Favorites</a></li>
+        <li role="presentation"><a href="{% url 'Authentication:login' %}">Logout</a></li>
+    </ul>
 
 {% endblock %}
