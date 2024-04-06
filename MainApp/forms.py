@@ -8,7 +8,6 @@ from Authentication.models import CustomUser
 from .models import Study, Experience, CV, Preference
 
 
-
 class StudyForm(forms.ModelForm):
     DEGREE_CHOICES = [
         ('bachelor', 'Bachelor'),
@@ -22,6 +21,7 @@ class StudyForm(forms.ModelForm):
     class Meta:
         model = Study
         fields = ['degree', 'school']
+
 
 class ExperienceForm(forms.ModelForm):
     job_detail = forms.CharField(widget=forms.Textarea(attrs={'class': 'full-width-textarea'}))
