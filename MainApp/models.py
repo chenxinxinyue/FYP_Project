@@ -47,7 +47,7 @@ class Resume(models.Model):
 class Study(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     degree = models.CharField(max_length=100)
-    school = models.CharField(max_length=100)
+    school = models.CharField(max_length=255)
 
 
 class Experience(models.Model):
@@ -65,3 +65,7 @@ class CV(models.Model):
 class Preference(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     preference = models.CharField(max_length=100)
+
+
+class School(models.Model):
+    name = models.CharField(max_length=255, default='')

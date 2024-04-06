@@ -14,7 +14,12 @@
             {% csrf_token %}
             <div class="form-section">
                 <h2>Study</h2>
-                {{ study_form.as_p }}
+                <label for="id_degree">Degree:</label>
+                {{ study_form.degree }}
+                <br>
+                <label for="id_school">School:</label>
+                {{ study_form.school }}
+
             </div>
 
             <div class="form-section">
@@ -28,7 +33,6 @@
                         <hr>
                     {% endfor %}
                 </div>
-                <button type="button" id="add-experience-btn">+</button>
             </div>
 
             <div class="form-section">
@@ -46,12 +50,27 @@
                         </div>
                     {% endfor %}
                 </div>
-                <button type="button" id="add-preference">+</button>
             </div>
 
             <button type="submit">Save Profile</button>
         </form>
     </div>
-    
 
+    <script>
+        $(document).ready(function () {
+            $('#id_school').autocomplete({
+                source: '{% url 'MainApp:get-schools' %}',
+                minLength: 2,
+                open: function () {
+                    setTimeout(function () {
+                        $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
+                    }, 0);
+                }
+            }).autocomplete("instance")._renderItem = function (ul, item) {
+                return $("<li class='dropdown-item'></li>")
+                    .append("<div>" + item.label + "</div>")
+                    .appendTo(ul);
+            };
+        });
+    </script>
 {% endblock %}

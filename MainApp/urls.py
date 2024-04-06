@@ -10,5 +10,8 @@ urlpatterns = [
     path('profile/', views.profile_view, name='profile'),
     path('jobs/', views.jobs_view, name='jobs'),
     path('cvs/<str:file_name>/', views.load_file, name='load_file'),
+    path('autocomplete_school/', views.autocomplete_school, name='autocomplete_school'),
+    path('search_schools/', views.search_schools, name='search_schools'),
+    path('get-schools/', views.get_schools, name='get-schools'),
 
 ]

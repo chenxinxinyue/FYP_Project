@@ -11,7 +11,10 @@
         {% endblock %}
     </title>
     <link rel="stylesheet" href="{% static 'bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
-
+    <link rel="stylesheet" href="{% static 'select/css/select2.min.css' %}">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
 
         body {
@@ -136,7 +139,7 @@
         }
 
         .form-group-border {
-            position: relative; 
+            position: relative;
             border: 1px solid #ccc;
             padding: 15px;
             margin-bottom: 20px;
@@ -153,6 +156,27 @@
             font-size: 20px;
         }
 
+        .ui-autocomplete {
+            max-height: 100px;
+            overflow-y: auto; /* 防止内容溢出时出现滚动条 */
+            overflow-x: hidden;
+        }
+
+        .ui-autocomplete .ui-menu-item {
+            display: block;
+            width: 100%;
+            padding: 5px 10px;
+            clear: both;
+            font-weight: 400;
+            line-height: 1.42857143;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        .ui-autocomplete .ui-menu-item:hover {
+            text-decoration: none;
+            background-color: #f5f5f5;
+        }
 
         .alert {
             padding: 10px;
@@ -230,6 +254,7 @@
     {% endblock %}
 </main>
 
+
 <script>
     // get all messages
     const messageElements = document.querySelectorAll('.messages .alert');
@@ -241,6 +266,7 @@
         }, 5000);
     });
 </script>
+<script src="{% static 'select/js/select2.min.js' %}"></script>
 
 <footer>
     <p>&copy; {% now "Y" %} CJob. All rights reserved.</p>

@@ -1,4 +1,5 @@
 # forms.py
+import csv
 
 from django import forms
 from django.core.validators import MinValueValidator
@@ -7,11 +8,20 @@ from Authentication.models import CustomUser
 from .models import Study, Experience, CV, Preference
 
 
+
 class StudyForm(forms.ModelForm):
+    DEGREE_CHOICES = [
+        ('bachelor', 'Bachelor'),
+        ('master', 'Master'),
+        ('phd', 'PhD'),
+    ]
+
+    degree = forms.ChoiceField(choices=DEGREE_CHOICES)
+    school = forms.CharField(widget=forms.TextInput(attrs={'id': 'id_school', 'autocomplete': 'off'}))
+
     class Meta:
         model = Study
         fields = ['degree', 'school']
-
 
 class ExperienceForm(forms.ModelForm):
     job_detail = forms.CharField(widget=forms.Textarea(attrs={'class': 'full-width-textarea'}))
