@@ -21,27 +21,16 @@
                 {{ study_form.school }}
 
             </div>
-
             <div class="form-section">
                 <h2>Experience</h2>
                 {{ experience_form.management_form }}
                 <div id="experience-form-list">
                     {% for form in experience_form %}
                         <div class="form-group-border">
-                            {{ form.job_title.label_tag }} {{ form.job_title }}
-                            {{ form.job_detail.label_tag }} {{ form.job_detail }}
-                            {{ form.job_duration.label_tag }}
-                            <input type="number" name="{{ form.job_duration.html_name }}"
-                                   id="{{ form.job_duration.id_for_label }}" min="1"
-                                   value="{{ form.job_duration.value|default_if_none:"" }}" required>
-                            (Month) <br>
-                            {% if form.DELETE %}
-                                <span>Delete: {{ form.DELETE }}</span>
-                            {% endif %}
+                        {{ form.as_p }}
                         </div>
                         <hr>
                     {% endfor %}
-
                 </div>
             </div>
 

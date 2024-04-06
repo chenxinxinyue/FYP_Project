@@ -41,6 +41,8 @@ def profile_view(request):
         cv_form = CVForm(request.POST, request.FILES, instance=cv_instance)
         preference_formset = PreferenceFormSet(request.POST, instance=user, queryset=preference_instances)
 
+        if not experience_formset.is_valid():
+            print("Experience Formset Errors:", experience_formset.errors)
         if study_form.is_valid() and experience_formset.is_valid() and cv_form.is_valid() and preference_formset.is_valid():
             study_form.save()
             experience_formset.save()
