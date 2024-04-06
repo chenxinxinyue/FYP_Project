@@ -1,3 +1,4 @@
+{#<!-- /profile.html -->#}
 {% extends "base_generic.html" %}
 
 {% block content %}
@@ -21,9 +22,10 @@
                 {{ experience_form.management_form }}
                 <div id="experience-form-list">
                     {% for form in experience_form %}
-                        <div class="form-inline">
+                        <div class="form-group-border">
                             {{ form.as_p }}
                         </div>
+                        <hr>
                     {% endfor %}
                 </div>
                 <button type="button" id="add-experience-btn">+</button>
@@ -50,75 +52,6 @@
             <button type="submit">Save Profile</button>
         </form>
     </div>
-
-    <!-- Modal -->
-    <div id="experienceModal" class="base_modal">
-        <div class="modal-content">
-            <span class="modal_close">&times;</span>
-            <form id="experienceForm">
-                <label for="job_title">Job Title:</label>
-                <input type="text" id="job_title" name="job_title">
-                <br>
-                <label for="job_details">Job Details:</label>
-                <input type="text" id="job_details" name="job_details">
-                <br>
-                <label for="duration">Duration:</label>
-                <input type="text" id="duration" name="duration">
-                <br>
-                <button type="button" id="addExperience">Add</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Get the modal
-        var modal = document.getElementById("experienceModal");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("add-experience-btn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("modal_close")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // Handle adding experience
-        document.getElementById("addExperience").onclick = function() {
-            var jobTitle = document.getElementById("job_title").value;
-            var jobdetails = document.getElementById("job_details").value;
-            var duration = document.getElementById("duration").value;
-
-            // Create HTML for new experience form
-            var newExperienceHTML = '<div class="form-inline">' +
-                '<label for="id_experience-title">Job Title:</label>' +
-                '<input type="text" name="experience-title" value="' + jobTitle + '" id="id_experience-title">' +
-                '<label for="id_experience-details">Job Details:</label>' +
-                '<input type="text" name="experience-details" value="' + jobdetails + '" id="id_experience-details">' +
-                '<label for="id_experience-duration">Duration:</label>' +
-                '<input type="text" name="experience-duration" value="' + duration + '" id="id_experience-duration">' +
-                '</div>';
-
-            // Append new experience form to experience form list
-            document.getElementById("experience-form-list").innerHTML += newExperienceHTML;
-
-            // Close modal
-            modal.style.display = "none";
-        }
-    </script>
+    
 
 {% endblock %}

@@ -9,5 +9,6 @@ urlpatterns = [
     path('favorites/', views.favorites_view, name='favorites'),
     path('profile/', views.profile_view, name='profile'),
     path('jobs/', views.jobs_view, name='jobs'),
+    path('cvs/<str:file_name>/', views.load_file, name='load_file'),
 
 ]

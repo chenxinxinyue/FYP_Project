@@ -1,7 +1,9 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.conf import settings
+from django.forms import modelformset_factory
 
 from Authentication.models import CustomUser
 
@@ -51,13 +53,13 @@ class Study(models.Model):
 class Experience(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     job_title = models.CharField(max_length=100)
-    job_description = models.TextField()
-    job_duration = models.CharField(max_length=100)
+    job_detail = models.TextField()
+    job_duration = models.IntegerField(validators=[MinValueValidator(1)])
 
 
 class CV(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    cv_file = models.FileField(upload_to='cvs/')
+    cv_file = models.FileField(upload_to='MainApp/cvs/')
 
 
 class Preference(models.Model):

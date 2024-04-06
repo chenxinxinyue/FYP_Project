@@ -1,15 +1,13 @@
-from django.contrib.auth import get_user_model
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.urls import reverse
-# from Authentication.models import Resume, CustomUser  # 确保正确导入 Resume 模型
-from .models import Job  # 确保正确导入 Resume 模型
-from .utils import extract_keywords  # 假设你有一个工具函数来提取简历中的关键词
+from .models import Job
+from .utils import extract_keywords
 from django.shortcuts import render, redirect
-from .forms import StudyForm, ExperienceForm, CVForm, PreferenceForm
+from .forms import StudyForm, ExperienceForm, CVForm, PreferenceForm, ExperienceFormSet, PreferenceFormSet
 from .models import CustomUser, Study, Experience, CV, Preference, Resume
-
-CustomUser = get_user_model()
+from django.http import HttpResponse
+from django.conf import settings
+import os
 
 
 def index(request):
@@ -29,60 +27,38 @@ def index(request):
 
 
 def profile_view(request):
-    # Try to get the user instance from the session
-    user = None
-    try:
-        user_id = request.session.get('user_id')
-        if user_id:
-            user = CustomUser.objects.get(id=user_id)
-    except CustomUser.DoesNotExist:
-        return HttpResponse("User does not exist.", status=404)
+    user_id = request.session.get('user_id')
+    user = CustomUser.objects.get(id=user_id)
+    study_instance, _ = Study.objects.get_or_create(user=user)
+    experience_instances = Experience.objects.filter(user=user)
+    cv_instance, _ = CV.objects.get_or_create(user=user)
+    preference_instances = Preference.objects.filter(user=user)
 
-    # initial forms
-    if user:
-        study, _ = Study.objects.get_or_create(user=user)
-        experiences = Experience.objects.filter(user=user)
-        cv, _ = CV.objects.get_or_create(user=user)
-        preferences = Preference.objects.filter(user=user)
+    if request.method == 'POST':
+        study_form = StudyForm(request.POST, instance=study_instance)
+        experience_formset = ExperienceFormSet(request.POST, instance=user, queryset=experience_instances)
+        cv_form = CVForm(request.POST, request.FILES, instance=cv_instance)
+        preference_formset = PreferenceFormSet(request.POST, instance=user, queryset=preference_instances)
 
-        study_form = StudyForm(request.POST or None, instance=study)
-        experience_forms = [ExperienceForm(request.POST or None, instance=experience) for experience in experiences]
-        cv_form = CVForm(request.POST or None, request.FILES or None, instance=cv)
-        preference_forms = [PreferenceForm(request.POST or None, instance=preference) for preference in preferences]
+        if study_form.is_valid() and experience_formset.is_valid() and cv_form.is_valid() and preference_formset.is_valid():
+            study_form.save()
+            experience_formset.save()
+            cv_form.save()
+            preference_formset.save()
 
-        if request.method == 'POST':
-            if (study_form.is_valid() and
-                    all([form.is_valid() for form in experience_forms]) and
-                    cv_form.is_valid() and
-                    all([form.is_valid() for form in preference_forms])):
-
-                study_form.save()
-
-                for form in experience_forms:
-                    experience = form.save(commit=False)
-                    experience.user = user
-                    experience.save()
-
-                cv_form.save()
-
-                for form in preference_forms:
-                    preference = form.save(commit=False)
-                    preference.user = user
-                    preference.save()
-
-                # Redirect to index after saving
-                return redirect('MainApp:index')
-
-
+            return redirect('MainApp:index')
     else:
-        return redirect('MainApp:login')
+        study_form = StudyForm(instance=study_instance)
+        experience_formset = ExperienceFormSet(instance=user, queryset=experience_instances)
+        cv_form = CVForm(instance=cv_instance)
+        preference_formset = PreferenceFormSet(instance=user, queryset=preference_instances)
+        print(experience_formset)
 
     context = {
         'study_form': study_form,
-        'experience_forms': experience_forms,
+        'experience_form': experience_formset,
         'cv_form': cv_form,
-        'preference_forms': preference_forms,
-        # 'new_experience_form': new_experience_form
+        'preference_form': preference_formset,
     }
     return render(request, 'profile.html', context)
 
@@ -91,10 +67,9 @@ def upload_view(request):
     if request.method == 'POST' and request.FILES['file']:
         file = request.FILES['file']
 
-        # 假设用户已登录，可以直接通过 request.user 获取当前用户
         user = request.user
 
-        keywords = extract_keywords(file)  # 从文件中提取关键词
+        keywords = extract_keywords(file)
 
         # 确保用户已经有一个简历对象
         resume, created = Resume.objects.get_or_create(user=user)
@@ -115,3 +90,15 @@ def favorites_view(request):
 def jobs_view(request):
     jobs = Job.objects.all()
     return render(request, 'jobs.html', {'jobs': jobs})
+
+
+def load_file(request, file_name):
+    file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as file:
+            response = HttpResponse(file.read(), content_type='application/octet-stream')
+            response['Content-Disposition'] = f'inline; filename="{file_name}"'
+            return response
+    else:
+        return HttpResponse("File not found", status=404)
