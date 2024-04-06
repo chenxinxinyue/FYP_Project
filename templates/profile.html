@@ -19,8 +19,8 @@
                 <br>
                 <label for="id_school">School:</label>
                 {{ study_form.school }}
-
             </div>
+        
             <div class="form-section">
                 <h2>Experience</h2>
                 {{ experience_form.management_form }}
@@ -29,7 +29,6 @@
                         <div class="form-group-border">
                         {{ form.as_p }}
                         </div>
-                        <hr>
                     {% endfor %}
                 </div>
             </div>
@@ -44,7 +43,7 @@
                 {{ preference_form.management_form }}
                 <div id="preference-form-list">
                     {% for form in preference_form %}
-                        <div class="form-inline">
+                        <div class="form-group-border">
                             {{ form.as_p }}
                         </div>
                     {% endfor %}
