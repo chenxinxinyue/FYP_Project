@@ -73,8 +73,8 @@
     </script>
     <script>
         $(document).ready(function () {
-            {#$("input[name='preference']").attr('id', 'id_preference');#}
-            $('#id_preference').autocomplete({
+            // 初始化所有具有 .preference-autocomplete 类的自动补全
+            $('.preference-autocomplete').autocomplete({
                 source: '{% url 'MainApp:get-jobs' %}',
                 minLength: 2,
                 open: function () {
@@ -89,5 +89,6 @@
             };
         });
     </script>
+
 
 {% endblock %}

@@ -42,8 +42,12 @@ class PreferenceForm(forms.ModelForm):
         model = Preference
         fields = ('preference',)
         widgets = {
-            'preference': forms.TextInput(attrs={'id': 'id_preference'}),
+            'preference': forms.TextInput(attrs={
+                'id': 'id_preference',
+                'class': 'preference-autocomplete'  # 添加这个类
+            }),
         }
+
 
 # 定义 Experience 表单集
 ExperienceFormSet = inlineformset_factory(
