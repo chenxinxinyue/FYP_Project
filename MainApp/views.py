@@ -1,5 +1,9 @@
+import pandas as pd
+from django.core.management import call_command
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+
+from Authentication.forms import CustomUserForm
 from .models import Job
 from .utils import extract_keywords
 from django.shortcuts import render, redirect
@@ -9,6 +13,7 @@ from django.http import HttpResponse
 from django.conf import settings
 import os
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -71,20 +76,6 @@ from django.http import JsonResponse
 from .models import School
 
 
-def autocomplete_school(request):
-    term = request.GET.get('term', None)
-    if term:
-        schools = School.objects.filter(name__icontains=term)[:10]
-        results = [{'id': school.id, 'text': school.name} for school in schools]
-        return JsonResponse({'results': results})
-    else:
-        return JsonResponse({'results': []})
-
-
-from django.http import JsonResponse
-from .models import School
-
-
 def get_schools(request):
     term = request.GET.get('term', '')
     schools = School.objects.filter(name__icontains=term)[:10]
@@ -97,21 +88,6 @@ def get_jobs(request):
     jobs = Job.objects.filter(name__icontains=term)[:10]
     jobs_data = [{'label': job.name, 'value': job.name} for job in jobs]
     return JsonResponse(jobs_data, safe=False)
-
-
-def search_schools(request):
-    if request.is_ajax():
-        query = request.GET.get('term', '')
-        schools = School.objects.filter(name__icontains=query)[:10]  # 限制返回结果数量
-        results = []
-        for school in schools:
-            school_dict = {}
-            school_dict['id'] = school.id
-            school_dict['label'] = school.name
-            school_dict['value'] = school.name
-            results.append(school_dict)
-        return JsonResponse(results, safe=False)
-    return JsonResponse({'error': 'Not Ajax or GET request.'}, status=400)
 
 
 def upload_view(request):
@@ -153,3 +129,41 @@ def load_file(request, file_name):
             return response
     else:
         return HttpResponse("File not found", status=404)
+
+
+def find_jobs(request):
+    user = request.user
+    if request.method == 'POST':
+        form = CustomUserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            location = form.cleaned_data['address']
+            call_command('job_scraper', location)
+
+            messages.success(request, 'Address updated successfully.')
+            # print(form.cleaned_data)
+            return redirect('MainApp:show-jobs')
+
+    else:
+        form = CustomUserForm(instance=user)
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'show_jobs.html', context)
+
+
+def show_jobs(request):
+    try:
+        jobs = pd.read_csv("static/file/jobs.csv")
+        selected_columns = ['title', 'location', 'job_type', 'is_remote']
+        jobs = jobs[selected_columns]
+
+        context = {
+            'jobs': jobs.to_dict('records'),
+            'columns': jobs.columns.tolist()
+        }
+    except FileNotFoundError:
+        context = {'error': 'Job listings not found. Please initiate a search first.'}
+
+    return render(request, 'show_jobs.html', context)

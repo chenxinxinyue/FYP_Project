@@ -15,22 +15,27 @@ from .models import CustomUser
 
 os.environ['SSL_CERT_FILE'] = certifi.where()
 
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+
 
 def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-        # print(email)
-        # Authenticate the user using the authenticate method in CustomUserManager
-        user = CustomUser.objects.authenticate(request, email=email, password=password)
+
+        # Authenticate the user using Django's built-in authenticate method
+        user = authenticate(request, username=email, password=password)
 
         if user is not None:
-            request.session['user_id'] = user.id
-            print("{} {} Login Successful".format(user.id, user.email))
-            # print(f"{user.id} Login Successful")
+            # The login method takes the HttpRequest and User objects
+            # and performs the login (saving the user's ID in the session)
+            login(request, user)
+            print("{} Login Successful".format(user.email))
             return redirect(reverse_lazy('MainApp:index'))
         else:
-            error_message = "Invalid username or password."
+            error_message = "Invalid email or password."
             return render(request, 'login.html', {'error_message': error_message})
 
     return render(request, 'login.html', {})
@@ -166,4 +171,3 @@ def password_reset_confirm_view(request, uidb64, token):
         return redirect(reverse_lazy('Authentication:login'))
 
     return render(request, 'password_reset_confirm.html')
-

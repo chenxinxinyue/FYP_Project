@@ -12,4 +12,7 @@ urlpatterns = [
     path('cvs/<str:file_name>/', views.load_file, name='load_file'),
     path('get-schools/', views.get_schools, name='get-schools'),
     path('get-jobs/', views.get_jobs, name='get-jobs'),
+    path('find_jobs/', views.find_jobs, name='find-jobs'),
+    path('show_jobs/', views.show_jobs, name='show-jobs'),
+
 ]

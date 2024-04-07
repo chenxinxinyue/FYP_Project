@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% if jobs %}
+        <table>
+            <thead>
+                <tr>
+                    {% for column in columns %}
+                        <th>{{ column }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs %}
+                    <tr>
+                        <td><a href="{{ job.job_url }}">{{ job.title }}</a></td>
+                        <td>{{ job.location }}</td>
+                        <td>{{ job.job_type }}</td>
+                        <td>{% if job.is_remote %}Remote{% else %}Office{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No jobs to display. Please initiate a search first.</p>
+    {% endif %}
+{% endblock %}

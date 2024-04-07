@@ -25,25 +25,10 @@ class CustomUserManager(BaseUserManager):
 
         return self.create_user(username, email, password, **extra_fields)
 
-    def authenticate(self, request, username=None, email=None, password=None, **kwargs):
-        """
-        Authenticate a user based on email address as the username.
-        """
-        if email:
-            try:
-                user = self.get(email=email)
-            except self.model.DoesNotExist:
-                # Run the default password hasher once to reduce the timing
-                # difference between an existing and a nonexistent user (#20760).
-                self.model().set_password(password)
-            else:
-                if user.check_password(password):
-                    return user
-        return None
-
 
 class CustomUser(AbstractUser):
     phone_number = models.CharField(max_length=15, blank=True, null=True)
+    address = models.CharField(max_length=15, blank=True, null=True)
 
     objects = CustomUserManager()
 
