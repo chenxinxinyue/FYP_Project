@@ -92,6 +92,13 @@ def get_schools(request):
     return JsonResponse(schools_data, safe=False)
 
 
+def get_jobs(request):
+    term = request.GET.get('term', '')
+    jobs = Job.objects.filter(name__icontains=term)[:10]
+    jobs_data = [{'label': job.name, 'value': job.name} for job in jobs]
+    return JsonResponse(jobs_data, safe=False)
+
+
 def search_schools(request):
     if request.is_ajax():
         query = request.GET.get('term', '')

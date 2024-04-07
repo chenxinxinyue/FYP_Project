@@ -20,14 +20,14 @@
                 <label for="id_school">School:</label>
                 {{ study_form.school }}
             </div>
-        
+
             <div class="form-section">
                 <h2>Experience</h2>
                 {{ experience_form.management_form }}
                 <div id="experience-form-list">
                     {% for form in experience_form %}
                         <div class="form-group-border">
-                        {{ form.as_p }}
+                            {{ form.as_p }}
                         </div>
                     {% endfor %}
                 </div>
@@ -71,4 +71,23 @@
             };
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            {#$("input[name='preference']").attr('id', 'id_preference');#}
+            $('#id_preference').autocomplete({
+                source: '{% url 'MainApp:get-jobs' %}',
+                minLength: 2,
+                open: function () {
+                    setTimeout(function () {
+                        $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
+                    }, 0);
+                }
+            }).autocomplete("instance")._renderItem = function (ul, item) {
+                return $("<li class='dropdown-item'></li>")
+                    .append("<div>" + item.label + "</div>")
+                    .appendTo(ul);
+            };
+        });
+    </script>
+
 {% endblock %}

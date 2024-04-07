@@ -5,9 +5,6 @@ from django.core.management.base import BaseCommand
 from MainApp.models import School
 
 
-# schools/management/commands/import_schools.py
-
-
 class Command(BaseCommand):
     help = 'Import schools from CSV file'
 

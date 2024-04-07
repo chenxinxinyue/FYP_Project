@@ -40,8 +40,10 @@ class CVForm(forms.ModelForm):
 class PreferenceForm(forms.ModelForm):
     class Meta:
         model = Preference
-        fields = ['preference']
-
+        fields = ('preference',)
+        widgets = {
+            'preference': forms.TextInput(attrs={'id': 'id_preference'}),
+        }
 
 # 定义 Experience 表单集
 ExperienceFormSet = inlineformset_factory(
