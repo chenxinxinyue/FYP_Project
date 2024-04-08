@@ -17,6 +17,8 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
+    user = None  # 在此处初始化 user 变量
+
     try:
         user_id = request.session.get('user_id')
 
@@ -33,8 +35,7 @@ def index(request):
 
 
 def profile_view(request):
-    user_id = request.session.get('user_id')
-    user = CustomUser.objects.get(id=user_id)
+    user = request.user
     study_instance, _ = Study.objects.get_or_create(user=user)
     experience_instances = Experience.objects.filter(user=user)
     cv_instance, _ = CV.objects.get_or_create(user=user)

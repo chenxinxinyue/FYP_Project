@@ -1,6 +1,7 @@
 from django.contrib.auth.views import LogoutView
 from django.urls import path
 from . import views
+
 app_name = 'MainApp'
 
 urlpatterns = [
@@ -14,5 +15,6 @@ urlpatterns = [
     path('get-jobs/', views.get_jobs, name='get-jobs'),
     path('find_jobs/', views.find_jobs, name='find-jobs'),
     path('show_jobs/', views.show_jobs, name='show-jobs'),
+    # path('favorite-job/<int:job_id>/', views.favorite_job, name='favorite-job'),
 
 ]
