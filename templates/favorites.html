@@ -7,4 +7,39 @@
         <li role="presentation" class="active"><a href="{% url 'MainApp:favorites' %}">Favorites</a></li>
         <li role="presentation"><a href="{% url 'Authentication:login' %}">Logout</a></li>
     </ul>
+
+    {% if favorite_jobs %}
+        <table class="jobs-table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Is_Remote</th>
+                <th>Favourite</th>  
+            </tr>
+            </thead>
+            <tbody>
+            {% for job in favorite_jobs %}
+                <tr>
+                    <td><a href="{{ job.job_url }}">{{ job.title }}</a></td>
+                    <td>{{ job.location }}</td>
+                    <td>{{ job.is_remote }}</td>
+                    <td>
+                        <form method="post" action="{% url 'MainApp:favorites' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ job.id }}">
+                            <input type="hidden" name="is_favorited" value="true">
+                            <button type="submit">Unfavorite</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No favorite jobs to display.</p>
+    {% endif %}
 {% endblock %}
+
+
+    

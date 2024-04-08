@@ -2,26 +2,69 @@
 
 {% block content %}
     {% if jobs %}
-        <table>
+        <table class="jobs-table">
             <thead>
-                <tr>
-                    {% for column in columns %}
-                        <th>{{ column }}</th>
-                    {% endfor %}
-                </tr>
+            <tr>
+                <th>Job Title</th>
+                <th>Location</th>
+                <th>Is_Remote</th>
+                <th>Favourite</th>
+            </tr>
             </thead>
             <tbody>
-                {% for job in jobs %}
-                    <tr>
-                        <td><a href="{{ job.job_url }}">{{ job.title }}</a></td>
-                        <td>{{ job.location }}</td>
-                        <td>{{ job.job_type }}</td>
-                        <td>{% if job.is_remote %}Remote{% else %}Office{% endif %}</td>
-                    </tr>
-                {% endfor %}
+            {% for job in jobs %}
+                <tr>
+                    <td><a href="{{ job.job_url }}">{{ job.title }}</a></td>
+                    <td>{{ job.location }}</td>
+                    <td>{% if job.is_remote %}True{% else %}False{% endif %}</td>
+                    <td>
+                        <button class="favorite-btn" data-job-url="{{ job.job_url }}" data-title="{{ job.title }}"
+                                data-location="{{ job.location }}" data-is-remote="{{ job.is_remote }}"
+                                {% if job.is_favorited_by_user %}style="background-color: yellow;"{% endif %}>
+                            {% if job.is_favorited_by_user %}Unfavorite{% else %}Favorite{% endif %}
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     {% else %}
         <p>No jobs to display. Please initiate a search first.</p>
     {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.favorite-btn').click(function () {
+                var btn = $(this);
+                var jobUrl = btn.data('job-url');
+                var title = btn.data('title');
+                var location = btn.data('location');
+                var isRemote = btn.data('is-remote');
+                var isFavorited = btn.hasClass('favorited');
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url 'MainApp:favorite-job' %}',
+                    data: {
+                        'job_url': jobUrl,
+                        'title': title,
+                        'location': location,
+                        'is_remote': isRemote,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}',
+                        'is_favorited': isFavorited
+                    },
+                    success: function (data) {
+                        if (isFavorited) {
+                            btn.removeClass('favorited').text('Favorite').css('background-color', '');
+                        } else {
+                            btn.addClass('favorited').text('Unfavorite').css('background-color', 'yellow');
+                        }
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        alert('Error: ' + errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}

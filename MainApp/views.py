@@ -2,7 +2,6 @@ import pandas as pd
 from django.core.management import call_command
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
 from Authentication.forms import CustomUserForm
 from .models import Job
 from .utils import extract_keywords
@@ -13,7 +12,8 @@ from django.http import HttpResponse
 from django.conf import settings
 import os
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from .models import School
 
 
 def index(request):
@@ -73,10 +73,6 @@ def profile_view(request):
     return render(request, 'profile.html', context)
 
 
-from django.http import JsonResponse
-from .models import School
-
-
 def get_schools(request):
     term = request.GET.get('term', '')
     schools = School.objects.filter(name__icontains=term)[:10]
@@ -111,8 +107,27 @@ def upload_view(request):
         return HttpResponse('Invalid request', status=400)
 
 
+from django.shortcuts import redirect, render
+from .models import FavoriteJob
+
+
 def favorites_view(request):
-    return render(request, 'favorites.html')
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        is_favorited = request.POST.get('is_favorited')
+
+        user = request.user
+        if is_favorited == 'true':
+            # 取消收藏
+            FavoriteJob.objects.filter(user=user, id=id).delete()
+            # 重定向到收藏页面
+            return redirect('MainApp:favorites')
+        else:
+            favorite_jobs = FavoriteJob.objects.filter(user=user)
+            return render(request, 'favorites.html', {'favorite_jobs': favorite_jobs})
+    else:
+        favorite_jobs = FavoriteJob.objects.filter(user=request.user)
+        return render(request, 'favorites.html', {'favorite_jobs': favorite_jobs})
 
 
 def jobs_view(request):
@@ -157,9 +172,8 @@ def find_jobs(request):
 def show_jobs(request):
     try:
         jobs = pd.read_csv("static/file/jobs.csv")
-        selected_columns = ['title', 'location', 'job_type', 'is_remote']
+        selected_columns = ['job_url','title', 'location', 'is_remote']
         jobs = jobs[selected_columns]
-
         context = {
             'jobs': jobs.to_dict('records'),
             'columns': jobs.columns.tolist()
@@ -168,3 +182,28 @@ def show_jobs(request):
         context = {'error': 'Job listings not found. Please initiate a search first.'}
 
     return render(request, 'show_jobs.html', context)
+
+
+from django.http import JsonResponse
+from .models import FavoriteJob
+
+
+def favorite_job(request):
+    if request.method == 'POST':
+        job_url = request.POST.get('job_url')
+        title = request.POST.get('title')
+        location = request.POST.get('location')
+        is_remote = request.POST.get('is_remote')
+        is_favorited = request.POST.get('is_favorited')
+
+        user = request.user
+        if is_favorited == 'true':
+            FavoriteJob.objects.filter(user=user, job_url=job_url).delete()
+        else:
+            favorite_job = FavoriteJob(user=user, job_url=job_url, title=title, location=location,
+                                       is_remote=is_remote)
+            favorite_job.save()
+
+        return JsonResponse({'message': 'Operation successful'})
+    else:
+        return JsonResponse({'error': 'Unauthorized or invalid request!'}, status=401)

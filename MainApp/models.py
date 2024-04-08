@@ -76,7 +76,6 @@ class FavoriteJob(models.Model):
     job_url = models.URLField()
     title = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    job_type = models.CharField(max_length=50)
     is_remote = models.BooleanField()
 
     def __str__(self):

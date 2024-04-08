@@ -15,6 +15,7 @@ urlpatterns = [
     path('get-jobs/', views.get_jobs, name='get-jobs'),
     path('find_jobs/', views.find_jobs, name='find-jobs'),
     path('show_jobs/', views.show_jobs, name='show-jobs'),
+    path('favorite_job/', views.favorite_job, name='favorite-job'),
     # path('favorite-job/<int:job_id>/', views.favorite_job, name='favorite-job'),
 
 ]
