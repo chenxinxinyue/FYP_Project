@@ -154,25 +154,26 @@ def find_jobs(request):
         if form.is_valid():
             form.save()
             location = form.cleaned_data['address']
-            call_command('job_scraper', location)
+            # 假设 JobPreference 是存储用户偏好的模型，我们需要获取这些偏好
+            job_preferences = Preference.objects.filter(user=user).values_list('preference', flat=True)
+            # 将偏好列表转换为字符串列表，因为 call_command 不能直接传递列表类型
+            job_preferences_list = list(job_preferences)
+            # 使用 * 操作符将列表展开为命令行参数
+            call_command('job_scraper', location, job_preferences=job_preferences_list)
 
-            messages.success(request, 'Address updated successfully.')
-            # print(form.cleaned_data)
+            messages.success(request, 'Address and job preferences updated successfully.')
             return redirect('MainApp:show-jobs')
-
     else:
         form = CustomUserForm(instance=user)
 
-    context = {
-        'form': form,
-    }
+    context = {'form': form}
     return render(request, 'show_jobs.html', context)
 
 
 def show_jobs(request):
     try:
         jobs = pd.read_csv("static/file/jobs.csv")
-        selected_columns = ['job_url','title', 'location', 'is_remote']
+        selected_columns = ['job_url', 'title', 'location', 'is_remote']
         jobs = jobs[selected_columns]
         context = {
             'jobs': jobs.to_dict('records'),
