@@ -16,7 +16,8 @@
                 <tr>
                     <td><a href="{{ job.job_url }}">{{ job.title }}</a></td>
                     <td>{{ job.location }}</td>
-                    <td>{% if job.is_remote %}True{% else %}False{% endif %}</td>
+{#                    <td>{% if job.is_remote %}True{% else %}False{% endif %}</td>#}
+                    <td>{{ job.is_remote }}</td>
                     <td>
                         <button class="favorite-btn" data-job-url="{{ job.job_url }}" data-title="{{ job.title }}"
                                 data-location="{{ job.location }}" data-is-remote="{{ job.is_remote }}"

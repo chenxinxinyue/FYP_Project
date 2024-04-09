@@ -190,6 +190,8 @@ def show_jobs(request):
 
 from django.http import JsonResponse
 from .models import FavoriteJob
+from django.http import JsonResponse
+from .models import FavoriteJob
 
 
 def favorite_job(request):
@@ -198,8 +200,17 @@ def favorite_job(request):
         title = request.POST.get('title')
         location = request.POST.get('location')
         is_remote = request.POST.get('is_remote')
-        print(is_remote)
         is_favorited = request.POST.get('is_favorited')
+
+        # 替换为默认值
+        if location is None:
+            location = "Unknown"
+
+        # 处理 is_remote 的值
+        if is_remote is not None:
+            is_remote = is_remote.lower() == 'true'
+        else:
+            is_remote = False
 
         user = request.user
         if is_favorited == 'true':
