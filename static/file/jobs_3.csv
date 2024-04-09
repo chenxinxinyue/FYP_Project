@@ -1,0 +1,991 @@
+"site","job_url","job_url_direct","title","company","location","job_type","date_posted","interval","min_amount","max_amount","currency","is_remote","emails","description","company_url","company_url_direct","company_addresses","company_industry","company_num_employees","company_revenue","company_description","logo_photo_url","banner_photo_url","ceo_name","ceo_photo_url"
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009227253739","","Ground Software Engineer - protected categories (L.68/99)","Terran Orbital","Turin","","2024-04-08","","","","",False,"careers@tyvak.eu","Be more than just an employee number! Join Terran Orbital, a leader in innovation, manufacturing, and operations in the satellite industry. We are a pioneer in the miniaturization of space technologies and the delivery of responsive space solutions. We are a unique, fast-growing, and trusted team focused on quickly and economically designing, building, launching, and operating state-of-the-art satellites for advanced mission constellations.
+
+  
+
+We are seeking a motivated **Ground Software Engineer - protected categories (L.68/99)**. Reporting to the VP Software, the Ground Software Engineer - protected categories (L.68/99) will join a collaborative team to develop innovative nano-satellite vehicle solutions for multiple projects.
+
+ **Key Duties and Responsibilities**
+
+* Design, develop, and maintain simple, reliable, and fault-tolerant software
+* Write comprehensive unit and regression tests in existing frameworks
+* Integrate and test software in wide and interlaced ground segment environments
+* Work with multiple engineering teams to establish software requirements and design
+* Work with various engineering teams to support the commissioning of newly launched satellites
+
+
+NOTE: *Vacancy is expected to be filled in no more than 30 calendar days from the completion of the hiring process.*
+
+**Requirements**
+
+* **Belonging to protected categories (L.68/99) is mandatory**
+* Bachelor’s Degree in CE, CS or equivalent field required. Master’s Degree is preferred.
+* Maximum 5 years of experience developing Python or other high level language (Java, C#) applications for distributed systems
+* Good knowledge of Linux Operating System principles
+* Knowledge of networking and distributed systems principles (ISO/OSI stack, web concepts, etc.)
+* Knowledge of relational and not-relational database principles.
+* Highly motivated, self-starting, and able to perform duties autonomously without supervision.
+* Excellent written and verbal communication skills both in Italian and in English
+* Ability to collaborate effectively with others member of team towards a common goal
+* Positive and proactive person and to be abile manage stress and deadlines
+* Problem solver, able to analyze situations and find practical solutions
+
+**Desired Skills**
+
+* Hands-on experience in developing web back-end applications in Python and the most common web frameworks (Django, Flask)
+* Hands-on experience in developing web front-end applications with modern Javascript frameworks (Angular, React, Vue)
+* Experience with modern relational databases (MySQL, PostgreSQL) and non-relational databases (MongoDB, Timescale, Influx DB)
+
+**Benefits**  
+
+Salary and benefits are EU market competitive and include Welfare, Benefits, Private Insurance, Flexible working Hours.
+
+**About Tyvak International**  
+
+Tyvak is one of the most experienced small satellite groups in the industry with unique experience and capabilities in the development of nanosatellite missions and advanced technologies. www.tyvak.eu
+
+
+The main company office is located in Torino, Italy.
+
+**Work Environment**  
+
+The job operates in a professional office environment but in a manufacturing company. This job routinely uses standard office equipment such as computers, phones, photocopiers, and scanners.  
+
+If you need assistance or accommodation due to a disability, you may contact us at careers@tyvak.eu.","https://www.glassdoor.co.uk/Overview/W-EI_IE1630951.htm","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009226963908","","Full Stack Engineer","Tools group","Turin","","2024-04-08","","","","",False,"","Turin Engineering
+**About Us**
+------------
+
+
+We are a dynamic, rapidly growing global company and the innovators of service-driven supply chain planning software. For more than two decades, we’ve been helping companies around the world overcome demand volatility and supply chain complexity so they can optimize inventory and deliver outstanding service to their customers and bottom line.
+
+
+Our solutions have been recognized by customers globally and analyst firms such as Gartner for our ability to support service and inventory trade-offs, while dramatically improving planner productivity. ToolsGroup has been successfully deployed worldwide in more than 44 countries, and we have one of the highest customer retention rates in our industry.
+
+  
+
+
+
+
+**About the Role**
+------------------
+
+
+We are looking for a passionate Full Stack Engineer to join the Engineering Team of ToolsGroup. A full stack engineer is required to contribute to the development of web applications (frontend and backend) following complex product requirements.
+
+  
+
+
+
+
+**Main Responsibilities**
+-------------------------
+
+
+* Develop features and improvements to the ToolsGroup products in a secure, well-tested and performant way
+* Analyze and interpret highly complex data to arrive at actionable recommendations
+* Collaborate with Product Management and other stakeholders within Engineering (e.g. UX) to maintain a high bar for quality in a fast-paced iterative environment
+* Advocate for improvements to product quality, security and performance
+* Solve technical problems of moderate scope and complexity
+* Craft code that meets our internal standards for style, maintainability, and best practices for a high-scale web environment. Maintain and advocate for these standards through code review.
+
+  
+
+**Requirements**
+----------------
+
+
+* STEM degree (with a preference for computer engineering)
+* Working experience of at least 3 years in a comparable position
+* Professional experience with Python (for microservices and web applications development)
+* Professional experience with JavaScript and associated web technologies (CSS, semantic HTML)
+* Experience with PHP (Laravel or Symfony frameworks)
+* Experience with Linux (both client and server)
+* Experience with SQL and ORM libraries
+* Experience on containerized infrastructures (Docker Swarm and Kubernetes)
+* Demonstrated capacity to clearly and concisely communicate about complex technical, architectural, and/or organizational problems and propose thorough iterative solution.
+* Experience with performance and optimization problems and a demonstrated ability to both diagnose and prevent these problemsSelf-motivated and self-managing, with strong organizational skills.
+* Demonstrated ability to onboard and integrate with an organization long-term
+* Proficiency in the English language, both written and verbal, sufficient for success in a remote and largely asynchronous work environment
+* This position requires the candidate to already hold a valid work permit for Italy via EU citizenship and/or a pre-existing valid visa.
+
+  
+
+**Why Join ToolsGroup?**
+------------------------
+
+
+Become part of the supply chain planning disruption joining the fast-growing ToolsGroup family!
+
+
+Our people are the engine that propels ToolsGroup to innovate - pushing the boundaries of what's possible. You’ll be surrounded by the very best and brightest, rewarded with competitive compensation, and career growth opportunities; becoming part of a company where teamwork and collaboration are paramount.
+
+
+Are you ready to take this exciting opportunity and develop your professional career within a growing company?
+
+
+Then, send us your application with your CV in English today and join our team!","https://www.glassdoor.co.uk/Overview/W-EI_IE1538944.htm","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009227215446","","Special Measuring Application Engineer","Hexagon AB","Grugliasco","","2024-04-08","","","","",False,"","**About Hexagon** Hexagon is a global leader in sensor, software and autonomous solutions. We are putting data to work to boost efficiency, productivity, and quality across industrial, manufacturing, infrastructure, safety, and mobility applications. Our technologies are shaping urban and production ecosystems to become increasingly connected and autonomous – ensuring a scalable, sustainable future. Hexagon’s Manufacturing Intelligence division provides solutions that utilise data from design and engineering, production and metrology to make manufacturing smarter.  
+
+**Vacancy Name** Special Measuring Application Engineer  
+
+**Vacancy No** VN6580  
+
+**Work Location** Grugliasco  
+
+**Location Country** Italy  
+
+**Basis** Employee  
+
+**Employment Type** Regular  
+
+**Duration (if Temporary Contract)**  
+
+**Main Tasks & Requirements****Job Title**: Special Measuring Application Engineer  
+
+  
+
+**VN:** 6580  
+
+  
+
+**Location:** Grugliasco  
+
+  
+
+**Short Description**: Person will report to Director Product Management sCMM Systems and will be part of Application Excellence team, the global reference team for Application Engineering within Hexagon MI for sCMM systems.  
+
+  
+
+**Responsibilities:** The team will have three main areas to focus on, in priority order:  
+
+Development
+* Develop and divulge within the organization cutting-edge Application-based expertise
+* Be the official Application testing team for new products before their release to the market
+* Develop task-specific software modules in coordination with Metrology Software BU
+
+
+Research
+* Anticipate or promptly react to the challenge of upcoming key applications by building expertise and solutions to be shared with the rest of the organization
+* Explore innovative ways to exploit current systems, sensors and software components
+* Explore new measuring and processing technologies
+
+
+Support
+* Ensure availability of tools, processes and trainings to allow for GEOs’ AE teams to be autonomous for standard applications and products
+* Support GEOs’ AE teams in case of new challenging applications
+
+
+  
+
+**Requirements:**
+* 5+ years of experience as application engineer for coordinate measuring machines, especially for tactile systems in combination with optical sensors
+* Vision systems knowledge is a plus
+* PC-DMIS and QUINDOS knowledge is a plus
+* Strong practical experience organizing industrial metrology inspection task (set-up, device selection, measuring plan creation, PMI's application, analysis of results, statistics)
+* Strong knowledge of the standards of industrial metrology
+
+  
+
+  
+
+Hexagon commits in providing equal employment opportunities to all employees and applicants for employment and prohibits discrimination and harassment of any type without regard to race, color, religion, age, sex, national origin, disability status, genetics, protected veteran status, sexual orientation, gender identity or expression, or any other characteristic.","https://www.glassdoor.co.uk/Overview/W-EI_IE1523.htm","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009227293026","","Business Intelligence Specialist","Capgemini Engineering","Turin","","2024-04-08","","","","",False,"","""Leader mondiale nei servizi di Engineering e R&D, Capgemini Engineering combina la sua profonda conoscenza dei settori industriali e le tecnologie all’avanguardia in ambito digital e software a supporto della convergenza tra mondo fisico e digitale. Beneficiando anche delle competenze del resto del Gruppo, aiuta i clienti ad accelerare il loro percorso verso l’Intelligent Industry. Capgemini Engineering può contare su più di 65.000 membri di un team di ingegneri e scienziati in oltre 30 paesi nel mondo, con competenze in diversi settori che includono Aeronautics, Space, Defense, Naval, Automotive, Rail, Infrastructure & Transportation, Energy, Utilities & Chemicals, Life Sciences, Communications, Semiconductor & Electronics, Industrial & Consumer, Software & Internet.
+
+
+Capgemini Engineering è parte integrante del Gruppo Capgemini, leader mondiale nel supportare le aziende nel loro percorso di trasformazione digitale e di business facendo leva sul potere della tecnologia. Lo scopo del Gruppo è garantire un futuro inclusivo e sostenibile, sprigionando l’energia umana attraverso la tecnologia.  
+
+Get the Future You Want | www.capgemini.com""
+
+
+Capgemini Engineering è alla ricerca di BI Consultant per la sede di Torino.  
+
+  
+
+Sarai coinvolto in progetti afferenti al settore Automotive e ti occuperai delle seguenti attività:
+
+  
+
+  
+
+Analizzare requisiti, definizione KPI, realizzazione ETL e sviluppare report e dashboard  
+
+Esplorazione e analisi di dati strutturati e non strutturati  
+
+Analizzare i requisiti di business ed effettuare l’analisi funzionale e tecnica  
+
+Progettare e sviluppare pipeline di trasformazione dei dati e di quality control  
+
+  
+
+Lavorerai nell'ambito della nostra practice Digital Engineering.
+
+  
+
+Requisiti fondamentali:
+
+  
+
+Maturata esperienza di processi ETL e di sviluppo di back-end e front-end con Cognos  
+
+Strumenti di data management (e.g. ETL, Microsoft Data Factory,…)  
+
+Conoscenza di tool di reporting (Qlik, Cognos)  
+
+Conoscenza di Cognos Impromptu  
+
+Oracle, PL/SQL
+
+
+Ottima conoscenza della lingua inglese
+
+
+Propensione alla mobilità
+
+
+I nostri Recruiter ti consigliano di candidarti a questa offerta, anche se sei in posseso di competenze di altri sistemi di Business Intelligence come Power BI o Tableau.
+
+**Cosa offriamo:**
+------------------
+
+
+In Capgemini Engineering il successo aziendale è guidato dai nostri esperti.  
+
+In un contesto internazionale e innovativo, vogliamo metterli nelle condizioni di affiancare al meglio i nostri Clienti nelle sfide tecnologiche, proponendo percorsi di crescita professionale stimolanti e in continuo aggiornamento in linea con le esigenze di un mercato in costante evoluzione. Ci impegniamo a favorire lo sviluppo del potenziale dei nostri professionisti, coinvolgendoli in prima persona nella vita aziendale per motivarli a migliorare le loro performance. Ogni giorno cerchiamo di creare un ambiente sempre più inclusivo, per consentire a chi lavora in Capgemini Engineering di raggiungere il giusto equilibrio tra vita privata e vita professionale e abbiamo scelto di costruire relazioni aziendali basate sulla fiducia, sul team working e sul senso di responsabilità.
+
+  
+
+Entra a far parte di Capgemini Engineering. Scopri Values4People, la nostra employee value proposition.
+
+  
+
+Inclusion & Diversity  
+
+Siamo impegnati a migliorare le nostre prestazioni collettive grazie al nostro ambiente di lavoro inclusivo in cui talenti diversi trovano adeguata valorizzazione.  
+
+La diversity costituisce un aspetto essenziale della nostra cultura aziendale. Questo emerge in modo evidente dalla compagine delle nostre risorse, che rappresentano 120 nazionalità e parlano correntemente oltre 100 lingue. Espandendo i nostri orizzonti attraverso le dinamiche legate ad esperienza, cultura, etnia, regole di comportamento aziendali, personalità e comunicazione, la diversity accoglie il meglio di tutti i mondi nella sua teoria di unità. L'offerta di lavoro si intende rivolta all'uno e all'altro sesso in ottemperanza al D.Lgs. 198/2006  
+
+Inoltre, prestiamo attenzione e sensibilità alle future risorse appartenenti alle categorie protette, ai sensi degli articoli 1 e 18 della legge 68 del ‘99. I dati personali saranno trattati in conformità alle disposizioni contenute nel regolamento UE 2016/679.","https://www.glassdoor.co.uk/Overview/W-EI_IE28187.htm","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009226801744","","Technical Service Manager","Apm-Tech S.r.l.","Turin","","2024-04-08","","","","",False,"","Apm-Tech è una realtà giovane e dinamica che opera nell'ambito dei servizi ICT.
+
+
+Siamo presenti in ambito consulenziale e di progettazione chiavi in mano per accompagnare i clienti nel processo di digitalizzazione, rispondendo alle esigenze del mercato e garantendo loro strumenti flessibili e versatili.
+
+
+Il nostro prodotto di punta, APM Print, è la nostra soluzione software che da oltre vent'anni supporta i processi di automazione e documentali di grandi realtà strutturate e multinazionali.
+
+
+I nostri consulenti, ingegneri, sviluppatori, creativi e tecnici formano il nostro team delle competenze in grado di supportare il cliente sia onsite che da remoto implementando le tecnologie e le metodologie di sviluppo più moderne ed efficaci.
+
+  
+
+  
+
+**Posizione:**
+--------------
+
+Per un importante cliente del settore automotive siamo alla ricerca di Technical Service Manager che supporti un team di recente formazione all'interno che fa parte dell’organizzazione Digital.
+
+
+Il Team si occupa dello sviluppo e manutenzione delle applicazioni dei plant, sviluppate principalmente in linguaggio .NET, che supportano le riprogrammazioni centraline veicoli da remoto (Teleservizi).
+
+
+La risorsa che verrà inserita in azienda diventerà il Focal Point IT dei team di application maintenance e li supporterà per richieste di nuovi setup infrastrutturali, aperture firewall, etc.
+
+
+La risorsa deve inoltre entrare nel merito del contesto applicativo, in modo da portare nei team conoscenza e competenza.
+
+**Requisiti:**
+--------------
+
+Laurea in Ingegneria Informatica o similari.
+
+
+E' fondamentale un'ottima conoscenza della lingua inglese, utilizzata quotidianamente nei Teams meeting internazionali. Durante il colloquio verrà valutata con una parte di intervista in lingua inglese.
+
+
+Esperienza di 4/5 anni maturata in ambito di progetti applicativi.
+
+
+Padronanza dei linguaggi di programmazione .net.
+
+
+Gradita la conoscenza del cloud AWS.
+
+
+Ottima capacità di leadership e problem solving.
+
+**Altre informazioni:**
+-----------------------
+
+Si offre un ambiente dinamico e tecnologicamente avanzato.
+
+
+Contratto del CCNL commercio e retribuzione commisurata all'esperienza.
+
+
+Sede di lavoro: Torino","https://www.glassdoor.co.uk/Overview/W-EI_IE6814086.htm","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009226507816","","Disegnatore tecnico","Studio SPE di Tessari Alberto","Turin","","2024-04-08","","","","",False,"","Lo Studio SPE di Tessari Alberto è alla ricerca di n. 2 figure per ampliamento del Team dell'ufficio.
+
+Requisiti richiesti:
+
+- Laurea triennale/magistrale in architettura o ingegneria;
+
+- Proattività e flessibilità nel lavorare in un contesto dinamico ed in continua evoluzione;
+
+- Propensione all'apprendimento;
+
+- Ottima predisposizione a lavorare in Team;
+
+- Buona conoscenza del Software Revit MEP;
+
+- Buona conoscenza di Software per il disegno (Autocad 2D);
+
+- Buona conoscenza della lingua inglese e italiana;
+
+Si offre iniziale contratto di tirocinio della durata di 3 mesi, con successiva trasformazione in contratto indeterminato.
+
+Contratto di lavoro: Tirocinio formativo/stage  
+Durata contratto: 3 mesi
+
+Benefit:
+
+* Computer aziendale
+
+Orario:
+
+* Dal lunedì al venerdì","","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009226804181","","Senior SW Engineer Linux embedded","Nettowork Srl","Turin","","2024-04-08","","","","",False,"","NETtoWORK, azienda italiana nata nel 2016, operante nel settore dei servizi, si occupa di soddisfare le necessità dei clienti offrendo servizi personalizzati.
+
+
+Il nostro team si avvale anche di consulenti esperti nel settore, per supportare il cliente durante il periodo di collaborazione.
+
+  
+
+  
+
+**Posizione:**
+--------------
+
+Ricerchiamo una risorsa che verrà incaricata di **progettare il software e scrivere la relativa documentazione** di progetto, sulla base di specifiche funzionali.
+
+  
+
+Dovrà altresì occuparsi, in collaborazione con gli altri membri del team, di sviluppare il relativo codice sorgente.
+
+  
+
+Si richiede un’esperienza di almeno 3 anni nella progettazione e sviluppo software applicativo su **piattaforme embedded con Linux OS utilizzando il linguaggio C++**, librerie POSIX ed eventualmente QT.
+
+  
+
+Gradita esperienza nello sviluppo di driver Linux
+
+**Requisiti:**
+--------------
+
+**Si richiedono:**
+
+* Laurea in Ingegneria Elettronica o equivalente
+* Esperienza di almeno 3 anni nella progettazione e sviluppo di software per applicazioni embedded in C++/STL in ambiente Linux Embedded
+* Ottime doti di comunicazione interpersonale e predisposizione al lavoro in team
+* Orientamento ai risultati, capacità di lavorare per obiettivi
+* Proattività ed autonomia del definire le soluzioni da adottare
+* Buona padronanza della lingua inglese parlata e scritta
+
+**Altre informazioni:**
+-----------------------
+
+Si offre lavoro ibrido con possibilità di lavorare da casa e in ufficio secondo le necessità del progetto.
+
+  
+
+Sede di lavoro: Torino","","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009226735323","","Disegnatore cad","Adecco Italia","Avigliana","","2024-04-08","","","","",False,"","Sei appassionat\\* di progettazione e desideri mettere le tue competenze al servizio di un'azienda dinamica? Abbiamo l'opportunità che fa per te!  
+
+Stiamo cercando un/a Disegnatore/trice Edile per uno studio di ingegneria sito in bassa valle di Susa.  
+
+Sei pronto/a a metterti in gioco?  
+
+Il tuo ruolo sarà quello di supportare il team di progettazione nella realizzazione di disegni tecnici e progetti edili. Sarai responsabile della progettazione di edifici residenziali e non, utilizzando il software Autocad 2D e 3D. La tua creatività e precisione saranno fondamentali per garantire la corretta realizzazione dei progetti.  
+
+Per avere successo in questo ruolo, dovrai dimostrare buone capacità comunicative e di gestione delle relazioni, oltre ad un'attitudine al problem solving e buone doti organizzative. Sarà inoltre necessaria un'ottima conoscenza del software Autocad 2D e 3D.  
+
+Requisiti indispensabili per candidarti a questa posizione sono un'esperienza pregressa nel campo della disegnazione edilizia, sia residenziale che non, e una minima esperienza di almeno 6 mesi. Sarà inoltre richiesta la disponibilità a lavorare 8 ore al giorno.  
+
+Verrai inserit\\* tramite un contratto di somministrazione a tempo determinato con finalità assuntiva.  
+
+La retribuzione sarà commisurata alla effettiva esperienza della risorsa.  
+
+  
+
+Se sei una persona appassionata, motivata e desiderosa di crescere professionalmente, questa è l'opportunità che fa per te!
+  
+
+Se ritieni di possedere le competenze e l'esperienza necessarie per questo ruolo, inviaci il tuo curriculum vitae. Non vediamo l'ora di conoscerti e valutare la tua candidatura.  
+
+Unisciti a noi e inizia la tua avventura nel mondo dell'edilizia!  
+
+  
+
+Responsabilità:  
+
+  
+
+* disegnazione e progettazione edile
+
+  
+
+Data inizio prevista: 13/05/2024  
+
+  
+
+Categoria Professionale: Progettisti / Design / Grafici  
+
+  
+
+Settore: STUDI PROFESSIONALI  
+
+  
+
+Città: Avigliana (Torino)  
+
+  
+
+Esperienza lavorativa:
+* disegnatore di progetti edili - 6 mesi
+
+  
+
+Istruzione:
+* Diploma / Accademia
+
+  
+
+Competenze richieste:
+* Progettazione - Autocad
+* Altro - Disegno Grafico
+* Altro - Progettazione Residenziale
+
+  
+
+Patenti:
+* B
+
+  
+
+Disponibilità oraria:
+* Full Time
+
+  
+
+I candidati, nel rispetto del D.lgs. 198/2006, D.lgs 215/2003 e D.lgs 216/2003, sono invitati a leggere l'informativa sulla privacy consultabile sotto il form di richiesta dati della pagina di candidatura (Regolamento UE n. 2016/679).  
+
+  
+
+ATTENZIONE: Abbiamo rilevato la presenza in rete di molti annunci falsi; prendi visione dei nostri consigli per riconoscere i tentativi di truffa sulla pagina dedicata al phishing su adecco.it.
+  
+
+Adecco Italia S.p.A. (Aut. Min. Prot. N.1100-SG del 26.11.2004).","https://www.glassdoor.co.uk/Overview/W-EI_IE1089.htm","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009227200664","","Senior Full Stack Developer Smart Working","Nettowork Srl","Turin","","2024-04-08","","","","",False,"","NETtoWORK, azienda italiana nata nel 2016, operante nel settore dei servizi, si occupa di soddisfare le necessità dei clienti offrendo servizi personalizzati.
+
+
+Il nostro team si avvale anche di consulenti esperti nel settore, per supportare il cliente durante il periodo di collaborazione.
+
+  
+
+  
+
+**Posizione:**
+--------------
+
+Per azienda cliente che opera in ambito sviluppo software custom e consulenza nello sviluppo di nuove idee di business, ricerchiamo un **Senior FULLSTACK e un Senior BACK END DEVELOPER sia in sede che da REMOTO.**
+
+ **Mansioni**
+
+
+La risorsa, sotto il coordinamento della direzione Sviluppo gestirà in autonomia le seguenti mansioni:
+
+* Analisi funzionale di nuovi progetti software
+* Sviluppo software
+* Attività di supporto in progetti già consolidati
+* Attività di pianificazione e quotazione nuovi progetti
+
+**Requisiti:**
+--------------
+
+Stiamo ricercando un collaboratore con almeno **3 anni di esperienza** nello sviluppo di software con l**inguaggio C#** con il seguente stack tecnologico:
+
+* .NET Core 3.0 – 7.0
+* Blazor Server/WebAssembly
+* ASP.NET Core e MVC
+* Entity Framework e Linq
+* Microsoft SQL Server
+* Javascript
+* Swagger
+* NuGet
+
+  
+
+Molto gradita l’esperienza con:
+
+* Lo sviluppo di applicazioni integrate con Database Oracle (e la conoscenza di PL/SQL)
+* Il deploy di applicativi Web su piattaforme Cloud o OnPremise (IIS)
+
+
+Requisito fondamentale è la capacità di scrivere codice utilizzando i più diffusi design pattern.
+
+**Altre informazioni:**
+-----------------------
+
+La risorsa sarà inserita all’interno del team di sviluppo con la mansione di sviluppatore full stack/ sviluppatore Back end.
+
+
+L’inquadramento prevede un contratto di lavoro full time, vengono valutate anche candidature per inserimento come P.IVA.
+
+
+La retribuzione e il livello contrattuale sono proporzionali al livello di esperienza ed al livello di competenza sviluppato.
+
+ **Completano il profilo:**
+
+* Spiccate doti relazionali
+* Elevata capacità di problem solving
+* Capacità di gestire le attività in modo autonomo
+* Orientamento alla precisione
+* Professionalità e motivazione!
+* La conoscenza della lingua inglese costituisce un plus ma non è requisito prioritario così come la laurea in Ingegneria Informatica, Informatica, Ingegneria Elettronica è un requisito preferenziale ma non prioritario.","","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009227016316","","Ingegnere Termotecnico - Appartenente Categorie Protette Lg. 68/99","Euclide Srl","Turin","","2024-04-08","yearly",28000.0,28000.0,"EUR",False,"","**INGEGNERE SENIOR - Appartenente alle Cat. Protette Lg. 68/99**
+
+*Da € 28.000,00*
+
+**Descrizione e Caratteristiche della Posizione:**
+
+Euclide srl, azienda di consulenza ingegneristica e servizi alle imprese, ricerca un PROGETTISTA TERMOTECNICO appartenente alle Categorie Protette Lg. 68/99 da inserire all’interno di un ambiente lavorativo dinamico e in costante crescita.
+
+La risorsa sarà inserita all’interno dell’ufficio tecnico e coinvolta nella progettazione di impianti termici, antincendio, cogenerativi, per la produzione di energie alternative, ecc. in ambito civile e industriale.
+
+Nello specifico si occuperà di:
+
+* analisi delle necessità della Commessa;
+* collaborare con il cliente e con i vari soggetti esterni coinvolti nel progetto;
+* partecipare operativamente alla progettazione, definendo le specifiche di dimensionamento e realizzando gli schemi impiantistici;
+* prendere contatti e gestire i principali fornitori di componenti ed apparecchiature degli impianti in progetto;
+* redigere relazioni tecniche per tutti i livelli di progettazione;
+* verificare la completezza e l’adeguatezza degli elaborati prodotti prima della consegna;
+* gestione delle attività collaterali quali Legge 10/91, certificazione energetica, pratiche INAIL, ecc.
+
+**Ruolo e Responsabilità:**
+
+La risorsa sarà dedicata oltre che alla progettazione anche alla gestione dei rapporti con i clienti e all’assistenza alle fasi di cantierizzazione delle opere, per cui sono richieste anche importanti doti relazionali e organizzative.
+
+Completano il profilo flessibilità, autonomia, problem solving, attitudine al lavoro in team e disponibilità a trasferte sul territorio italiano.
+
+**Requisiti richiesti per partecipare alle Selezioni:**
+
+Appartenenza alle liste delle categorie protette Lg. 68/99 art .1 o art. 18
+
+Laurea in Ingegneria; con competenze in ambito termofluidico ed energetico;
+
+Conoscenza di software specifici di progettazione e dimensionamento (AutoCad, Primus, Edilclima, ...);
+
+Capacità analitiche e matematiche;
+
+Doti organizzative, gestionali;
+
+Precisione e attenzione ai dettagli;
+
+Affidabilità;
+
+Flessibilità e resistenza allo stress;
+
+Gradita conoscenza nell’attività di direzione e di gestione dei lavori.
+
+**Esperienza Pregressa**: 3-5 Anni
+
+**Sede di lavoro**: Torino Centro
+
+**Orario di lavoro**:
+
+* Tempo pieno
+* Lunedì al venerdì
+* Orario Flessibile: (E) 8:00/09:00 – 13:00 e 14:00 – (U) 17:00/18:00.
+
+**Tipologia contrattuale:**
+
+Inserimento diretto **Tempo Indeterminato** con CCNL Terziario.
+
+**Pacchetto retributivo a budget:**
+
+L'inquadramento economico, di sicuro interesse, verrà esaminato e soppesato a seguito di quanto emergerà dai colloqui conoscitivi e dal confronto con la preparazione e l'esperienza. RAL a partire da € 28.000,00.
+
+**Benefit:**
+
+* Piano sanitario Fondo Est,
+* Piano sanitario integrativo,
+* Formazione professionale (Interna ed Esterna),
+* Retribuzione supplementare:
+* Tredicesima;
+* Quattordicesima;
+* Straordinario;
+* Premi di produzione annuali;
+* Bonus Trasferte.
+
+Contratto di lavoro: Tempo pieno, Tempo indeterminato
+
+Retribuzione: a partire da €28.000,00 all'anno
+
+Benefit:
+
+* Assicurazione sulla vita
+* Assistenza sanitaria integrativa
+* Supporto allo sviluppo professionale
+
+Orario:
+
+* Dal lunedì al venerdì
+* Orario flessibile
+
+Tipi di retribuzione supplementare:
+
+* Bonus
+* Bonus annuale
+* Premio di produzione
+* Quattordicesima
+* Straordinario
+* Tredicesima
+
+Domande di preselezione:
+
+* Sei in possesso di una laurea in Ingegneria?
+
+Istruzione:
+
+* Laurea triennale (Obbligatorio)
+
+Abilitazione/Certificazione:
+
+* Sei iscritto o iscrivibile al collocamento mirato Lg. 68/99 (Obbligatorio)
+
+Disponibilità a viaggiare:
+
+* 25% (Obbligatorio)","","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009226804265","","Responsabile Attività di Cantiere Edile","Gruppo Tecnoimprese Srl","San Mauro Torinese","","2024-04-08","","","","",False,"","Il **Gruppo Tecnoimprese è un General Contractor** che gestisce da oltre **45 anni** cantieri di nuova costruzione/ristrutturazione nel settore della Pubblica Amministrazione, Ospedali/Presidi Sanitari/Università/Scuole/Studentati/Rsa, Edilizia di Pregio, Edilizia Industriale progetti edili pubblici e privati di elevata complessità distinguendosi per puntualità efficacia e professionalità. Riqualificazione aree urbane – ammodernamento condomini – borghi ruralI- sono altre aree di expertise
+
+  
+
+  
+
+**Posizione:**
+--------------
+
+Ricerchiamo **un Capo Cantiere.** Una persona curiosa ed appassionata con basi culturali tecniche, che abbia conseguito preferibilmente un diploma di geometra , ovvero una laurea in ingegnere civile/edile e che abbia voglia di cimentarsi in ambito **tecnico operativo.**
+
+E' un tecnico edile e dei processi edili; coniuga competenze tecniche e sensibilità economica (tempistiche di realizzazione/materiali/rese/ottimizzazione layout di cantiere) ha forti doti di leadership per condurre squadre multietniche con preparazioni tecniche talora non solide per affrontare lavorazioni complesse ad alta variabilità.
+
+**E’ una risorsa di “terreno” multidisciplinare che dirige il cantiere e si deve interfacciare con una molteplicità di figure e gestire una gran varietà di operazioni. Si occuperà infatti di**
+
+  
+
+* Pianificazione dell'attività del cantiere e delle maestranze;
+* Distribuzione e coordinamento delle attività delle varie maestranze di cantiere
+* Addestramento del personale di cantiere;
+* Gestione del personale di cantiere;
+* Acquistare materiali in coordinamento con l'ufficio acquisti
+* Gestione del materiale e dei mezzi di cantiere;
+* Redazione giornaliera del giornale di cantiere
+* Verifica della corretta esecuzione delle attività secondo il progetto ed il capitolato d’appalto;
+* Garantire il rispetto delle attività lavorative del cronoprogramma lavori;
+* Registrazione dei rapportini di cantiere e contabilità dei subappaltatori
+* Verifica dell’applicazione delle norme di sicurezza durante tutte le fasi lavorative
+* Controllo e verifica del personale (requisiti) prima dell’ingresso in cantiere
+* allestire il cantiere facendo in modo che vengano portati in loco tutti i materiali, i macchinari e le attrezzature necessarie per quel tipo di lavoro;
+* gestione gli operai;
+* controllare l’entrata e l’uscita dal cantiere del materiale e dei mezzi;
+* controllare che gli operai utilizzino correttamente i DPI;
+* interagire con il Direttore tecnico di cantiere per l’approvvigionamento dei materiali e sulla realizzazione delle opere secondo il progetto;
+* controllare lo svolgimento dei lavori;
+
+**Requisiti:**
+--------------
+
+* passione per l'edilizia
+* curiosità
+* resilienza
+* flessibilità
+* etica del lavoro
+* sacrificio
+* ottime doti gestionali con una spiccata capacità di individuazione delle priorità
+* spiccata capacità coinvolgimento delle maestranze;
+* una ben radicata abilità nel problem solving (risolvere i problemi);
+* ottime capacità comunicative, di analisi e management.
+* conoscenza approfondita di excel
+* gradita conoscenza del software di contabilizzazione lavori/commessa come primus","https://www.glassdoor.co.uk/Overview/W-EI_IE3235694.htm","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009227195194","","EMBEDDED SOFTWARE ENGINEER - Linux Embedded","ACTIA ITALIA S.r.l","Turin","","2024-04-08","","","","",False,"","Il **Gruppo ACTIA** è una multinazionale specializzata nell’elettronica di bordo e servizi correlati.
+
+
+Presente in **16 paesi** con circa **4000 collaboratori**, il Gruppo ACTIA ha raggiunto nel **2022 un fatturato di 499.8 Milioni di euro** dedicandone il **17% alla ricerca e sviluppo**.
+
+  
+
+In costante crescita grazie ad una strategia basata sull’innovazione e la qualità, la **filiale italiana** del gruppo sviluppa e fornisce *prodotti e servizi di gestione flotte per mezzi industriali e soluzioni di diagnosi delle centraline elettroniche automotive*.
+
+  
+
+Presenti *sul territorio nazionale* **dal 2001**, attualmente siamo strutturati su *due sedi*: la sede legale a **Torino** e la sede operativa a **Rho (MI)**.
+
+  
+
+  
+
+**Posizione:**
+--------------
+
+Per la nostra filiale italiana siamo alla ricerca di un **EMBEDDED SOFTWARE ENGINEER** per la **Business Unit EOB (Electronic On Board)** per lo sviluppo di soluzioni FW su schede embedded (es. applicazioni per centraline telematiche).
+
+
+Il/la candidato/a sarà inserito/a all’interno di un ambiente stimolante e dinamico dove ognuno all’interno del team è importante ed essenziale al raggiungimento dell’obiettivo aziendale: la soddisfazione nel nostro cliente grazie all’eccellenza dei servizi proposti.
+
+  
+
+Come Embedded Software Engineer sarai responsabile delle attività di **progettazione**, **sviluppo**, **programmazione** e **validazione** del **firmware**.
+
+**Requisiti:**
+--------------
+
+* Laurea in Ingegneria Informatica o Elettronica
+* Esperienza di almeno 3 anni nel ruolo
+* Conoscenza della lingua Inglese
+* Esperienza nella validazione del firmware (sia validazione di moduli che funzionale)
+* Esperienza di sviluppo su piattaforme Linux Embedded (principalmente User Space):
+* Inter-process communication (dbus, queue, shared memory)
+* Object oriented design and development principles
+* SW debugging, trace, emulatori
+* Ottima capacità di programmazione in C e C++
+* Capacità di redigere e mantenere documentazione tecnica di specifica e di test del codice secondo standard di qualità
+
+ **Costituiscono un plus:**
+
+  
+
+* Utilizzo di strumenti di versionamento software (svn, git)
+* Conoscenza degli standard di qualità di stesura del codice (MISRA C)
+* Conoscenza reti CAN
+* Conoscenza delle normative di functional safety ISO 13849 e/o ISO 25119
+
+  
+
+Completano il profilo autonomia, capacità di problem solving e decisionale, spiccate capacità organizzative e di ascolto, attitudine al lavoro in team, ottime doti relazionali e comunicative.
+
+**Altre informazioni:**
+-----------------------
+
+**Cosa offriamo:**
+
+
+Tutti i nostri collaboratori hanno la possibilità di svolgere **smart working** ma soprattutto di essere smart workers.
+
+
+Le parole chiave in Actia sono: fiducia, **flessibilità**, senso di **responsabilità** e work-**life** balance.
+
+
+L'ambiente è informale, multiculturale, aperto all'**innovazione** ed alla reprocità.
+
+
+Ciascuno può dare il proprio contributo ed essere apprezzato e riconosciuto per questo.
+
+ **Sede di lavoro: Torino +SW (3 d/w)**
+
+  
+
+Si offre inserimento **diretto** a **tempo indeterminato** ed aumento retributivo, commisurato all'esperienza e capacità del candidato.
+
+  
+
+La ricerca si rivolge a candidature di entrambi i sessi, ai sensi della Legge L. 903/77 e 128/91.","","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009226932499","","ANALISTA TEMPI E METODI - AERONAUTICA","Alfe Consulting SRL","Turin","","2024-04-08","","","","",False,"","Alfe Consulting srl è una società di consulenza in ambito ingegneria industriale, salute e sicurezza sui luoghi di lavoro, formazione e servizi alle aziende che collabora con aziende del settore aeronautico, aerospaziale, automotive, oil&gas e mining in ambito nazionale ed internazionale.
+
+Per supportare il nostro Team presso azienda cliente leader nel settore aeronautico siamo alla ricerca di 1 ANALISTA TEMPI E METODI con comprovata esperienza nella mansione.
+
+**Il lavoro:**
+
+* Definisce fase per fase il ciclo di lavoro e ne determina i tempi delle varie operazioni
+* Analizza e ottimizza costi e tempi di lavoro dei processi di assemblaggio/smontaggio e manutenzione dei velivoli
+* Si interfaccia quotidianamente con l’ufficio di ingegneria e con gli operatori in linea per la definizione della metodologia di lavoro più efficace
+* Redige cicli di lavoro ed istruzioni operative utili ai tecnici di linea per lo svolgimento della loro attività
+
+**Il profilo:**
+
+* Laurea in Ingegneria Meccanica, Aeronautica, Aerospaziale o Industriale o Diploma ad indirizzo tecnico
+* Costituisce titolo preferenziale aver maturato esperienza come metodista in contesti aeronautici/automotive
+* Conoscenza di Catia V5 o di software similare di product design
+* Preferibile conoscenza Sap
+
+Il trattamento economico e l’inquadramento saranno commisurati a seconda dell’esperienza e delle competenze acquisite in precedenza.
+
+Zona di lavoro: Torino
+
+*Il presente annuncio è rivolto ad entrambi i sessi, ai sensi delle leggi 903/77 e 125/91 e a persone di tutte le età e tutte le nazionalità, ai sensi dei decreti legislativi 215/03 e 216/03.*
+
+Contratto di lavoro: Tempo pieno
+
+Benefit:
+
+* Buoni pasto
+
+Tipi di retribuzione supplementare:
+
+* Quattordicesima","https://www.glassdoor.co.uk/Overview/W-EI_IE5526004.htm","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009224943792","","C++ Software Engineer","Capgemini Engineering","Turin","","2024-04-06","","","","",False,"","Capgemini Engineering è alla ricerca di **C++ Software Engineer** per la sede di **Torino**.
+
+
+Potrai occuparti di progetti che riguardano vari settori, tra cui Automotive, Aeronautics, Space & Defence, Naval, Railway, Telecoms & Media, Energy, Industry, Electronics & Semiconductors, Life Sciences e ti occuperai delle seguenti attività:
+
+  
+
+* Partecipazione a tutte le fasi del ciclo di vita dei progetti;
+* Definizione dei Software Requirements;
+* Software Design;
+* Sviluppo attivo del software sotto la guida dei nostri Technical Leader
+* Quality Assurance e rilascio;
+* Applicazione dei recenti paradigmi di Verifica e Validazione del software in ambiente simulato;
+* Formazione continua mediante accesso alle principali piattaforme di e-learning (Coursera, Udemy, Pluralsight).
+
+  
+
+Sei la persona che stiamo cercando se hai conseguito una Laurea Magistrale in Ingegneria Informatica, Elettronica, Aeronautica e Aerospaziale, Automazione e Robotica, Telecomunicazioni, Biomedica Fisica, Matematica o affini e hai maturato esperienza professionale sulle tematiche richieste.
+
+ **Requisiti fondamentali:**
+
+  
+
+* Conoscenza della programmazione orientata agli oggetti;
+* Conoscenza dei principali algoritmi e strutture dati;
+* Buona conoscenza del linguaggio C++.
+
+ **Saranno inoltre valutati positivamente:**
+
+  
+
+* Conoscenza del Modern C++ (C++11, 14, 17, 20)
+* Conoscenza di altri linguaggi di programmazione (es. Python, C#, C)
+* Conoscenza di uno o più framework per la realizzazione di GUI
+* Conoscenza dei principali Design Pattern
+* Esperienza e familiarità con i più recenti standard di design e qualità del software;
+* Conoscenza di Git/GitHub o di altri strumenti di versioning.
+* Conoscenza di metodologie di Unit Testing e CI/CD
+* Conoscenza dei sistemi operativi Windows e Linux
+**Cosa offriamo:**
+
+  
+
+In Capgemini Engineering il successo aziendale è guidato dai nostri esperti.  
+
+In un contesto internazionale e innovativo, vogliamo metterli nelle condizioni di affiancare al meglio i nostri Clienti nelle sfide tecnologiche, proponendo percorsi di crescita professionale stimolanti e in continuo aggiornamento in linea con le esigenze di un mercato in costante evoluzione. Ci impegniamo a favorire lo sviluppo del potenziale dei nostri professionisti, coinvolgendoli in prima persona nella vita aziendale per motivarli a migliorare le loro performance. Ogni giorno cerchiamo di creare un ambiente sempre più inclusivo, per consentire a chi lavora in Capgemini Engineering di raggiungere il giusto equilibrio tra vita privata e vita professionale e abbiamo scelto di costruire relazioni aziendali basate sulla fiducia, sul team working e sul senso di responsabilità.  
+
+Entra a far parte di Capgemini Engineering. Scopri Values4People, la nostra employee value proposition.
+
+ **Inclusion & Diversity:**
+
+  
+
+Siamo impegnati a migliorare le nostre prestazioni collettive grazie al nostro ambiente di lavoro inclusivo in cui talenti diversi trovano adeguata valorizzazione.  
+
+La diversity costituisce un aspetto essenziale della nostra cultura aziendale. Questo emerge in modo evidente dalla compagine dei nostri dipendenti, che rappresentano 120 nazionalità e parlano correntemente oltre 100 lingue. Espandendo i nostri orizzonti attraverso le dinamiche legate ad esperienza, cultura, etnia, regole di comportamento aziendali, personalità e comunicazione, la diversity accoglie il meglio di tutti i mondi nella sua teoria di unità.  
+
+Inoltre, prestiamo attenzione e sensibilità alle future risorse appartenenti alle categorie protette, ai sensi degli articoli 1 e 18 della legge 68 del ‘99. I dati personali saranno trattati in conformità alle disposizioni contenute nel regolamento UE 2016/679.","https://www.glassdoor.co.uk/Overview/W-EI_IE28187.htm","","","","","","","","","",""
+"glassdoor","https://www.glassdoor.co.uk/job-listing/j?jl=1009224583897","","Software Developer C++ su Linux ambito avionico","Skytechnology srl","Turin","","2024-04-06","","","","",False,"","Skytechnology srl è una società di ingegneria punto di riferimento sul mercato dal 2004 per la progettazione e consulenza di sistemi embedded per aziende che spaziano in numerosi settori industriali e all’avanguardia tecnologia (telecomunicazioni, automotive, avionica, aerospazio, trasporti, elettromedicale e automazione industriale)
+  
+  
+
+Skytechnolgy integra esperienze e competenze affiancando i clienti nella creazione di innovazione tecnologica in ambito firmware/ software embedded, Hardware/fpga, Test e simulazione, Compliance&validation, web&iot
+  
+  
+
+Skytechnology ha sedi a Milano , Torino e Roma.
+  
+  
+
+Lavorare in Skytechnolgy
+  
+  
+
+Essendo un società in forte crescita, Skytechnology è alla ricerca di nuovi talenti da inserire nei propri team di progetto per fornire i migliori servizi ai propri Clienti.
+  
+  
+
+**Ci sono tanti buoni motivi per unirti a noi:**  
+
+* Condizioni di ingresso nel mondo del lavoro e crescita professionale sia in termini tecnologici che di carriera.
+* Esperienze diversificate sui mercati, con utilizzo di tecnologie, metodi e tool all’avanguardia con forte flessibilità tra attività in sede e presso Clienti
+* Partnership con università e società tecnologiche
+* Skytechnology collabora con le più grandi aziende di ogni mercato. I partener industriali e accademici sono spesso coinvolti nei nostri progetti
+* Crescita professionale sia tecnica che manageriale (PL, PM, Prevendite, Business Development)
+* Possibilità di essere coinvolto/a in progetti di R&S su temi innovativi
+* Lavoro in team con il supporto di colleghi esperti;
+* Orario di lavoro flessibile e la possibilità di lavorare da casa quando necessario;
+
+
+**Chi cerchiamo:**  
+
+**Software Developer C++ su Linux ambito avionico:**  
+
+Software Developer C++ Engineer ambito avionico
+  
+  
+
+Nell’ambito di un progetto Avionico siamo alla ricerca di un laureato in ingegneria, informatica o equivalenti per l’attività di sviluppo e test del SW applicativo
+  
+  
+
+SW Developer Linux C++ / framework QT (ambito avionico)
+  
+  
+
+**Attività:**  
+
+* Analisi dei requisiti
+* Supporto alla definizione dell’architettura
+* Sviluppo del software e test di modulo
+
+
+**Requisiti necessari:**  
+
+* Laurea in Ingegneria (Informatica, Elettronica o Telecomunicazioni) o Informatica, Fisica, Matematica
+* Conoscenza approfondita della programmazione C++
+* Conoscenza del S.O Linux
+* Conoscenza del framework QT/QML
+* Capacità di programmare in ambienti multithread
+* Conoscenza di GIT e/o SVN
+* conoscenza di DDS
+* conoscenza di MOngoDB
+* Buona conoscenza della lingua inglese, italiano madrelingua
+
+
+**Requisiti graditi:**  
+
+* Conoscenza di DOORS
+* Conoscenza dei protocolli TCP/UDP
+* conoscenza standard DO178C per lo sviluppo e la certificazione sw
+
+
+**Luogo:** provincia di Torino","https://www.glassdoor.co.uk/Overview/W-EI_IE610617.htm","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3886203435","","Full Stack Developer","lucabox.dev","Casale Monferrato, Piedmont, Italy","","2024-04-06","","","","","","","","https://it.linkedin.com/company/obly-digital","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3888057239","","Sviluppatore Java","NIUMA SRL","Turin, Piedmont, Italy","","","","","","","","","","https://it.linkedin.com/company/niuma-srl","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3879319003","","Application Engineer Junior","ADHR GROUP","Pont-Saint-Martin, Valle d'Aosta, Italy","","","","","","","","","","https://it.linkedin.com/company/adhr-group-spa","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3888056835","","Junior IT system engineer","Skytechnology SRL","Turin, Piedmont, Italy","","","","","","","","","","https://it.linkedin.com/company/skytechnology-srl","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3880853723","","Full-stack Developer, Trilogy (Remote) - $60,000/year USD","Crossover","Turin, Piedmont, Italy","","","","","","","","","","https://www.linkedin.com/company/crossover","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3886259147","","PHP Developer - Factory","Betacom Group","Turin, Piedmont, Italy","","","","","","","","","","https://it.linkedin.com/company/betacom-s-r-l-","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3886251059","","Web Developer Dichiarativi in Cloud","Gruppo Dylog","Turin, Piedmont, Italy","","","","","","","","","","https://it.linkedin.com/company/dylog-italia-spa","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3885181484","","Business Intelligence Developer","MSC Mediterranean Shipping Company","Turin, Piedmont, Italy","","","","","","","","","","https://ch.linkedin.com/company/msc-mediterranean-shipping-co--s-a-","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3885509717","","Data Engineer","Intesa Sanpaolo","","","","","","","","","","","https://it.linkedin.com/company/intesa-sanpaolo","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3886295324","","Automation Engineer","Berkeley Square - Talent Specialists in IT & Engineering","Campiglione-Fenile, Piedmont, Italy","","","","","","","","","","https://uk.linkedin.com/company/bsqtalent","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3886243999","","Expert Software Qualification Engineer - Settore Automotive","Kineton","Turin, Piedmont, Italy","","","","","","","","","","https://it.linkedin.com/company/kinetonsrl","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3853045590","","DevOps Engineer","Spindox","Turin, Piedmont, Italy","","","","","","","","","","https://it.linkedin.com/company/spindox","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3885138327","","Software Test Engineer (Automotive) IRC206328","GlobalLogic Poland","Turin, Piedmont, Italy","","","","","","","","","","https://pl.linkedin.com/company/globallogicpoland","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3880849979","","Lead Software Engineer, Trilogy (Remote) - $100,000/year USD","Crossover","Turin, Piedmont, Italy","","","","","","","","","","https://www.linkedin.com/company/crossover","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3888580966","","Senior SW Engineer Linux embedded","NETtoWORK","Turin, Piedmont, Italy","","","","","","","","","","https://it.linkedin.com/company/nettowork","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3886247946","","Sviluppatore Software - Categorie Protette  l. 68/99","Randstad","Turin, Piedmont, Italy","","","","","","","","","","https://nl.linkedin.com/company/randstad","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3886253004","","Labview Developer","Hays","","","","","","","","","","","https://uk.linkedin.com/company/hays","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3885523163","","PLC Programmer","Hays","Turin, Piedmont, Italy","","","","","","","","","","https://uk.linkedin.com/company/hays","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3887002133","","MICROSOFT SENIOR SPECIALIST","Nais","Turin, Piedmont, Italy","","","","","","","","","","https://it.linkedin.com/company/nais-cybersecurity-networking","","","","","","","","","",""
+"linkedin","https://www.linkedin.com/jobs/view/3888070844","","Senior Data Engineer","MSC Mediterranean Shipping Company","Turin, Piedmont, Italy","","","","","","","","","","https://ch.linkedin.com/company/msc-mediterranean-shipping-co--s-a-","","","","","","","","","",""

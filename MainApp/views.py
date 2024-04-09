@@ -154,30 +154,33 @@ def find_jobs(request):
         if form.is_valid():
             form.save()
             location = form.cleaned_data['address']
-            # 假设 JobPreference 是存储用户偏好的模型，我们需要获取这些偏好
             job_preferences = Preference.objects.filter(user=user).values_list('preference', flat=True)
-            # 将偏好列表转换为字符串列表，因为 call_command 不能直接传递列表类型
             job_preferences_list = list(job_preferences)
-            # 使用 * 操作符将列表展开为命令行参数
-            call_command('job_scraper', location, job_preferences=job_preferences_list)
+            # 传递用户 ID 作为额外参数
+            call_command('job_scraper', location, job_preferences=job_preferences_list, user_id=user.id)
 
             messages.success(request, 'Address and job preferences updated successfully.')
             return redirect('MainApp:show-jobs')
     else:
         form = CustomUserForm(instance=user)
-
     context = {'form': form}
     return render(request, 'show_jobs.html', context)
 
 
 def show_jobs(request):
+    user = request.user
+    user_id = user.id
+    print(f"user_id:{user_id}")
+    # Correct the way to format the string to include the user_id in the file path
+    file_path = f"static/file/jobs_{user_id}.csv"
+
     try:
-        jobs = pd.read_csv("static/file/jobs.csv")
+        jobs = pd.read_csv(file_path)
         selected_columns = ['job_url', 'title', 'location', 'is_remote']
         jobs = jobs[selected_columns]
         context = {
-            'jobs': jobs.to_dict('records'),
-            'columns': jobs.columns.tolist()
+            'jobs': jobs.to_dict('records'),  # Convert the DataFrame into a list of dictionaries for the template
+            'columns': selected_columns  # Use the list directly since we're specifying the columns
         }
     except FileNotFoundError:
         context = {'error': 'Job listings not found. Please initiate a search first.'}
@@ -195,6 +198,7 @@ def favorite_job(request):
         title = request.POST.get('title')
         location = request.POST.get('location')
         is_remote = request.POST.get('is_remote')
+        print(is_remote)
         is_favorited = request.POST.get('is_favorited')
 
         user = request.user
