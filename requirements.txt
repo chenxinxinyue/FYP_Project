@@ -1,0 +1,63 @@
+annotated-types==0.6.0
+asgiref==3.7.2
+beautifulsoup4==4.12.3
+blinker==1.6.3
+blis==0.7.11
+cachelib==0.10.2
+catalogue==2.0.10
+certifi==2024.2.2
+charset-normalizer==3.3.2
+click @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_f27dk3zwrb/croot/click_1698129816363/work
+cloudpathlib==0.16.0
+confection==0.1.4
+cymem==2.0.8
+Django==5.0.2
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl#sha256=86cc141f63942d4b2c5fcee06630fd6f904788d2f0ab005cce45aadb8fb73889
+Flask @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_4eo947bliu/croot/flask_1671217361971/work
+Flask-Mail==0.9.1
+Flask-Session==0.5.0
+Flask-WTF==1.2.1
+gunicorn==21.2.0
+idna==3.6
+itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1621432558163/work
+Jinja2 @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_6adj7x0ejx/croot/jinja2_1666908137966/work
+langcodes==3.3.0
+lxml==5.2.1
+markdownify==0.11.6
+MarkupSafe @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_d4a9444f-bd4c-4043-b47d-cede33979b0fve7bm42r/croots/recipe/markupsafe_1654597878200/work
+murmurhash==1.0.10
+mysqlclient==2.2.4
+numpy==1.24.2
+packaging==24.0
+pandas==2.2.1
+preshed==3.0.9
+pydantic==2.6.4
+pydantic_core==2.16.3
+PyMuPDF==1.24.1
+PyMuPDFb==1.24.1
+PyPDF2==3.0.1
+python-dateutil==2.9.0.post0
+python-docx==1.1.0
+python-jobspy==1.1.51
+pytz==2024.1
+requests==2.31.0
+six==1.16.0
+smart-open==6.4.0
+soupsieve==2.5
+spacy==3.7.4
+spacy-legacy==3.0.12
+spacy-loggers==1.0.5
+sqlparse==0.4.4
+srsly==2.4.8
+thinc==8.2.3
+tls-client==1.0.1
+tqdm==4.66.2
+typer==0.9.4
+typing_extensions==4.9.0
+tzdata==2024.1
+urllib3==2.2.1
+wasabi==1.1.2
+weasel==0.3.4
+Werkzeug @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_fegt3z60s3/croot/werkzeug_1679489762631/work
+whitenoise==6.6.0
+WTForms==3.1.0
