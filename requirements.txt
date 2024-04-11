@@ -7,24 +7,18 @@ cachelib==0.10.2
 catalogue==2.0.10
 certifi==2024.2.2
 charset-normalizer==3.3.2
-click @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_f27dk3zwrb/croot/click_1698129816363/work
 cloudpathlib==0.16.0
 confection==0.1.4
 cymem==2.0.8
 Django==5.0.2
-en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl#sha256=86cc141f63942d4b2c5fcee06630fd6f904788d2f0ab005cce45aadb8fb73889
-Flask @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_4eo947bliu/croot/flask_1671217361971/work
 Flask-Mail==0.9.1
 Flask-Session==0.5.0
 Flask-WTF==1.2.1
 gunicorn==21.2.0
 idna==3.6
-itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1621432558163/work
-Jinja2 @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_6adj7x0ejx/croot/jinja2_1666908137966/work
 langcodes==3.3.0
 lxml==5.2.1
 markdownify==0.11.6
-MarkupSafe @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_d4a9444f-bd4c-4043-b47d-cede33979b0fve7bm42r/croots/recipe/markupsafe_1654597878200/work
 murmurhash==1.0.10
 mysqlclient==2.2.4
 numpy==1.24.2
@@ -58,6 +52,5 @@ tzdata==2024.1
 urllib3==2.2.1
 wasabi==1.1.2
 weasel==0.3.4
-Werkzeug @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_fegt3z60s3/croot/werkzeug_1679489762631/work
 whitenoise==6.6.0
 WTForms==3.1.0
