@@ -18,8 +18,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.urls import path, include
+from django.contrib import admin
+from django.views.generic import RedirectView
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", lambda request: redirect('login/')),  # 重定向到登录页面
     path("MainApp/", include("MainApp.urls")),
     path('login/', include('Authentication.urls')),
 ]
