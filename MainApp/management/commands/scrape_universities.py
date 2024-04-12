@@ -1,11 +1,13 @@
-import os
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from django.core.management import BaseCommand
 from MainApp.models import School
+
+import os
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service  # 导入 Service 类
 
 def get_driver():
     chrome_bin = os.environ.get('GOOGLE_CHROME_BIN', 'chromedriver')
@@ -18,7 +20,11 @@ def get_driver():
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
 
-    return webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
+    # 使用 Service 指定 chromedriver 的路径
+    service = Service(executable_path=chrome_driver_path)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+
+    return driver
 
 class Command(BaseCommand):
     help = 'Scrape university data and save/update it in a CSV file'
