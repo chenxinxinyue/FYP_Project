@@ -34,18 +34,26 @@ class Command(BaseCommand):
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service)
         base_url = 'https://www.topuniversities.com/universities'
-
-        # 获取首页的学校名称
         all_universities = get_university_names(driver, base_url)
 
-        # 循环通过所有页面
-        for i in range(2, 100):  # 假设有99页，你需要调整这个范围
-            page_url = f'https://www.topuniversities.com/universities/?page={i}'
+        # 获取总页数
+        driver.get(base_url)
+        time.sleep(5)
+        pagination_elements = driver.find_elements(By.CSS_SELECTOR, '#alt-style-pagination li a.page-link')
+        total_pages = int(pagination_elements[-2].text)  # 倒数第二个元素包含最后一页的页码
+
+        # 循环遍历所有页面
+        for i in range(2, total_pages + 1):
+            page_url = f'{base_url}/?page={i}'
             all_universities.extend(get_university_names(driver, page_url))
 
-        # 打印所有学校名称
-        for university in all_universities:
-            print(university)
+        # 将所有学校名称写入CSV文件
+        with open('universities.csv', 'w', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerow(['University Name'])  # 写入表头
+            for university in all_universities:
+                writer.writerow([university])  # 写入学校名称
+
         # Dummy data for demonstration:
         data = ['University of Example', 'Sample State University']
         driver.quit()
