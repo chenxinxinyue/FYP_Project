@@ -68,9 +68,10 @@ class Preference(models.Model):
 
 
 class School(models.Model):
-    name = models.CharField(max_length=255, default='')
+    name = models.CharField(max_length=255, primary_key=True)
 
-
+    def __str__(self):
+        return self.name
 class FavoriteJob(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     job_url = models.URLField()
