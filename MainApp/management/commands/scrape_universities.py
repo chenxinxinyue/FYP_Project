@@ -6,6 +6,8 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import time
 
+from MainApp.models import School
+
 
 def get_driver():
     # 读取环境变量中的 Chromedriver 路径
