@@ -9,20 +9,23 @@ import time
 from MainApp.models import School
 
 
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
 def get_driver():
-    # 读取环境变量中的 Chromedriver 路径
-    chromedriver_path = os.getenv('CHROMEDRIVER_PATH', 'chromedriver')  # 默认回退到 'chromedriver' 如果变量未设置
+    chrome_bin = os.environ.get('GOOGLE_CHROME_BIN', 'chromedriver')
+    chrome_driver_path = os.environ.get('CHROMEDRIVER_PATH', '/app/.chromedriver/bin/chromedriver')
 
-    # 设置 Chrome 的无头模式选项
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.binary_location = chrome_bin
+    chrome_options.add_argument("--headless")  # 运行无头模式
+    chrome_options.add_argument("--disable-gpu")  # 禁用 GPU 加速
+    chrome_options.add_argument("--no-sandbox")  # 运行在无沙盒模式
+    chrome_options.add_argument("--disable-dev-shm-usage")  # 解决资源限制问题
 
-    # 初始化 WebDriver
-    driver = webdriver.Chrome(executable_path=chromedriver_path, options=chrome_options)
+    driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
     return driver
+
 
 
 class Command(BaseCommand):
