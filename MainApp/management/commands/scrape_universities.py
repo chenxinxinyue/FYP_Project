@@ -61,5 +61,6 @@ class Command(BaseCommand):
         # Store data in the database
         for university_name in all_universities:
             School.objects.get_or_create(name=university_name)
+        self.stdout.write(self.style.SUCCESS(f'school account {all_universities.count()}'))
 
         driver.quit()
