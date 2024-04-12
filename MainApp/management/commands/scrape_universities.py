@@ -8,6 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 from MainApp.models import School  # Replace 'yourapp' with the name of your Django app
 
+
 class Command(BaseCommand):
     help = 'Scrape university data and save/update it in a CSV file'
 
