@@ -1,6 +1,6 @@
 import pandas as pd
 from django.core.management import call_command
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, FileResponse
 from django.urls import reverse
 from Authentication.forms import CustomUserForm
 from .models import Job
@@ -139,10 +139,7 @@ def load_file(request, file_name):
     file_path = os.path.join(settings.MEDIA_ROOT, file_name)
 
     if os.path.exists(file_path):
-        with open(file_path, 'rb') as file:
-            response = HttpResponse(file.read(), content_type='application/octet-stream')
-            response['Content-Disposition'] = f'inline; filename="{file_name}"'
-            return response
+        return FileResponse(open(file_path, 'rb'), as_attachment=True)
     else:
         return HttpResponse("File not found", status=404)
 
