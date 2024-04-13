@@ -1,36 +1,35 @@
-# Authenticatoin/views.py
+# Authentication/views.py
+
 import os
+import random
+from datetime import timezone
 
 import certifi
-import random
-from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.tokens import default_token_generator
+from django.core.exceptions import ValidationError
+from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.shortcuts import render, redirect
+
 from .models import CustomUser
+from .utils import send_verification_email_for_register, send_verification_email_for_reset_password
 
 os.environ['SSL_CERT_FILE'] = certifi.where()
-
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
 
 
 def login_view(request):
     if request.method == 'POST':
+
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        # Authenticate the user using Django's built-in authenticate method
         user = authenticate(request, username=email, password=password)
 
         if user is not None:
-            # The login method takes the HttpRequest and User objects
-            # and performs the login (saving the user's ID in the session)
             login(request, user)
             print("{} Login Successful".format(user.email))
             return redirect(reverse_lazy('MainApp:index'))
@@ -46,76 +45,75 @@ def register_view(request):
         email = request.POST.get('email')
         password1 = request.POST.get('password')
         password2 = request.POST.get('confirm_password')
-        # 检查邮箱是否已经被注册
+
         if CustomUser.objects.filter(email=email).exists():
             return render(request, 'register.html', {'error': 'Email is already registered'})
 
         if password1 != password2:
             return render(request, 'register.html', {'error': 'Passwords do not match'})
 
-        verification_code = str(random.randint(100000, 999999))  # Generate a 6-digit verification code
-        send_verification_email_for_register(email, verification_code)
-        # print("Generated Verification Code:", verification_code)  # Print the generated verification code
+        try:
+            validate_password(password1)
+        except ValidationError as e:
+            return render(request, 'register.html', {'error': '\n'.join(e.messages)})
 
-        # Store necessary data in session for verification
+        verification_code = str(random.randint(100000, 999999))
+        send_verification_email_for_register(email, verification_code)
+
         request.session['verification_code'] = verification_code
         request.session['email'] = email
         request.session['password'] = password1
 
         return redirect(reverse_lazy('Authentication:verify_email'))
 
-    return render(request, 'register.html', {})
+    return render(request, 'register.html')
+
+
+from django.contrib import messages
 
 
 def verify_email(request):
     if request.method == 'POST':
-        entered_code = str(request.POST.get('verification_code'))  # Convert user input to string
+        entered_code = str(request.POST.get('verification_code'))
         stored_code = request.session.get('verification_code')
-        print(
-            entered_code, stored_code
-        )
-        if entered_code == stored_code:
-            create_user_from_session(request)
-            return redirect(reverse_lazy('Authentication:login'))
+
+        # CAPTCHA comparison
+        if stored_code and entered_code == stored_code and request.session.get('verification_timestamp') and (
+                timezone.now() - request.session.get('verification_timestamp')).seconds < 300:
+            user_created = create_user_from_session(request)
+            if user_created:
+                messages.success(request, "User created successfully. Please login.")
+                return redirect(reverse_lazy('Authentication:login'))
+            else:
+                messages.error(request, "An error occurred during user creation.")
         else:
-            return render(request, 'verify_email.html', {'error': 'Invalid verification code'})
+            messages.error(request, 'Invalid or expired verification code')
 
-    return render(request, 'verify_email.html', {})
-
-
-def send_verification_email_for_register(email, code):
-    send_mail(
-        'Verification Code for MainApp Registration',
-        f'Your verification code is: {code}',
-        'recommendjob@gmail.com',
-        [email],
-        fail_silently=False,
-    )
+    return render(request, 'verify_email.html')
 
 
 def create_user_from_session(request):
     email = request.session.get('email')
     password = request.session.get('password')
 
+    if not email or not password:
+        return False
+
     try:
-        user = CustomUser.objects.create_user(username=email, email=email, password=password)
-        print("User created successfully")
-        del request.session['verification_code']
-        del request.session['email']
-        del request.session['password']
+        CustomUser.objects.create_user(username=email, email=email, password=password)
+        clear_registration_session(request)
+        return True
     except Exception as e:
-        print("An error occurred:", e)
+        print("An error occurred while creating the user:", e)
+        return False
 
 
-def send_verification_email_for_reset_password(email, message_html):
-    send_mail(
-        'Password Reset for YourAccount',
-        '',
-        'no-reply@yourwebsite.com',
-        [email],
-        fail_silently=False,
-        html_message=message_html,
-    )
+def clear_registration_session(request):
+    for key in ['verification_code', 'email', 'password', 'verification_timestamp']:
+        try:
+            del request.session[key]
+        except KeyError:
+            pass
 
 
 def password_reset_view(request):
@@ -124,14 +122,11 @@ def password_reset_view(request):
         if email:
             try:
                 user = CustomUser.objects.get(email=email)
-                # Generate a password reset token
                 token = default_token_generator.make_token(user)
                 uid = urlsafe_base64_encode(force_bytes(user.pk))
-                # Construct password reset link
                 reset_link = request.build_absolute_uri(
                     f"/login/password_reset_confirm/{uid}/{token}/"
                 )
-                # Send password reset email
                 message_html = render_to_string('password_reset_email.html', {
                     'user': user,
                     'reset_link': reset_link,
@@ -152,20 +147,29 @@ def password_reset_confirm_view(request, uidb64, token):
         uid = str(urlsafe_base64_decode(uidb64), 'utf-8')
         user = CustomUser.objects.get(pk=uid)
     except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
-        user = None
+        messages.error(request, 'The password reset link is invalid, possibly because it has already been used.')
+        return redirect(reverse_lazy('Authentication:login'), status=404)
 
     if user is not None and default_token_generator.check_token(user, token):
         if request.method == 'POST':
             new_password = request.POST.get('new_password')
             confirm_password = request.POST.get('confirm_password')
-            if new_password == confirm_password:
-                user.set_password(new_password)
-                user.save()
-                messages.success(request,
-                                 'Your password has been reset successfully. You can now log in with your new password.')
-                return redirect(reverse_lazy('Authentication:login'))
-            else:
+
+            if new_password != confirm_password:
                 messages.error(request, 'Passwords do not match. Please try again.')
+                return render(request, 'password_reset_confirm.html')
+
+            try:
+                validate_password(new_password, user)
+            except ValidationError as e:
+                messages.error(request, '\n'.join(e.messages))
+                return render(request, 'password_reset_confirm.html')
+
+            user.set_password(new_password)
+            user.save()
+            messages.success(request,
+                             'Your password has been reset successfully. You can now log in with your new password.')
+            return redirect(reverse_lazy('Authentication:login'))
     else:
         messages.error(request, 'Invalid reset password link.')
         return redirect(reverse_lazy('Authentication:login'))
