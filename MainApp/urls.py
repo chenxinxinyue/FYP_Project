@@ -15,4 +15,7 @@ urlpatterns = [
     path('find_jobs/', views.find_jobs, name='find-jobs'),
     path('show_jobs/', views.show_jobs, name='show-jobs'),
     path('favorite_job/', views.favorite_job, name='favorite-job'),
+    path('tasks/<str:task_id>/status/', views.get_task_status, name='task_status'),
+
 ]
+path('get-task-status/', views.get_task_status, name='get_task_status'),

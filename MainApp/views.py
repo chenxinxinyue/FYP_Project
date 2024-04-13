@@ -1,4 +1,5 @@
 import pandas as pd
+from celery.result import AsyncResult
 from django.core.management import call_command
 from django.http import HttpResponseRedirect, FileResponse, HttpResponse, JsonResponse
 from django.urls import reverse
@@ -140,6 +141,9 @@ def load_file(request, file_name):
         return HttpResponse(f"File not found: {file_path}", status=404)
 
 
+from .tasks import job_scraper_task
+
+
 def find_jobs(request):
     user = request.user
     if request.method == 'POST':
@@ -158,15 +162,35 @@ def find_jobs(request):
             if not job_preferences_list:
                 messages.error(request, 'Preference cannot be empty. Please complete your profile')
                 return redirect('MainApp:index')
-            # Pass user ID as an additional argument
-            call_command('job_scraper', location, job_preferences=job_preferences_list, user_id=user.id,
-                         site_names=site_names)
-            # messages.success(request, 'Address and job preferences updated successfully.')
-            return redirect('MainApp:show-jobs')
+            # call_command('job_scraper', location, job_preferences=job_preferences_list, user_id=user.id,
+            task = job_scraper_task.delay(location, job_preferences_list, user.id, site_names)
+            return JsonResponse({'task_id': task.id})  # 返回任务 ID
     else:
         form = CustomUserForm(instance=user)
     context = {'form': form}
     return render(request, 'show_jobs.html', context)
+
+
+def get_task_status(request, task_id):
+    task = AsyncResult(task_id)
+    response_data = {
+        'state': task.state,
+        'progress': 0,
+    }
+
+    if task.state == 'PENDING':
+        response_data['progress'] = 0
+        response_data['status'] = 'Pending...'
+    elif task.state != 'FAILURE':
+        response_data['progress'] = task.info.get('current', 0) * 100 / task.info.get('total', 1)
+        response_data['status'] = task.info.get('status', '')
+        if task.state == 'SUCCESS':
+            response_data['progress'] = 100
+            response_data['status'] = 'Task completed successfully'
+    else:
+        response_data['status'] = str(task.info)  # this is the exception raised
+
+    return JsonResponse(response_data)
 
 
 def show_jobs(request):
