@@ -1,23 +1,18 @@
 import pandas as pd
 from django.core.management import call_command
-from django.http import HttpResponseRedirect, FileResponse
+from django.http import HttpResponseRedirect, FileResponse, HttpResponse, JsonResponse
 from django.urls import reverse
 from Authentication.forms import CustomUserForm
-from .models import Job
+from .models import Job, School, CustomUser, Study, Experience, CV, Preference, Resume, FavoriteJob
 from .utils import extract_keywords
 from django.shortcuts import render, redirect
 from .forms import StudyForm, ExperienceForm, CVForm, PreferenceForm, ExperienceFormSet, PreferenceFormSet
-from .models import CustomUser, Study, Experience, CV, Preference, Resume
-from django.http import HttpResponse
-from django.conf import settings
-import os
 from django.contrib import messages
-from django.http import JsonResponse
-from .models import School
+import os
 
 
 def index(request):
-    user = None  # 在此处初始化 user 变量
+    user = None  # Initialize the user variable here
 
     try:
         user_id = request.session.get('user_id')
@@ -42,17 +37,20 @@ def profile_view(request):
     preference_instances = Preference.objects.filter(user=user)
 
     if request.method == 'POST':
+        # Print the path of the CV file
+
         study_form = StudyForm(request.POST, instance=study_instance)
         experience_formset = ExperienceFormSet(request.POST, instance=user, queryset=experience_instances)
         cv_form = CVForm(request.POST, request.FILES, instance=cv_instance)
         preference_formset = PreferenceFormSet(request.POST, instance=user, queryset=preference_instances)
-
         if not experience_formset.is_valid():
             print("Experience Formset Errors:", experience_formset.errors)
         if study_form.is_valid() and experience_formset.is_valid() and cv_form.is_valid() and preference_formset.is_valid():
             study_form.save()
             experience_formset.save()
             cv_form.save()
+            print("CV File Path:", cv_instance.cv_file.path)
+
             preference_formset.save()
             messages.success(request,
                              'Update your profile successfully.')
@@ -62,7 +60,7 @@ def profile_view(request):
         experience_formset = ExperienceFormSet(instance=user, queryset=experience_instances)
         cv_form = CVForm(instance=cv_instance)
         preference_formset = PreferenceFormSet(instance=user, queryset=preference_instances)
-        print(experience_formset)
+        # print(experience_formset)
 
     context = {
         'study_form': study_form,
@@ -95,20 +93,16 @@ def upload_view(request):
 
         keywords = extract_keywords(file)
 
-        # 确保用户已经有一个简历对象
+        # Ensure the user has a resume object
         resume, created = Resume.objects.get_or_create(user=user)
-        resume.keywords = keywords  # 假设你的简历模型有一个存储关键词的字段
+        resume.keywords = keywords  # Assume your resume model has a field to store keywords
         resume.save()
 
-        # 上传成功后重定向到首页
+        # Redirect to the index page after successful upload
         return HttpResponseRedirect(reverse('index'))
     else:
-        # 处理非POST请求或未上传文件的情况
+        # Handle non-POST request or no file uploaded
         return HttpResponse('Invalid request', status=400)
-
-
-from django.shortcuts import redirect, render
-from .models import FavoriteJob
 
 
 def favorites_view(request):
@@ -118,9 +112,9 @@ def favorites_view(request):
 
         user = request.user
         if is_favorited == 'true':
-            # 取消收藏
+            # Unfavorite
             FavoriteJob.objects.filter(user=user, id=id).delete()
-            # 重定向到收藏页面
+            # Redirect to favorites page
             return redirect('MainApp:favorites')
         else:
             favorite_jobs = FavoriteJob.objects.filter(user=user)
@@ -135,18 +129,15 @@ def jobs_view(request):
     return render(request, 'jobs.html', {'jobs': jobs})
 
 
-# views.py
-
 def load_file(request, file_name):
-    # 如果路径中有尾部斜杠，移除它
+    # Remove trailing slash if exists in the path
     file_name = file_name.rstrip('/')
-    file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+    file_path = os.path.join('MainApp/cvs', file_name)  # Build the file path using relative path
 
     if os.path.exists(file_path):
-        with open(file_path, 'rb') as file:  # 使用 with 语句确保文件正确关闭
-            return FileResponse(file, as_attachment=True)
+        return FileResponse(open(file_path, 'rb'), as_attachment=True)
     else:
-        return HttpResponse("File not found", status=404)
+        return HttpResponse(f"File not found: {file_path}", status=404)
 
 
 def find_jobs(request):
@@ -156,12 +147,21 @@ def find_jobs(request):
         if form.is_valid():
             form.save()
             location = form.cleaned_data['address']
+            site_names = request.POST.getlist('job_sites')
+            if not site_names:
+                site_names = ["indeed", "linkedin", "zip_recruiter", "glassdoor"]
+            if not location:
+                messages.error(request, 'Please enter your location')
+                return redirect('MainApp:index')
             job_preferences = Preference.objects.filter(user=user).values_list('preference', flat=True)
             job_preferences_list = list(job_preferences)
-            # 传递用户 ID 作为额外参数
-            call_command('job_scraper', location, job_preferences=job_preferences_list, user_id=user.id)
-
-            messages.success(request, 'Address and job preferences updated successfully.')
+            if not job_preferences_list:
+                messages.error(request, 'Preference cannot be empty. Please complete your profile')
+                return redirect('MainApp:index')
+            # Pass user ID as an additional argument
+            call_command('job_scraper', location, job_preferences=job_preferences_list, user_id=user.id,
+                         site_names=site_names)
+            # messages.success(request, 'Address and job preferences updated successfully.')
             return redirect('MainApp:show-jobs')
     else:
         form = CustomUserForm(instance=user)
@@ -190,12 +190,6 @@ def show_jobs(request):
     return render(request, 'show_jobs.html', context)
 
 
-from django.http import JsonResponse
-from .models import FavoriteJob
-from django.http import JsonResponse
-from .models import FavoriteJob
-
-
 def favorite_job(request):
     if request.method == 'POST':
         job_url = request.POST.get('job_url')
@@ -204,11 +198,11 @@ def favorite_job(request):
         is_remote = request.POST.get('is_remote')
         is_favorited = request.POST.get('is_favorited')
 
-        # 替换为默认值
+        # Replace with default values
         if location is None:
             location = "Unknown"
 
-        # 处理 is_remote 的值
+        # Handle is_remote value
         if is_remote is not None:
             is_remote = is_remote.lower() == 'true'
         else:
