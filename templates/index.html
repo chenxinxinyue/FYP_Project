@@ -10,13 +10,96 @@
         <li role="presentation"><a href="{% url 'Authentication:login' %}">Logout</a></li>
     </ul>
     <div class="container">
+        <!-- 弹窗和进度条 -->
+        <div id="progressModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h4>Job Searching...</h4>
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                         aria-valuemax="100" style="width: 0%;">
+                        0%
+                    </div>
+                </div>
+            </div>
+        </div>
         <form method="post" action="{% url 'MainApp:find-jobs' %}" id="jobSearchForm">
             {% csrf_token %}
+            <label for="job-sites">Choose job sites:</label>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+            <span class="input-group-addon">
+                <input type="checkbox" name="job_sites" value="linkedin" aria-label="LinkedIn">
+            </span>
+                        <input type="text" class="form-control" aria-label="LinkedIn" value="LinkedIn" readonly>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="input-group">
+            <span class="input-group-addon">
+                <input type="checkbox" name="job_sites" value="indeed" aria-label="Indeed">
+            </span>
+                        <input type="text" class="form-control" aria-label="Indeed" value="Indeed" readonly>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="input-group">
+            <span class="input-group-addon">
+                <input type="checkbox" name="job_sites" value="glassdoor" aria-label="Glassdoor">
+            </span>
+                        <input type="text" class="form-control" aria-label="Glassdoor" value="Glassdoor" readonly>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="input-group">
+            <span class="input-group-addon">
+                <input type="checkbox" name="job_sites" value="zip_recruiter" aria-label="ZipRecruiter">
+            </span>
+                        <input type="text" class="form-control" aria-label="ZipRecruiter" value="ZipRecruiter" readonly>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
             <label for="address">Input your address:</label>
             <input type="text" id="address" name="address" placeholder="Enter your address">
             <button type="submit" id="findJobsButton">Find Jobs</button>
         </form>
 
     </div>
+
+    <script>
+        document.getElementById('jobSearchForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // 阻止表单默认提交
+            var formData = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                url: this.action,
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    $('#progressModal').show(); // 显示弹窗
+                    updateProgress(response.task_id); // 开始更新进度条
+                }
+            });
+        });
+
+        function updateProgress(taskId) {
+            $.ajax({
+                url: '/tasks/' + taskId + '/status/',
+                success: function (data) {
+                    var progress = data.progress;
+                    $('#progressBar').css('width', progress + '%').attr('aria-valuenow', progress).text(progress + '%');
+                    if (progress < 100) {
+                        setTimeout(function () {
+                            updateProgress(taskId);
+                        }, 1000);
+                    } else {
+                        window.location.href = '/MainApp/show-jobs'; // 任务完成后跳转
+                    }
+                }
+            });
+        }
+
+    </script>
 {% endblock %}
 
