@@ -135,11 +135,16 @@ def jobs_view(request):
     return render(request, 'jobs.html', {'jobs': jobs})
 
 
+# views.py
+
 def load_file(request, file_name):
+    # 如果路径中有尾部斜杠，移除它
+    file_name = file_name.rstrip('/')
     file_path = os.path.join(settings.MEDIA_ROOT, file_name)
 
     if os.path.exists(file_path):
-        return FileResponse(open(file_path, 'rb'), as_attachment=True)
+        with open(file_path, 'rb') as file:  # 使用 with 语句确保文件正确关闭
+            return FileResponse(file, as_attachment=True)
     else:
         return HttpResponse("File not found", status=404)
 
