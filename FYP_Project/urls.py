@@ -15,17 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin
-from django.urls import path, include
-
 from django.urls import path, include
 from django.contrib import admin
-from django.views.generic import RedirectView
 from django.shortcuts import redirect
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", lambda request: redirect('login/')),  # 重定向到登录页面
+    path("", lambda request: redirect('login/')),  # redirect to login
     path("MainApp/", include("MainApp.urls")),
     path('login/', include('Authentication.urls')),
 ]

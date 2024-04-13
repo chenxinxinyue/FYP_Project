@@ -1,9 +1,7 @@
 # Authentication/urls.py
 
-from django.urls import path
 from . import views
 from django.urls import path
-# from django.contrib.auth import views
 
 app_name = 'Authentication'
 
