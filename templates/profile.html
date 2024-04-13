@@ -36,12 +36,6 @@
             <div class="form-section">
                 <h2>CV</h2>
                 {{ cv_form.as_p }}
-                <!-- 添加下载链接 -->
-                {% if cv_form.instance.cv_file %}
-                    <a href="{% url 'MainApp:load-file' file_name=cv_form.instance.cv_file.name.split('/')[-1] %}"
-                       target="_blank">Download CV</a>
-                {% endif %}
-
             </div>
 
 
