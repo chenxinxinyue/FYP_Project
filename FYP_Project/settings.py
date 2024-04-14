@@ -73,19 +73,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "FYP_Project.wsgi.application"
-DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
-}
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "db1",
-#         "USER": "root",
-#         "PASSWORD": "020125",
-#         "HOST": "127.0.0.1",
-#         "PORT": "3306",
-#     }
+#     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 # }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "db1",
+        "USER": "root",
+        "PASSWORD": "020125",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -138,3 +138,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'recommendjob@gmail.com'
 EMAIL_HOST_PASSWORD = 'hlpx utwz tpkb fvtu'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+import os
+
+CELERY_BROKER_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
+CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
