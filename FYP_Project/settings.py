@@ -29,10 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
-# Application definition
-DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
-}
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -76,7 +73,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "FYP_Project.wsgi.application"
-
+# DATABASES = {
+#     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "db1",
+        "USER": "root",
+        "PASSWORD": "020125",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

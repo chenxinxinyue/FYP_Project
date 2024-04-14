@@ -1,1 +1,1499 @@
+site,job_url,job_url_direct,title,company,location,job_type,date_posted,interval,min_amount,max_amount,currency,is_remote,emails,description,company_url,company_url_direct,company_addresses,company_industry,company_num_employees,company_revenue,company_description,logo_photo_url,banner_photo_url,ceo_name,ceo_photo_url
+indeed,https://uk.indeed.com/viewjob?jk=664afb7b296a625e,https://jsv3.recruitics.com/redirect?rx_cid=3426&rx_jobId=01677552-1&rx_url=https%3A%2F%2Fcareers.rtx.com%2Fglobal%2Fen%2Fjob%2F01677552%3Frx_campaign%3Dindeed0%26rx_ch%3Djobp4p%26rx_group%3D135032%26rx_job%3D01677552-1%26rx_medium%3Dcpc%26rx_r%3Dnone%26rx_source%3DIndeed%26rx_ts%3D20240414T080048Z%26rx_vp%3Dcpc,C++ Software Engineer,Collins Aerospace,"Burgess Hill, ENG, GB",fulltime,2024-04-13,,,,,False,,"**Date Posted:**
 
+
+2024-02-08**Country:**
+
+
+United Kingdom**Location:**
+
+
+Rockwell Collins UK Limited, Edward Way, Burgess Hill, RH15 9UE**Position Role Type:**
+
+
+Unspecified
+An excellent opportunity has arisen for an experienced **C++ Software Engineer** to join Collins Aerospace on a hybrid working basis. The successful candidate will join an established team of software engineers and technical professionals to work on Display Control Software as part of the Simulation & Training Solutions Engineering Team located in Burgess Hill, West Sussex, UK.
+
+**Basic Requirements:**
+
+* Proven C++ Programming Skills (Advanced Modern C++ 14/17/20)
+* Excellent communication skills
+* Office based for a minimum of 3 days per week along with either;
+* Microsoft Foundation Class (MFC) User Interface Experience
+* OR
+* C# ASP.NET skills
+
+**Preferred Skills / Experience:**
+
+* Atlassian Toolset (JIRA)
+* Display Systems/ Simulation Industry Knowledge
+* Bachelor’s Degree in a Science, Technology, Engineering or Math's (STEM) discipline with relevant experience. In the absence of a degree, relevant and proven experience
+
+**Any of the following skills would be advantageous:**
+
+* Typescript / JavaScript and CSS / HTML
+* Familiarity with JSON and JSON RPC
+* Experience with API Protocols
+* Atlassian Toolset (Confluence, Crucible, Bamboo)
+
+**About Us:**
+
+
+Collins Aerospace UK Simulation & Training Solutions (STS) provides solutions to the most complex simulation and training challenges for a variety of military & commercial customers around the world. The role requires an experienced Software Engineering professional, who works well within teams, to develop new products and diagnose and resolve issues on existing products. The role requires a multiple disciplinary approach to design and develop solutions that satisfy end user needs.
+
+**Engineering & Technology:**
+
+  
+
+Collins Aerospace makes modern flight possible. Of course, that wouldn’t be possible without the capabilities and technologies of our organization, as well as our engineers – a highly skilled, accomplished network that spans more than 180 sites, 24 countries and 6 Strategic Business Units (SBUs).
+
+
+Our industry-leading experts are setting the standards for the aerospace industry and paving the way for the future. But as new challenges present themselves, we need fresh, creative and motivated minds to overcome these hurdles, help us break barriers and achieve new levels of innovation. Do you have what it takes to join a global, diverse organization that doesn’t shy away from big opportunities? If so, we invite you to join our ranks and create the next generation of aerospace technologies.
+
+**What we can offer you:**
+
+* Competitive Salary
+* Private Medical Insurance
+* Health and Wellbeing Cash Plan
+* Fantastic Pension Scheme which operates as a 2:1 match up to 10%
+* Life Assurance
+* 25 days annual leave plus Bank Holidays plus ability to buy/sell 5 days per year
+* Flexible working
+* Employee selectable top up benefits
+* And so much more!
+
+
+At Collins, the paths we pave together lead to limitless possibilities. And the bonds we form – with our customers and with each other - propel us all higher, again and again.
+
+**WE ARE REDEFINING AEROSPACE.**
+
+
+Together, we will nurture an engineering culture that values intellectual curiosity, risk takers and integrity. A place where we will challenge ourselves, our teams, and the status quo and where we will work to find a way – the right way – to achieve what others can only dream of.
+
+**Collins Aerospace Diversity Statement:**
+
+**Diversity drives innovation; inclusion drives success**. We believe a multitude of approaches and ideas enable us to deliver the best results for our workforce, workplace, and customers. We are committed to fostering a culture where all employees can share their passions and ideas so we can tackle the toughest challenges in our industry and pave new paths to limitless possibility.
+
+ **Apply now and be part of the team that’s redefining aerospace, every day.**
+
+
+Collins Aerospace, in accordance with our 'Baseline Security' requirements, will request from candidates evidence of identity, eligibility to work in the UK, and employment and/or education history for up to three years, in relation to certain roles within the business. These relate to positions where access to export controlled items, (e.g., Technical data, hardware, software, and services subject to international trade control laws and regulations) and Collins IT Systems may apply. For further details of the evidence required to apply for Baseline and Security Clearance please refer to the Defence Business Services National Security Vetting (DBS NSV) Agency.
+
+***RTX is An Equal*** ***Opportunity/Affirmative*** ***Action Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age or any other federally protected class.***
+
+**Privacy Policy and Terms:**
+
+
+Click on this link to read the Policy and Terms",https://uk.indeed.com/cmp/Collins-Aerospace,https://www.collinsaerospace.com,"2730 West Tyvola Road
+Charlotte NC 28217-4578 USA", Aerospace And Defense,"10,000+",more than $10B (USD),"At Collins Aerospace, we’re redefining what it means to be in the aerospace business. Come be part of that change.",https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/87cd89435cc3153aa4da18b19af62e2e,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/07fc40e19877f0fb2235ccee68d0b672,Stephen Timm,https://d2q79iu7y748jz.cloudfront.net/s/_ceophoto/512x512/ebffa61e0c60bc5ea71c8147249eb89c
+indeed,https://uk.indeed.com/viewjob?jk=64f3780952470f97,http://uk.indeed.com/job/senior-software-development-64f3780952470f97,Senior Software Development,Arnos one,"London, ENG, GB",fulltime,2024-04-13,,,,,True,DrNader@eSupraLife.com,"We’re developing a telemedicine web application via sprints with a few of other software developers.
+
+if were interested, you may choose any aspect of software you are experienced at?
+
+For example, we have
+
+* Directory say like yellow pages Microsoft Teams integration for Text, voice mail, picture (functioning like say WhatsApp fast and slick)
+* Microsoft SHIFTS Calendar booking Calendar matching availability dates of multiple providers for one visit
+* Google maps api
+* API HEALTH CODE integration api https://www.healthcode.co.uk/ Microsoft Azure DICOM for images
+* Azure security say like egress data exchange PACS (probably Sectra) or if you have some other thoughts
+* Nuance api for voice recognition
+* Bidding and matching algorithms say like eBay Please do you have a portfolio or a way to tell our company which of the above is falling under your expertise.
+* Payment integration p
+* ecommerce like online drugstore say like Lloyds : https://lloydspharmacy.com/collections/pain-relief
+* If any of the above sprints kindly falls under your expertise we shall kindly have a Teams meeting and taking it to the next step.
+* We function in Sprint manner and contract each part that you have mastered your expertise on and have experience.
+* This will be cooperated with other engineers.
+
+You may email me direct ""mailto:DrNader@eSupraLife.com""
+
+Job Type: Full-time
+
+Pay: £80,000.00-£90,000.00 per year
+
+Benefits:
+
+* Company pension
+* Private medical insurance
+* Work from home
+
+Schedule:
+
+* Monday to Friday
+* Overtime
+
+Education:
+
+* Master's (preferred)
+
+Work Location: In person
+
+Reference ID: 7854985",https://uk.indeed.com/cmp/Arnos-One,,,,,,,,,,
+indeed,https://uk.indeed.com/viewjob?jk=10fafa225db9cc31,https://join.com/companies/cyphereurope/11101012-senior-java-cloud-engineer?pid=a13795120131dbe48464,Senior Java Cloud Engineer,Cypher Consulting Europe,"London, ENG, GB",,2024-04-13,,,,,False,,"The ‘Senior Java Cloud Engineer’ role sits within the Technology function and reports to the Development Manager
+  
+  
+
+You will have line management responsibility to 2 Java/Cloud engineers.
+  
+  
+
+Tasks
+  
+  
+
+1\. Maintain a thorough technical understanding of current and future business systems needs
+  
+  
+
+2\. Solution design
+  
+  
+
+* To identify potential systems solutions to business needs, analysing the solution feasibility in conjunction with senior developers and the Technical Architect.
+* To be an AWS/Cloud evangelist and encourage the use of AWS services & technologies
+* To document proposed solutions to allow sign-off by technical and non-technical management
+* To lead on low level design working in combination with Solution Engineers & other Engineers
+* To document detailed technical specifications in a clear, concise and structured way that allows other developers to operate and maintain the systems being developed
+
+
+3\. Systems development and deployment
+  
+  
+
+* To research and suggest new open source tools and techniques that can be utilised in the solutions
+* To use cloud solutions where appropriate but to also look at consistency for solutions
+* To write detailed technical specifications based on identified solutions
+* To develop specified solutions in accordance with approved specifications
+* To develop and improve established standards and procedures, including, coding, testing and documentation standards
+* To ensure quality of the code by unit-testing the developed solution, to include test script preparation, test data preparation and test execution. Using appropriate tools to increase efficiency & quality
+* To contribute to the continuous maintenance of technical documentation
+
+
+4\. Maintain strong relationships
+  
+  
+
+* To build and maintain strong working relationships with stakeholders, including key business users and external suppliers
+* To liaise closely with business users to ensure a close fit exists between business needs and technical solutions
+* To work closely with other Leads in the Engineering team to ensure smooth and efficient delivery process
+
+
+5\. Lead a team of Engineers
+  
+  
+
+* To lead a team of Engineers and recruit, train, develop and motivate an effective team to help deliver its agreed set of priorities
+* To provide technical leadership to the team and lead by example as a hands-on Engineer
+* To manage proactively the professional development of team members, in order to maintain high performance levels and provide opportunities for career development.
+
+
+6\. Other responsibilities
+  
+  
+
+* To represent the interests of business users by helping keep projects focussed on meeting business needs and realising business benefits
+* To assist the Technical Architect in determining project scope, costs and timescales
+* To develop and maintain expertise in best practice development methodologies and techniques
+* To maintain knowledge of new and emerging technologies that may be relevant
+
+
+Requirements
+  
+  
+
+* 5 years+ experience in computer infrastructure or development background
+* AWS experience
+* Coding experience
+* Knowledge of traditional infrastructure layers such as network, compute and storage systems and virtualisation.
+* AWS knowledge of EC2, ECS, VPC, S3, Lambda, Cloudformation, Route 53
+* Administration skills in Linux",https://uk.indeed.com/cmp/Cypher-Consulting-Europe,,,,,,,,,,
+indeed,https://uk.indeed.com/viewjob?jk=2a36ebd9262640ca,https://factset.wd1.myworkdayjobs.com/en-US/FactSetCareers/job/London-GBR/Principal-Cloud-Architect_R23917,Principal Cloud Architect,FactSet,"London, ENG, GB",fulltime,2024-04-13,,,,,False,,"Cloud has and remains a core enabler for several of our enterprise strategies: rounding the corner on Digital Transformation, executing on M&A, driving Investment Programs, and enabling GenAI. The Platform Infrastructure Engineering Team at FactSet is looking for an additional member for the Cloud Architecture team. The team is comprised of Cloud Architects and Engineers, focusing on overall Cloud Architecture strategy & execution, and enablement of the organization to create and run optimized Cloud Native solutions on AWS and Azure. The Principal Cloud Architect will help maximize the benefit FactSet receives from its usage of public cloud. The architect will directly contribute to the growth of the business by partnering with Strategic Business Units and Engineering teams to promote modernization, leveling up Cloud knowledge, increasing collaboration across the organization and helping to realize FactSet’s Cloud Architecture strategy.
+Responsibilities:* Supports the planning and implementation of enterprise Cloud Programs
+* Make meaningful contributions to FactSets cloud platform and capabilities.
+* Fosters a culture of innovation and encourages colleagues to think differently in finding solutions.
+* Focuses on providing efficient business value; ensuring programs are delivered as efficiently as possible.
+* Work with other Platform Infrastructure Engineering teams to help drive adoption of cloud services.
+* Ensures core FactSet Infrastructure services are available in the cloud and easily consumable by FactSet engineering teams.
+* Increase velocity of cloud migration and digital transformation by helping engineering teams adopt DevOps, Infrastructure as Code, and automated release processes.
+* Work with FactSet security organization to ensure a strong security posture of services and data in the cloud.
+* Provide input and assistance on high availability (HA) and disaster recovery (DR) of services running in the cloud. Develop processes and tooling to help engineering teams implement these HA & DR strategies for critical services deployed in the cloud.
+* Identify and implement cost optimization strategies for cloud services.
+
+
+Minimum Requirements:* 7 or more years of hands-on public cloud experience successfully making architecture contributions in a fast-paced, high growth business with demonstrable experience leading cross-functional technology teams, planning, capital expense budgeting, and process improvement.
+
+
+Critical Skills:* 3+ years AWS experience working in a highly distributed fast paced environment.
+* Leadership experience
+* Proven track record of being an innovative and pragmatic technology expert.
+* Understanding of Cloud Computing technologies.
+* Strong Working knowledge of one or more of the following: Python, GoLang, Terraform, CloudFormation, or Ansible
+* Experience with Docker, EC2/ASG, Serverless (Lambda), ECS/EKS
+* Strong foundational knowledge on AWS Networking services: VPC, TGW, Direct Connect, ALB/NLB, PrivateLink
+* Knowledge of Generative AI and AI/ML tools & techniques
+* Strong desire for learning new tech and solving challenging engineering problems.
+
+
+Additional Skills:* Excellent communication skills, with the ability to lead business and technology discussions at all levels.
+* Ability to review initiatives, understand detailed business processes and technology, and make timely decisive decisions.
+* Track record of being a change agent, one who can drive new and commercial thinking across the organization and the behaviors supporting such, while engaging in a collaborative, inclusive style
+* Strategic, analytical, and creative thinking style with a realistic, pragmatic approach
+
+
+Education:* Bachelor’s degree in information/computer science, engineering, or related discipline with IT focus required.
+
+*At FactSet, we celebrate diversity of thought, experience, and perspective. We are committed to disrupting bias and a transparent hiring process. All qualified applicants will be considered for employment regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or veteran status. FactSet participates in E-Verify.*
+FactSet is an Equal Opportunity Employer – M/F/Veteran/Disability/Sexual Orientation/Gender Identity",https://uk.indeed.com/cmp/Factset,http://www.factset.com,"Norwalk, CT",,"10,000+",$1B to $5B (USD),FactSet is a leading provider of financial data and analytic applications for investment management and investment banking professionals.,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/21b0275174e1dcfeb846756f2cd95419,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/0adb758267c033b08ef6a92ed1b85b04,Philip Snow,https://d2q79iu7y748jz.cloudfront.net/s/_ceophoto/512x512/5dd95f67a4a54c31ecc119edff5c3971
+indeed,https://uk.indeed.com/viewjob?jk=a03216f58bf3406d,https://grnh.se/3b7f10be3us,Senior Backend Developer (AdTech),,"London, ENG, GB",,2024-04-13,,,,,True,,"We are proud to be at the forefront of the Pay Per Call industry, providing the most advanced call tracking and analytics platform on Earth. Every day, thousands of businesses and professional marketers rely on **Ringba** to fuel their Pay Per Call (PPC) programs. Our dedication to excellence has earned us multiple awards, and our CEO, **Adam Young**, continues to lead with vision and innovation.
+
+
+
+If you're an exceptional developer seeking to tackle the most complex challenges and craving a workplace free from corporate bureaucracy, we invite you to continue reading.
+
+
+
+We're currently seeking a new team member with strong AdTech expertise to help pioneer transformative change in our industry. Our team has embraced remote work for over six years, prioritizing a culture that values learning and the art of crafting exceptional code over geographic location. Our remote setup thrives on #Slack for rapid communication, weekly all-hands meetings for team alignment, and an Agile approach that empowers developers to drive projects forward while ensuring every voice is heard. We're committed to asking the tough questions, fostering open dialogue, and architecting innovative solutions to enhance our user experience and customer satisfaction.
+
+
+
+At Ringba, our team comprises entirely seasoned professionals who are passionate about driving radical change in our industry. Whether you're based in San Diego or Kathmandu, if you're passionate about learning and thrive on delivering exceptional code, we'd love to hear from you.
+
+
+
+Please note that we're specifically interested in hiring high-functioning, detail-oriented, responsible, and dedicated individuals who embody our commitment to excellence. We hold our team members to high standards and provide opportunities for continuous growth and improvement. If you're not motivated by challenges or don't consider yourself an 'A' player, we appreciate your interest but may not be the right fit.
+
+
+
+Why are we so selective in our hiring process? Because our team is the foundation of our success. To maintain our winning streak, we must surround ourselves with exceptional talent.
+
+
+
+Joining the Ringba team means you'll have the opportunity to grow both personally and professionally, supported by a culture of trust and autonomy. We value our team members and expect them to share our commitment to our mission and consistently deliver their best work.
+
+
+
+If you're ready to apply, please be prepared for comprehensive code tests and multiple interview rounds with key members of our team.
+
+
+**What you'll do**:
+
+
+* Solve large scale engineering problems in the AdTech and PPC arenas with elegant, practical code.
+* Be a champion for Ringba's customers, clients, and consumers by ensuring their needs always come first. We are obsessed with CX and UX.
+* Implement redundant and scalable architecture.
+* Own the full development life-cycle of your projects.
+* Work independently with little or no supervision.
+
+
+**What you need**:
+
+
+* Proven AdTech experience, with a solid understanding of the AdTech industry and its technologies.
+* Proven track record of success in a remote home office environment.
+* Prior experience working for a startup or in a fast-paced environment.
+* Demonstrated expertise in relevant technologies and frameworks, showcasing a depth of technical knowledge.
+* Strong problem-solving abilities, with a knack for devising creative solutions to complex engineering challenges.
+* Effective leadership skills, with a focus on enhancing team technologies and infrastructure.
+* Minimum of 6 years of experience with .NET development.
+* Experience with building and managing data pipelines, including familiarity with tools like Kinesis.
+* Proficiency in Node.js/JavaScript and familiarity with major AWS services.
+* Expertise in implementing full-coverage unit testing using tools such as Cypress and Ghost Inspector.
+* Experience with NoSQL databases like AeroSpike or Redis.
+
+
+**Bonus Points****:**
+
+
+* Experience with real-time bidding systems.
+* Experience with VOIP and telecom APIs.
+* Experience with Elasticsearch.
+
+
+At Ringba, we are deeply committed to cultivating an inclusive culture. Our dedication to our **core values** of leading, over-delivering, innovating, improving, and educating is steadfast. We adhere to a stringent non-discrimination policy across all facets of employment. Decisions related to hiring, advancement, and other employment considerations are conducted without regard to race, color, ethnicity, national origin, gender, sexual orientation, gender identity, age, religion, disability, veteran or military status, and genetic information. Ringba spans multiple countries, and you can learn more about our culture by watching We Are Ringba:",,,,,,,,,,,
+indeed,https://uk.indeed.com/viewjob?jk=1275cab313c3f3a3,https://www.understandingrecruitment.com/job/phd-software-developer-6803/,PhD Software Developer,Understanding Recruitment,"London, ENG, GB",,2024-04-13,,,,,True,,"**PhD Software Developer**
+==========================
+
+BBBH0366\_1713009609
+
+
+**Posted: 13/04/2024**
+
+
+**£80000 - £140000 per annum + fully remote working, pension****City of London, London****Permanent**
+*Are you a Java Developer with a PhD in Computer Science?*
+
+**PhD Software Developer** - Sustainable Energy
+
+**£80,000 - £140,000**
+
+**FULLY REMOTE** - must be based in the UK
+
+
+
+
+We are very excited to be partnered with a pioneering scale-up on a mission to become the leading sustainable platform in the industry. With over 10,000 customers already, this energy supplier is having record months month-on-month, so it is an excellent to join this soon-to-be front-runner.
+
+
+They are looking for a PhD Software Developer with a deep and advanced understanding of the Computer Science fundamentals to join their team and help disrupt the market by contributing new innovative ideas.
+
+
+You will be a great PhD Software Developer if you:
+
+* Are an abstract thinker who can think of new concepts
+* Have a strong understanding of **Algorithms**, **Compiler Theory**, **Graph Theory**, **Interval Graphs**
+* Have **Java** programming experience with **Core Java** - **multithreading**, **concurrency**, **low latency**
+* Will come in and create new technologies
+
+
+
+
+There is no better time to join this buzzing company as they are constantly growing and surpassing their revenue targets. As a PhD Software Developer, you will get to be part of a revolutionary CleanTech mission from early on in their journey.
+
+
+The benefits are also excellent:
+
+* Full remote working from anywhere in the UK
+* Private medical insurance
+* MacBook
+* Unlimited career progression
+* Freedom to work with whatever tools you deem fit for the task
+
+
+
+
+**If you are keen to use your advanced PhD knowledge while also contributing to global improvements through exciting and challenging Java development, apply for this PhD Software Developer position now!**
+
+**Please note**: Due to compliancy reasons, we will only be able to consider applications based in or eligible to work in the UK.",https://uk.indeed.com/cmp/Understanding-Recruitment,https://www.understandingrecruitment.co.uk/,"2nd Floor
+Abbeyview 38-40 The Maltings", Human Resources And Staffing,11 to 50,$1M to $5M (USD),,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/8925d13ecb7728dde28db9435c0df46e,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/ec1ebf78412e727b1d783eea4715af5f,Chris Jackson,
+indeed,https://uk.indeed.com/viewjob?jk=fbd215e19e17e37a,http://uk.indeed.com/job/assistantadmincmweb-developer-3rd-generation-rug-trade-fbd215e19e17e37a,Assistant/Admin/CM/Web Developer in 3rd Generation Rug Trade,Rugmaster,"London, ENG, GB",parttime,2024-04-13,,,,,False,sam@rugmaster.uk,"**Job Description:** As an assistant in this role you will play a crucial role in ensuring the smooth operation of our business. Your responsibilities will include:
+
+· Assisting with customer inquiries, invoices, sales & advice.
+
+· Managing our Shopify/Wordpress websites for both sales and services, including updating product listings, optimizing content, and ensuring a seamless online customer experience.
+
+· Handling social media platforms, creating engaging content, and managing regular posts to increase brand visibility and engagement.
+
+· Communicating effectively with customers and clients via phone, email, and in-person interactions, addressing any concerns or queries promptly and professionally.
+
+· Utilizing your experience in managing an eBay shop or willing to learn, to expand our online presence and drive sales.
+
+· Assisting with marketing and growth i.e Email marketing, SEO (Experience in marketing useful)
+
+· Assisting in general store maintenance tasks, including inventory management, organizing displays, and ensuring a clean and inviting store environment.
+
+**Requirements:**
+
+· Excellent spoken and written English skills.
+
+· Experience managing a Shopify/Wordpress/Drupal website preferred.
+
+· Coding and Web development knowledge preferred (e.g. Java, CSS, HTML).
+
+· Proficiency in social media management, including content creation and posting.
+
+· Strong interpersonal skills and the ability to effectively communicate with customers and clients.
+
+· Proficient in Microsoft Word, Excel & CRM tools such as Bigin/Notion/Trello
+
+· Experience in managing eBay or a willingness to learn.
+
+· A valid driver's license would be useful but not required.
+
+**Benefits:**
+
+· Competitive salary
+
+· Opportunities for growth and advancement within a family-oriented business.
+
+· Flexible work schedule 2/3 days a week starting part-time with a potential to be full-time.
+
+· Support provided to enhance skills in sales, customer relations and managing the day to day of a growing business
+
+Join our team and become part of a legacy of excellence in the rug/carpet trade! Apply today by submitting your resume and cover letter to sam@rugmaster.uk.
+
+Job Type: Part-time
+
+Pay: £150.00-£300.00 per week
+
+Expected hours: No less than 16 per week
+
+Benefits:
+
+* Casual dress
+* Employee discount
+* Free parking
+* Store discount
+
+Schedule:
+
+* 8 hour shift
+* Day shift
+* Monday to Friday
+* Weekend availability
+
+Work Location: In person
+
+Reference ID: RM0413  
+Expected start date: 01/05/2024",https://uk.indeed.com/cmp/Rugmaster,,,,,,,,,,
+indeed,https://uk.indeed.com/viewjob?jk=15c7bdfa2cda067e,https://cybercareers.baesystems.com/job/Guildford-C%2B%2B-Developer-Wireless-Products/915472601/?feedId=373033&utm_source=Indeed&utm_campaign=BAE_Indeed,C++ Developer - Wireless Products,BAE Systems,"Guildford, ENG, GB",fulltime,2024-04-13,,,,,False,,"BAE Systems Digital Intelligence is home to 4,500 digital, cyber and intelligence experts. We work collaboratively across 10 countries to collect, connect and understand complex data, so that governments, nation states, armed forces and commercial businesses can unlock digital advantage in the most demanding environments.
+
+
+This opportunity is suitable for Software Developers with C++ experience.
+
+ **Unleash Your Potential with BAE's Wireless Products Team**
+
+
+Are you ready to take your engineering career to new heights? Look no further than the Wireless Team at BAE Digital Intelligence. Discover a world of unparalleled opportunities where innovation thrives.
+
+ **Why Choose Us?**
+
+
+Join us on a journey of cutting-edge projects with rapid design cycles, where your creativity will flourish. You’ll be developing products for extreme operational environments from under water to outer space.
+
+  
+
+Witness your concepts come to life through the entire end-to-end engineering process. Brace yourself for technical challenges that demand your problem-solving prowess.
+
+ **What Sets Us Apart?**
+
+
+Small Project Teams - Imagine solving problems from first principles and building solutions from the ground up. Experience the energy of a ""start-up"" atmosphere.
+
+  
+
+Flexible Career Pathways - We value potential as much as experience. Deepen your core expertise or diversify your skill set. We encourage and support your growth.
+
+  
+
+Modern Tech Stack - Solve complex challenges with leading-edge technology. Our broad tech stack ensures every day is a new adventure.
+
+  
+
+Autonomy - Engineer with autonomy. Take ownership of projects and evolve as you contribute your expertise to deliverables.
+
+ **A Team of Visionaries**
+
+
+Our Wireless Products Team comprises over 125 talented individuals and growing. Collaborate with professionals from diverse backgrounds, spanning engineering, physics, and mathematics. From industry veterans to rising stars, together we drive excellence.
+
+ **Pioneering Expertise**
+
+
+The team has leading capabilities in Electronics Design, Signal Processing, FPGA’s, RF technologies, Software & Mathematical Modelling.
+
+ **Variety of Work & Technical Challenges**
+
+
+Personal development opportunities ensure the Wireless Team score highly on retention rate. It’s a really good environment for ambitious techies to flourish.
+
+ **Essential Requirements for applicants**
+
+* Junior Engineers = Experience developing software using C++
+* Mid & Senior Engineers = C++ & Linux
+* Onsite Dedication: Work onsite to immerse in our secure environment.
+* Security Clearance: Qualify for full, unrestricted, UK Security Clearance
+* You’ll need to be a UK National, either from birth, or naturalised as well as being a permanent UK Resident for the last 5 years. Due to security clearance requirements for this position we are unable to consider dual nationals and non-UK nationals for this particular role.
+
+ **Our Locations**
+
+
+The Wireless Product Team are spread across 3 sites, Our Guildford employees team work from the BAE Digital Intelligence HQ and Labs which is based on the beautiful Surrey Research Park with lush green surroundings and lakes. We have facilities in Manchester as well as Gloucester.
+
+  
+
+Due to the sensitive nature of our work please be aware that Wireless Products Team roles are full-time onsite roles working in secure environments.
+
+ **The Wireless Products Team**
+
+
+The Wireless Products team works with the UK Government and its trusted partners to develop solutions which are deployed within challenging environments around the world.
+
+  
+
+The team is passionate about developing technology that helps protect people and keep society safe.
+
+ **Inclusivity Matters:**
+
+
+BAE want to ensure that our recruitment processes are as inclusive as possible. If you have a disability or health condition (for example dyslexia, autism, an anxiety disorder etc.) that may affect your performance in certain assessment types, please speak to your BAE Recruiter about potential reasonable adjustments
+
+ **Life at BAE Systems Digital Intelligence**
+
+
+Diversity and inclusion are integral to the success of BAE Systems Digital Intelligence. We are proud to have an organisational culture where employees with varying perspectives, skills, life experiences and backgrounds – the best and brightest minds – can work together to achieve excellence and realise individual and organisational potential.",https://uk.indeed.com/cmp/BAE-Systems,https://www.baesystems.com/en/our-company,"London, England",,"10,000+",more than $10B (USD),"We protect what matters. A community of over 90,000 people in over 40 countries, creating some of the world’s most advanced, technology-led defence, aerospace, marine, land, and security solutions.",https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/4f0442614237417c78c86d9431a67dd2,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/66e15ec590890f04d80b3dea63c8f93f,Tom Arseneault,https://d2q79iu7y748jz.cloudfront.net/s/_ceophoto/512x512/2729bfe02852606d9dac8f29495917ca
+indeed,https://uk.indeed.com/viewjob?jk=63538ea6c7e23340,https://www.efinancialcareers.ie/jobs-UK-London-Quant_Developer_-_Alternative_Discretionary_Technology.id20940798,Quant Developer - Alternative Discretionary Technology,Man Group plc,"London, ENG, GB",fulltime,2024-04-13,,,,,False,,"**The Team**
+  
+
+  
+
+Alternative Discretionary Technology is a small and agile team that works very closely with the front-office teams in the UK as well as the US for Man's discretionary strategies that operate in non-traditional markets. We develop and support a number of platforms for underwriting and ongoing management of private market assets like buy-to-rent housing portfolios, real estate debt and credit risk.
+  
+
+  
+
+As a developer in Alt Discretionary Tech, you will develop and deploy features for every system that we've built as you communicate requirements and issues with the front-office teams in a way that is markedly different to dealing with exchange-listed securities. Dealing with Real Assets means working with tangible things like properties that have real-world physical and human interactions to cater for in our financial models.
+  
+
+  
+
+Quant technology in private and alternative markets is a rapidly growing space in which Man is demonstrably on the cutting edge so there are opportunities here to make significant contributions in shaping this alongside the investment teams.
+  
+
+  
+
+**Our Technology**
+  
+
+  
+
+The target technology stack is on Linux with the majority of the code written in Python, using the full scientific stack like pandas and scikit-learn.
+  
+
+  
+
+We also have C# integrations with Excel, and several web-based tools using a variety of languages and frameworks like React, Streamlit, FastAPI, Django, modern Angular and PHP.
+  
+
+  
+
+We are heavy users of Man's own high performance proprietary database ArcticDB, alongside traditional RDBMS'.
+  
+
+  
+
+Generative AI forms a growing part of our estate as it rapidly evolves and we find more use-cases in automation for our stakeholders.
+  
+
+  
+
+All our code is deployed using Kubernetes and modern cluster computing frameworks.
+  
+
+  
+
+**Working Here**
+  
+
+  
+
+Man Tech has a small company, no-attitude feel. It is flat structured, open, transparent and collaborative, and you will have plenty of opportunity to grow and have enormous impact on what we do. We are actively engaged with the broader technology community.
+* We host and sponsor London's PyData and Machine Learning Meetups
+* We open-source some of our technology. See https://github.com/man-group
+* We regularly talk at leading industry conferences, and tweet about relevant technology and how we're using it. See @manquanttech
+
+We're fortunate enough to have a fantastic open-plan office overlooking the River Thames, and continually strive to make our environment a great place in which to work.
+* We organise regular social events, everything from photography through climbing, karting, wine tasting and monthly team lunches
+* We have annual away days and off-sites for the whole team
+* As well as PC's and Macs, in our office you'll also find numerous pieces of cool tech such as a make-space, tech lending library and music room with guitars and a piano.
+
+We offer competitive compensation, a generous holiday allowance, various health and other flexible benefits. We are also committed to continuous learning and development via coaching, mentoring, regular conference attendance and sponsoring academic and professional qualifications.
+  
+
+  
+
+**Technology and Business Skills**
+  
+
+  
+
+We strive to hire only the brightest and best and most highly skilled and passionate technologists.
+  
+
+  
+
+**Essential**
+* Exceptional technology skills; recognised by your peers as an expert in your domain
+* A keen interest and understanding of financial markets and instruments
+* A proponent of strong collaborative software engineering techniques and methods: agile development, continuous integration, code review, unit testing, refactoring and related approaches
+* Strong knowledge of Python
+* Proficient on Linux platforms with knowledge of various scripting languages
+* Experience of data analysis techniques along with relevant libraries e.g. NumPy/SciPy/Pandas
+* Relevant mathematical knowledge e.g. statistics, optimisation algorithms.
+* Experience of web-based development and visualisation technology for portraying large and complex data sets and relationships
+
+**Advantageous**
+* Experience of front office quantitative software development e.g. in a hedge fund or investment bank
+
+Experience in private market investment - for example real estate and private debt  
+* 
+
+  
+
+  
+
+**Personal Attributes**
+* Strong academic record and a degree with high mathematical and computing content e.g. Computer Science, Mathematics, Engineering or Physics from a leading university
+* Craftsman-like approach to building software; takes pride in engineering excellence and instils these values in others
+* Demonstrable passion for technology e.g. personal projects, open-source involvement
+* Intellectually robust with a keenly analytic approach to problem solving
+* Self-organised with the ability to effectively manage time across multiple projects and with competing business demands and priorities
+* Strong interpersonal skills; able to establish and maintain a close working relationship with traders, quantitative researchers, and senior business people alike
+* Confident communicator; able to argue a point concisely and deal positively with conflicting views.
+* Team mentoring experience; as a senior engineer you will be able to support and teach junior quants the best practices in software development and financial engineering.
+
+**Work-Life Balance and Benefits at Man**  
+
+  
+
+Man Group is proud to provide the best working environment possible for all of its employees, and we are committed to equality of opportunity. At Man Group we believe that a diverse workforce is a critical factor in the success of our business, and this is embedded in our culture and values. We run a number of external and internal initiatives, partnerships and programmes that help us to attract and develop talent from diverse backgrounds and encourage diversity and inclusion across our firm and industry. https://www.man.com/diversity . Man Group is also a Signatory of the Women in Finance Charter.
+  
+
+  
+
+Man Group supports many charities, and global initiatives. We support professional training and development, and requests for flexible or part-time working. Employees are also offered two 'Mankind' days of paid leave per year as part of the Man Charitable Trust's community volunteering programme.
+  
+
+  
+
+We offer comprehensive, firm-wide employee benefits including competitive holiday entitlements, pension/401k, life and long-term disability coverage, group sick pay, enhanced parental leave and long-service leave. Additional benefits are tailored to local markets and may include private medical coverage, discounted gym membership and wellbeing programmes.
+  
+
+Job ID JR005118
+
+
+
+ABOUT COMPANY
+Man Group plc
+London, United Kingdom
+Asset Management
+Man Group is a global, technology-empowered active investment management firm focused on delivering alpha and portfolio solutions for clients. Headqua...",https://uk.indeed.com/cmp/Man-Group-PLC,http://www.mangroupplc.com,"Man Group plc
+Riverbank House
+2 Swan Lane
+London 
+EC4R 3AD", Banks And Financial Services,"1,001 to 5,000",$500M to $1B (USD),,,,,
+indeed,https://uk.indeed.com/viewjob?jk=a2f21193b8ba5c44,https://www.understandingrecruitment.com/job/junior-software-engineer-6795/,Junior Software Engineer,Understanding Recruitment,"London, ENG, GB",,2024-04-13,,,,,True,,"**Junior Software Engineer**
+============================
+
+BBBH0362\_1712995205
+
+
+**Posted: 13/04/2024**
+
+
+**£35000 - £75000 per annum + healthcare, fully remote working****London****Permanent**
+*Have you recently graduated from a Russell Group with a Computer Science or have 1-2 years experience developing using* ***.Net*** *and* ***C#****?*
+
+*Do you enjoy the flexibility of working from home 5 days a week?*
+
+**Junior Software Engineer - Sports Data**
+
+**Salary: up to £75,000**
+
+**Location: FULLY REMOTE in the UK**
+
+
+
+
+Whether you've just graduated with a degree in Computer Science, or already have a year or two's experience up your sleeve, this one's for you!
+
+
+Our longstanding partner, the official partner for all things data and technology, have reached back out to us as they are on the hunt for Junior Software Engineers to join their team in powering the worldwide ecosystem that connects sports, finance, betting and the media.
+
+
+You will have the opportunity to support their mission as they become a more sustainable sports data ecosystem benefitting all parties, from the rights holder through to the fans!
+
+
+
+
+As a Junior Software Engineer, you will gain experience with:
+
+* C#, .Net, AWS, TDD
+* Multithreading and synchronous programming
+* Building highly-scalable, high throughput, low latency systems
+* Understanding of system design
+* Working in a fast-paced, pioneering modelling
+* Exposure to quant, financial and risk modelling
+
+
+
+
+This is a fantastic opportunity as a Junior Software Engineer as you will gain exposure to working in an extremely high performant environment as you will be processing and providing data that is used to generate live odds in real time.
+
+
+
+
+This team is formed from some of the best developers out there, so you will be constantly learning.
+
+
+
+
+**If you are keen to kickstart your career in software development, and would like to work for a prestigious company partnered with over 500 sports organisations around the world (including the NFL, NBA and Premier League), apply now to this unmissable Junior Software Engineer position!**
+
+**Please note**: Due to compliancy reasons, we will only be able to consider applications based in and eligible to work in the UK.",https://uk.indeed.com/cmp/Understanding-Recruitment,https://www.understandingrecruitment.co.uk/,"2nd Floor
+Abbeyview 38-40 The Maltings", Human Resources And Staffing,11 to 50,$1M to $5M (USD),,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/8925d13ecb7728dde28db9435c0df46e,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/ec1ebf78412e727b1d783eea4715af5f,Chris Jackson,
+indeed,https://uk.indeed.com/viewjob?jk=cf6cba3332cf3054,https://t.gohiring.com/h/3eb11942f9288ffe60f2653849eb05fe77339b5f9488bdbaed80c97f8e01a975?source=Indeed,Clinical SAS Programmer,MoonLake Immunotherapeutics,"Cambridge, ENG, GB",,2024-04-12,,,,,True,,"#### **Job Purpose**
+
+**As the Clinical SAS programmer you will contribute to the oversight of vendor programming activities and perform exploratory analyses of completed and ongoing MoonLake sponsored clinical trials to provide insight and to ensure high quality data, datasets and statistical outputs.**  
+
+  
+
+**Key accountabilities:**
+
+  
+
+* Oversight and review of vendor programming activities, including review of CDSIC SDTM and ADaM datasets.
+* Understand and implement CDISC and other regulatory standards
+* Develop and implement an internal SAS programming framework
+* Perform exploratory analysis or validation of ongoing and completed Moonlake clinical trials
+* Support clinical operations and data management using programming checks and data visualisations on ongoing studies
+* Effective and close collaboration with the other members of the clinical team, including medical directors, clinical operations, biostatistics and data management
+* Provide effective communication and visualisation of data and statistical analyses within Moonlake and support for publications and presentations.
+* Ensure essential documents are filed allowing the reconstruction of each trial are generated, filed and maintained by or on behalf of MoonLake.
+* Maintain awareness of, and ensure compliance with, MoonLake policies and procedures relating to quality standards within the Company.
+
+#### **Your profile**
+
+**Education:** Degree in Statistics, Computer Science or related discipline  
+
+**Experience:** Substantial experience of clinical programming in the pharmaceutical/biotech industry and experience of managing outsourced programming activities  
+
+  
+
+**Skills/knowledge/behavioural competencies:**
+
+* Experience of dermatology/rheumatology clinical trials would be an advantage
+* Robust knowledge of GCP and related regulatory standards for clinical data management governing clinical trials in the UK, EU & USA
+* Extensive SAS programming experience. Experience or interest in R is an advantage
+* Excellent oral and written communication skills
+* Highly organised, able to prioritise work, work well under pressure and meet deadlines
+* Independent, self-starter with a proactive, problem solving approach
+* Ability to see complex projects to completion, and to work on a broad range of tasks within a project
+
+**Work Location:*** 2 days a week in our brand new Porto Office
+* You must have the permanent right to work in Portugal to be considered for this position
+
+#### **Why us?**
+
+**An exciting job opportunity awaits you!**  
+
+  
+
+MoonLake is a dynamic and innovative company pushing the boundaries of possibility, and we are looking for passionate individuals to join our stellar team.  
+
+  
+
+**What we offer:**  
+
+  
+
+**Learning Environment:** An opportunity to learn and grow alongside experienced professionals in a supportive and innovative biotech environment.  
+
+  
+
+**Impactful Work:** Contribute to ground-breaking projects that have the potential to transform global healthcare.  
+
+  
+
+**Flexibility and Balance:** Work remotely/hybrid, enjoying a healthy work-life balance while making meaningful contributions to our team.  
+
+  
+
+**Career Growth:** A clear path for career progression, with the chance to take on more responsibilities as you develop your skills.  
+
+  
+
+**Our Core Values**  
+
+  
+
+We look for potential MoonLakers that embody our three core values that drive our pursuit of excellence:  
+
+  
+
+**We do Stellar Science:** We aspire to create novel therapies that elevate treatment horizons, with innovative science, and high quality, always.  
+
+  
+
+**We go beyond:** We aspire to be positively disruptive in our field, and bold in the way we challenge the norms and each other.  
+
+  
+
+**We unlock value:** We aspire to create long-term value for investors and communities.
+
+#### **About us**
+
+**MoonLake Immunotherapeutics**is a clinical-stage biopharmaceutical company unlocking the potential of sonelokimab, a novel investigational Nanobody® for the treatment of the inflammatory disease, to revolutionize outcomes for patients.
+
+
+We continue to make significant progress in our Global Clinical Development Programs. The company’s focus is on inflammatory diseases with a major unmet need, including hidradenitis suppurativa and psoriatic arthritis – conditions affecting millions of people worldwide with a large need for improved treatment options. MoonLake was founded in 2021 and is headquarted in Zug, with hubs in Cambridge & Porto.
+
+
+Further information is available at www.moonlaketx.com",https://uk.indeed.com/cmp/Moonlake-Immunotherapeutics,,,,,,,,,,
+indeed,https://uk.indeed.com/viewjob?jk=e4988579485ab1e9,https://www.synapri.com/j1852,Senior Software Engineer,Synapri,"Cambridge, ENG, GB",,2024-04-12,,,,,False,,"Software Engineer required for a Cambridge based global leading market research business. Our client are looking to hire Software Engineer into their existing engineering function to work on the redevelopment of several key systems through 2024 and beyond.
+
+
+The successful candidates will get involved in multiple projects across a broad range of technologies. Individuals hired will be joining a team of circa 20 Engineers, you will be collaborating with cross-functional teams to design, develop and deliver data platforms and applications as well as contributing to the company’s software strategy and architectures.
+
+
+Experience required:
+
+
+* Experience working with Python
+* Experience of cloud-based services (preferably AWS)
+* Familiarity with front-end technologies such as HTML, CSS, and JavaScript (React preferred)
+* Experience developing RESTful web services, JSON and/or XML
+* Experience with microservices architecture
+
+Our client offer an attractive package. Hybrid working patterns are adopted across the business (2 days onsite).
+
+
+Please get in touch for further details.
+
+
+Candidates must have the ability to work in the UK. Sponsorship is not available.",https://uk.indeed.com/cmp/Synapri,https://www.synapri.com/,,,,,,,,,
+indeed,https://uk.indeed.com/viewjob?jk=8f626d780a4c7e10,https://careers.arm.com/job/cambridge/graduate-information-developer/33099/63870927344,Graduate Information Developer,Arm,"Cambridge, ENG, GB",,2024-04-12,,,,,False,accommodations@arm.com,"Show more
+
+
+Would you like to play a part in documenting the next-generation technology while working alongside and learning from some of the world’s best engineers? – Arm is the place for you.
+
+
+This is a great opportunity for a hardworking, detail-orientated, analytical graduate to work on innovative technology for a global leader in the semiconductor industry. If technology excites you, and you have excellent written communication skills, you could be the one that we are looking for to join our team of Information Developers at our Cambridge offices.
+
+
+We hire outstanding, versatile people from a broad range of backgrounds, because diversity brings the multiple skills and different points of view that we need, and because we truly believe that diversity drives creativity and innovation.
+
+
+Flexible and hybrid working considered.
+
+**What you could be doing as an Information Developer?**
+
+* Crafting and maintaining customer-facing technical content in collaboration with Arm’s architects and other technical authors.
+* Acquiring source information, primarily from internal project documentation and discussions with Arm’s architects, but also from your own self-led investigations and learning.
+* Ensuring your output is high quality, including being correct, complete, unambiguous, with consistent terminology, while improving ease of use.
+* Working in accordance with processes and policies.
+
+**What skills, experience, and qualifications do I need?**
+----------------------------------------------------------
+
+
+We are open-minded about degree subject areas as we have found strong candidates from a variety of backgrounds, including:
+
+* Comparative linguistics.
+* Computer science.
+* Electronic engineering.
+* English.
+* Mathematics.
+* Physics.
+* Software engineering.
+
+
+You will be pro-active, an excellent organiser and communicator, with a proven track record of teamworking. In addition, you will:
+
+* Have excellent writing skills.
+* Be willing to engage with technical subject matter.
+* Be detail oriented.
+* Be able to analyse, dissect, and reorganise content into an optimal order.
+* Be curious to learn about how the technology works, seeking out information, then using your newly gained knowledge to write clear content that technical audiences will find easy to understand.
+* Be able to recognise and solve problems such as inconsistencies and missing or incorrect information.
+* Be able to produce, follow, and update plans and timelines, accurately reporting progress and any problems to the project manager.
+
+
+We primarily deliver our specifications in pdf and XML formats, using a variety of tools to produce them, including:
+
+* Markdown.
+* JSON.
+* Git for version control.
+
+
+Experience of these is an advantage but is not essential.
+
+
+Knowledge of CPU architectures is an advantage but is not essential.
+
+**What’s in it for you?**
+
+You will work on exciting projects that impact billions of people around the world, whilst simultaneously developing key transferable skills. You will receive ongoing support from your line manager, who will offer regular 1:1 meetings with feedback and opportunities for development. You will have opportunities for rapid career advancement based on your performance and potential.
+
+
+If you're ready to be part of a groundbreaking team that thrives on innovation, then this is the opportunity you've been waiting for! Let's revolutionize technology together!
+
+
+#LI-HR1
+
+
+**Accommodations at Arm**
+-------------------------
+
+
+At Arm, we want our people to **Do Great Things**. If you need support or an accommodation to **Be Your Brilliant Self** during the recruitment process, please email accommodations@arm.com. To note, by sending us the requested information, you consent to its use by Arm to arrange for appropriate accommodations. All accommodation requests will be treated with confidentiality, and information concerning these requests will only be disclosed as necessary to provide the accommodation. Although this is not an exhaustive list, examples of support include breaks between interviews, having documents read aloud or office accessibility. Please email us about anything we can do to accommodate you during the recruitment process.
+
+
+**Hybrid Working at Arm**
+-------------------------
+
+
+Arm’s hybrid approach to working is centred around flexibility, where we split our time between the office and other locations to get our work done. Within that framework, we empower groups and teams to determine their own particular hybrid working pattern, depending on the work and the team’s needs. Details of what this means for each role will be shared upon application. In some cases, the flexibility we can offer is limited by local legal, regulatory, tax, or other considerations, and where this is the case, we will collaborate with you to find the best solution. Please talk to us to find out more about what this could look like for you.
+
+
+**Equal Opportunities at Arm**
+------------------------------
+
+
+Arm is an equal opportunity employer, committed to providing an environment of mutual respect where equal opportunities are available to all applicants and colleagues. We are a diverse organization of dedicated and innovative individuals, and don’t discriminate on the basis of race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or status as a protected veteran.",https://uk.indeed.com/cmp/Arm,https://www.arm.com/,"Cambridge, Gloucestershire, South West England, England",,"5,001 to 10,000",$1B to $5B (USD),"Arm is at the heart of the world’s most advanced digital products, ranging from sensors to servers, smartphones and tablets.",https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/f85276d507ade95219d28bb0c63f65a9,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/6a41e01f05136c19831180614b699f89,Rene Haas,https://d2q79iu7y748jz.cloudfront.net/s/_ceophoto/512x512/9d2413a7cc3d5d3582afdc3dc17cda94
+indeed,https://uk.indeed.com/viewjob?jk=12304e41014a6275,https://jobs.smartrecruiters.com/CityFibre/743999980114271-visualisation-developer,Visualisation Developer,CityFibre,"Milton Keynes, ENG, GB",,2024-04-12,,,,,False,careers@cityfibre.com,"**Job Description**  
+
+We want to invest in you and your development. That’s why we encourage you to explore new opportunities during your journey with us and help us deliver our mission to build a legacy.
+
+**Careel Level: 05 Senior Specialist (no car allowance)**
+
+**Location: Milton Keynes / London**
+
+**Role Summary:**
+
+
+You’ll be a key person in our Data Enablement team, driving actionable insights and decision making through powerful data visualisation. You’ll shape decision-making conversations using dashboards and reports, working with complex datasets, and using your dashboard building experience to create engaging visualisations with Tableau. Day to day, this is some of what you can expect to be doing:
+
+* Creating amazing visualisations for the wider business to use, rebuilding, and updating existing reports and dashboards
+* Implementing Tableau metadata in your dashboards based on requirements from the Senior Visualisation Developer
+* Escalating issues in a timely and efficient way, communicating blockers to senior stakeholders
+* Working closely with Business Data Analysts to plan and manage data needs for visualisations and understanding the business requirements for incoming requests
+
+
+Click here to take a look at the role in more detail.
+
+
+Sound like the role for you? If you’d love to take that next step, then we want to hear from you. Click ‘apply’ to start your application.
+
+**Before you start your application: please have a quick chat with your line manager to let them know that you will be applying for the role.**
+
+ **Additional Information** *If there’s any additional support or adjustment you require in the application process to help you achieve your best, please get in touch by emailing* *careers@cityfibre.com**. We’re here to support you in changing up your career.*",https://uk.indeed.com/cmp/Cityfibre,https://cityfibre.com/careers,"CityFibre Holdings Limited
+Registered in England at:
+15 Bedford Street
+London
+WC2E 9HE", Telecommunications,"1,001 to 5,000",,,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/a0f0607fbd4bd3ff6000255e3bd726cf,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/b6c87bf6d68c2cf030df9646c109b122,,
+indeed,https://uk.indeed.com/viewjob?jk=35b47505f45f2625,https://nordsonhcm.wd5.myworkdayjobs.com/en-US/nordsoncareers/job/United-Kingdom---Colchester/Senior-Application-Software-Engineer_REQ39320,Senior Application Software Engineer,Nordson,"Colchester, ENG, GB",fulltime,2024-04-12,,,,,False,,"**JOB SUMMARY**
+
+Working for the Software Manager this role is crucial in the development and roll out of the Software strategy for the X-ray and Test Division. Building on the deep experience of our teams across our sites in the UK and Germany, you will be defining and developing the architecture of our next generation systems.
+
+
+Your role will include:
+
+
+* Reviewing the deployed software products and, working together with the product line teams, looking for strengths and weaknesses in their architectures, and opportunities to unify.
+* Reviewing current state of the art industrial software best practice, languages, frameworks and environments.
+* Defining, documenting and championing a common architecture for future product line applications. Working with the senior management team to ensure the approach meets the requirements of the business.
+* Working with experienced applications developers to implement the architecture and supporting development teams with documentation and consultation to ensure a standard approach is maintained.
+
+**EDUCATION & EXPERIENCE REQUIREMENT**
+
+* Minimum of a University degree (Computer Science, Telecommunications or similar).
+* Minimum of 5 years of professional working experience in High Technology systems development.
+* Industrial experience in any of the following areas: Aerospace & Defense, Automotive, High Tech, Industrial Equipment, Life Sciences, Software & Platforms.
+* Strong C++ programming ability using Microsoft Visual Studio on Windows platform.
+* Developing applications for the current Microsoft Windows operating system.
+* Designing software using OOD methodologies.
+* Knowledge of software development strategies and techniques.
+* Good working knowledge of Agile tools & methodologies ideally with DevOps.
+* Proven communication (written and oral) and interpersonal skills
+
+**PREFERRED SKILLS & ABILITIES**
+
+* This role is an opportunity for an experienced software leader or those looking for the opportunity to develop new skills in leading highly visible software projects. It is not expected that you show evidence of the exact experience. You will be supported to develop professionally through exposure to customers, suppliers and research partners and in working alongside colleagues with a diverse range of skills.
+* Familiarity with Industrial Capital Equipment.
+* Application of Machine learning techniques for image processing and workflow enhancement.
+* Experience leading teams of software developers to deliver complex industrial software systems.
+* Experience of Industry 4.0 connectivity standards such as SECS/GEM.
+* Experience with image processing tools and applications.
+* Ability to work under pressure and according to timelines
+
+**TRAVEL REQUIRED**
+
+Regular travel to Nordson sites both in the UK and overseas. Approx. 20%",https://uk.indeed.com/cmp/Nordson,http://www.nordson.com,"28601 Clemens Road Westlake, OH 44145", Industrial Manufacturing,"1,001 to 5,000",$1B to $5B (USD),Nordson Corporation delivers precision technology solutions to help customers succeed worldwide.,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/216939e10d5418c2394b7f50596acab2,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/811757e289372a1398637185722601e3,,
+indeed,https://uk.indeed.com/viewjob?jk=ad3f617e11c0a4a6,http://uk.indeed.com/job/graduate-software-developer-x-5-ad3f617e11c0a4a6,Graduate Software Developer x 5,Symology Ltd,"Dunstable, ENG, GB",fulltime,2024-04-12,,,,,True,,"The role involves software development within **a team of 80+ developers** working on our award winning cloud-based asset management system and associated mobile apps.
+
+Hybrid remote, attending our Dunstable office once a fortnight for your Team Day.
+
+We provide a comprehensive in-house training programme in our technologies and products, plus on-going support.
+
+Our technology stack:
+
+C#.NET
+
+HTML5
+
+CSS
+
+Javascript
+
+Typescript
+
+Xamarin
+
+SQL Server
+
+Azure
+
+Within your Agile project team, you will code and test tasks for each fortnightly sprint.
+
+You will have a focus on quality, performance and security.
+
+You will remotely attend daily stand-ups, plus fortnightly Sprint Review meetings where you showcase your work.
+
+You are encouraged to suggest improvements to designs, code, processes, training and documentation.
+
+You will be working predominantly on new features.
+
+**The Requirement**
+
+You must be a competent developer with a computing related degree or significant commercial experience, plus a good understanding of the full software life cycle. Knowledge of Agile, web development, .NET, relational databases, C# or Java will be an advantage. This role will suit a fresh graduate or an experienced Developer.
+
+The Company does not sponsor foreign nationals, so you must have the permanent right to live and work long term in the UK. You must also be able to commute to our Dunstable, Bedfordshire office at least once a fortnight.
+
+**The Opportunity**
+
+Formed in 1983, Symology is an **Employee Owned** computer software and services company, specialising in the development and supply of asset management systems to local government and utility services sectors. The Company has an unrivalled reputation for delivery of quality products and services, with a 40 year history of ethical business practices and consistent profitability. The Company is continuing to expand and the current potential for growth is higher than ever before.
+
+The Company offers very good working conditions and competitive salaries, plus benefits including an excellent pension scheme, stock incentive scheme, employee assistance programme and employee-ownership bonus.
+
+The Development department is continually expanding and we have many opportunities for career progression. As well as further coding, staff have moved into analysis/design, team leading, project management, technical development and even consultancy.
+
+Job Types: Full-time, Permanent, Graduate
+
+Pay: From £27,300.00 per year
+
+Benefits:
+
+* Casual dress
+* Company events
+* Company pension
+* Cycle to work scheme
+* Employee stock ownership plan
+* Free parking
+* Health & wellbeing programme
+* On-site parking
+* Profit sharing
+* Referral programme
+* Sick pay
+* Work from home
+
+Schedule:
+
+* Monday to Friday
+
+Supplemental pay types:
+
+* Yearly bonus
+
+Work authorisation:
+
+* United Kingdom (required)
+
+Work Location: Hybrid remote in Dunstable",https://uk.indeed.com/cmp/Symology-Ltd,,,,,,,,,,
+indeed,https://uk.indeed.com/viewjob?jk=1a9a9bec91d58ec2,https://medefer.teamtailor.com/jobs/3874702-devops-engineer-remote-working-50k-55k-28-days-leave,"DevOps Engineer, Remote Working £50k-£55k, 28 Days Leave",Medefer,"London, ENG, GB",fulltime,2024-04-12,,,,,False,,"ABOUT MEDEFER
+
+
+Medefer is an innovative CQC registered healthcare provider that aims to transform the way that healthcare is delivered by enabling healthcare systems to provide patients with the best healthcare experience - timely, efficient and effective.
+
+
+Founded by Consultants and GPs working in the NHS, our culture is driven by a deeply held commitment to the NHS and delivering transformational change to the patient experience. We are a passionate, dedicated and patient-focused team striving to make healthcare fit for the 21st century. Our vision is to completely re-frame the way that healthcare is delivered.
+
+
+Medefer’s technology platform delivers world-class leading safety, whilst delivering a unique approach in delivering a national service to patients, from referral, to treatment and discharge.
+
+
+*AT MEDEFER WE BELIEVE THAT EVERY NHS PATIENT DESERVES THE BEST POSSIBLE HEALTHCARE.*
+
+
+**JOB TITLE:** DevOps Engineer
+
+
+**REPORTING TO:** Head of IT Operations
+
+
+**LOCATION:** London, UK
+
+
+Join us in our mission to transform patient care and be part of a dynamic and innovative team. We pride ourselves on a supportive, collaborative and inclusive culture and you will have the opportunity to work alongside a team of intelligent, driven and compassionate people who care deeply about transforming the way healthcare is delivered.
+
+
+**ROLE OVERVIEW**:
+
+
+At Medefer we are looking for a DevOps Engineer to join our Operations team. We’re looking for someone who’s passionate at solving problems and wants to get involved in bringing continuous improvement to our operations team.
+
+
+**OBJECTIVES:**
+
+
+* Run the production environment by monitoring availability and taking a holistic view of system health
+* Improve reliability, quality, and time-to-market of our software solutions
+* Measure and optimize system performance, with an eye toward pushing our capabilities forward, getting ahead of customer needs, and innovating for continual improvement
+* Provide primary operational support and engineering for our software applications including troubleshooting and root cause analysis.
+* Participate in the development of code automation to improve our environment deployment velocity.
+* Support the application release process by working closely with our application developers.
+
+**KEY RESPONSIBILITIES**:
+
+
+* Gather and analyse metrics and logs from operating systems as well as applications to assist in performance tuning and fault finding.
+* Partner with our development teams to improve services through rigorous testing and release procedures
+* Participate in system design consulting, platform management, and capacity planning
+* Create sustainable systems and services through automation and uplifts
+* Balance feature development speed and reliability with service-level objectives
+* Get involved in automating and improving our platform ensuring reliability and performance of our service to our customers.
+* Serve as a point of escalation for complex technical issues raised by the helpdesk, providing timely and effective second-line support to resolve incidents and minimize downtime.
+* Occasionally assist with staff onboarding processes, contributing technical expertise to ensure new employees are equipped with the necessary tools, access permissions, and knowledge to integrate seamlessly into the organisation.
+
+**QUALIFICATIONS,** SKILLS AND COMPETENCIES
+
+
+* Proactive approach to identifying problems, performance bottlenecks, and areas for improvement
+* Able to solve problems whilst having a holistic view to the various challenges and tasks.
+* Can understand CI/CD pipelines and IaC frameworks.
+* Able to confidently work alone as well as in a team.
+* Experience in operating systems in Azure like WebApps and Managed Services.
+* BICEP/ARM Template experience.
+* Experience in operating or administrating a DevOps CI/CD pipeline.
+* Previous proven success in technical engineering.
+* Coding experience beyond simple scripts.
+* Experience of Windows Server and MS SQL.
+
+**BENEFITS:**
+
+
+* Workplace pension scheme
+* 28 days annual leave in addition to the normal bank holidays (pro-rated for part time hours)
+* Flexible working hours
+* Private Healthcare Insurance
+* Discount schemes
+* Employee Assistance Programme
+* Health and wellbeing scheme that provides free access to a confidential phoneline, GP and counselling services
+* Career development and opportunities for progression and training.
+
+**WORKING ARRANGEMENTS AND KEY TERMS**:
+
+
+* 35 hours per week, worked over eight hours per day between the normal business hours of 8.00am and 6.00pm with an unpaid lunch break of one hour. The nature of the role may require flexibility to support releases or handle emergencies outside of these normal business hours.
+* Hybrid working – there will be a requirement to work from the office up to two days each week and other days would be working from home.
+* Must have the right to work in the UK.
+* A relevant level DBS check will be requested at the point of offer, and this is funded by Medefer.
+* Subject to two satisfactory employment references, one being the most recent employer.
+
+
+Medefer fully complies with the Equality Act 2010. We are an equal opportunities employer, value diversity and welcome applications from candidates of all backgrounds.
+
+
+This job description is non-contractual and the postholder will be expected to perform additional duties and tasks that may be assigned by management from time to time to suit business needs.
+
+
+Medefer contact details are provided for the specific purpose to support potential candidates and are not to be used to market services. The named individual has not consented to unsolicited marketing emails. ‘Direct marketing’ means the communication, by whatever means, of marketing material which is directed at individuals. Privacy and Electronic Communications Regulations (PECR) apply to unsolicited emails, for which the individual has not provided consent. Medefer takes the privacy of individuals very seriously and failure to abide by this notice will result in action taken.",https://uk.indeed.com/cmp/Medefer,https://medefer.com,,,,,,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/121f44277904af6913c69494d6b3c642,,,
+indeed,https://uk.indeed.com/viewjob?jk=6cacb39c649d3200,https://jobs.ebrd.com/job/London-Associate-Developer/1060030901/,Associate Developer,European Bank for Reconstruction and Development,"London, ENG, GB",,2024-04-12,,,,,False,,"Requisition ID 34577
+  
+
+Office Country United Kingdom
+  
+
+Office City London
+  
+
+Division Information Technology
+  
+
+Contract Type Fixed Term
+  
+
+Contract Length 2 years
+  
+
+Posting End Date  
+
+  
+
+**Purpose of Job**
+
+  
+
+
+The Associate, Software Developer is responsible for design and implementation, support and maintenance of the Bank’s applications and analytic tools, supporting Banking, Treasury, Risk, Finance, Corporate and other teams in the execution of their business processes.
+
+  
+
+The role includes leading all aspects of the enhancement, maintenance and support of multiple business applications and associated initiatives which are based on enterprise development platforms and related frameworks, often involving collaboration with internal application owners and other members of staff to deliver changes using Agile principles, supporting complex and dynamic business requirements. The role involves applying both business and technical expertise to deliver customer focused support and development services, potentially in a DevOps pipeline with Continuous Integration and Continuous Deployment (CI/CD), but also facilitating manual deployment for legacy applications where necessary.
+
+  
+
+
+The individual will be expected to adhere to the core principles of the IT department, these include, but are not limited to - putting our users first; delivering technology that is useful, elegant and reliable; knowledgeable and engaging about both technology and our business; reliable and effective in both provision and execution; innovative and inquisitive; integral to the success of the Bank
+
+  
+
+
+**Accountabilities & Responsibilities**
+
+  
+
+
+* Deliver working software in line with agreed quality and risk standards
+* Maintain expected service levels of the key applications you support and maintain
+* To adhere to, develop and enhance the working practices, standards, processes and practices in and out with your team.
+* Contribute to and improve the community of practice that you belong to
+* To follow standard development working practices e.g.
+* Participate in all the daily and weekly ceremonies in your team
+* Test driven development, Behaviour driven development, Test Automation, Secure by design
+* Work with users from business teams and Product Owner, as appropriate, to understand user needs and develop appropriately innovative and practical solutions.
+* Estimate and plan with your team colleagues, such as, Business Analyst (BA), Quality Assurer (QA), developers.
+* Work closely with Architects, Business Analysts (BA), Quality Assurers (QA) and other developers to build or enhance systems.
+* To liaise with members of the Infrastructure and Operations team, as necessary to ensure consistent implementation of features into a test and production environment, either via associated DevOps tooling, or manually as appropriate.
+* Delivering operational delivery automation and continuous improvement in conjunction with DevOps suppliers and IT Operations.
+* Adhere to and support audit, control and risk activities on behalf of the Bank
+* Helping your team to succeed at all times and continuously improve
+* Working in technologies beyond your core disciplines as required by strategic and project demands
+* Motivate self and others to continually reflect and adapt to improve quality and delivery cadence
+* Mentor and develop other developers in your team whether staff, contract or third party.
+* Participate in the technical development programme in order to ensure that system changes, patches, enhancements and developments are sound, support the Bank’s operational priorities and are conducted according to the Bank’s and IT’s procedures.
+* Provide production support coverage of business application responsible incidents as required.
+* Helping others, by undertaking general tasks not related to your core discipline if required
+
+  
+
+
+**Knowledge, Skills, Experience & Qualifications**
+
+  
+
+
+* Experience of delivering software in a formal system using source control management and controlled gates with relevant artefacts to support design, quality and support.
+
+
+* Being persistent and resilient
+* Possesses strong investigative and analytical qualities
+
+
+* Experience delivering test automation or frameworks
+
+
+* Excellent communicator in English - both written and verbal.
+
+
+* A team player with a positive and constructive attitude towards work and colleagues.
+
+
+* A diligent and conscientious approach to completing work on time and to an agreed, acceptable level of quality is required
+
+
+* Educated to degree level or equivalent industry experience and it is desirable to have has an appropriate certification relating to the technical specialism that the role requires.
+
+  
+
+
+4.1 Risk, Software Developer
+
+  
+
+
+* Good knowledge of scripting, including but not limited to Perl, Shell and Python.
+* Good knowledge of most common treasury / banking products, market data and market / credit risk measurement techniques (VaR, PFE, CVA etc.).
+* Informatica 9 (8 minimum) including XML processing
+* Experience with ETL processes and file processing (flat files, csv's and xml in particular)
+* Experience of coding in open source programming languages including but not limited to: Java, Python, JavaScript etc.
+* Continuous integration & deployment processes and tools (i.e. Jenkins, Maven)
+* Code Quality Governance processes and tools (e.g. Sonar, Gerrit)
+* Source Code Management processes and tools (e.g. Github, BitBucket)
+* Object Oriented development and design principles
+* Data Structures, Algorithms and Concurrency
+* Relational Databases (e.g. Oracle, MySQL) and/or NoSQL databases
+* Knowledge of job scheduling tools such as BMC Control-M.
+
+  
+
+
+**What is it like to work at the EBRD?**
+
+  
+
+
+Our agile and innovative approach is what makes life at the EBRD a unique experience! You will be part of a pioneering and diverse international organisation, and use your talents to make a real difference to people's lives and help shape the future of the regions we invest in.
+
+  
+
+
+The EBRD environment provides you with:
+
+
+* Varied, stimulating and engaging work that gives you an opportunity to interact with a wide range of experts in the financial, political, public and private sectors across the regions we invest in;
+* A working culture that embraces inclusion and celebrates diversity;
+* An environment that places sustainability, equality and digital transformation at the heart of what we do.
+
+  
+
+
+
+
+Diversity is one of the Bank’s core values which are at the heart of everything it does. A diverse workforce with the right knowledge and skills enables connection with our clients, brings pioneering ideas, energy and innovation. The EBRD staff is characterised by its rich diversity of nationalities, cultures and opinions and we aim to sustain and build on this strength. As such, the EBRD seeks to ensure that everyone is treated with respect and given equal opportunities and works in an inclusive environment. The EBRD encourages all qualified candidates who are nationals of the EBRD member countries to apply regardless of their racial, ethnic, religious and cultural background, gender, sexual orientation or disabilities. As an inclusive employer, we promote flexible working and expecting our employee to attend the office 50% of their working time.
+
+  
+
+
+**Please note, all our adverts close at 10.59pm GMT time.**
+
+  
+
+  
+
+**Job Segment:** Testing, Developer, Bank, Banking, ERP, Technology, Finance",https://uk.indeed.com/cmp/European-Bank-For-Reconstruction-and-Development,https://www.ebrd.com,London,,"1,001 to 5,000",$1B to $5B (USD),"As a multilateral developmental investment bank, the EBRD uses investment as a tool to build market economies.",https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/ce478406cec0af75787002df7bd8dd65,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/60e54640ba412b51a8694089f5dc703a,Odile Renaud-Basso,https://d2q79iu7y748jz.cloudfront.net/s/_ceophoto/512x512/54eb1198c3e9b3b79a91adf954fc33ff
+indeed,https://uk.indeed.com/viewjob?jk=7e53ed6402dc78cb,https://careers.originhousing.org.uk/jobs/3877450-dynamics-365-functional-developer,Dynamics 365 Functional Developer,Origin Housing,"London, ENG, GB",,2024-04-12,,,,,False,,"**Dynamics 365 Functional Developer**
+
+**Salary £65,000pa + Benefits (including hybrid working).**
+
+**Origin – Great homes, positive people and strong communities**
+
+**An inspiring past and a bright future**
+
+
+A home is the essential foundation for a good quality of life, so what we do every day really matters to the wellbeing of our communities. Here at Origin, we trace our roots back 100 years, building and managing high quality homes as well as providing support services and housing for those who are most vulnerable in London and Hertfordshire. We work to provide safe, decent affordable homes and support for individuals and communities.
+
+
+Focused on our residents, our driving ambition is to provide services that make people’s lives easier, and homes and communities they can be proud to live in. We are ‘not for profit’ and reinvest all our surpluses back into our varied and vibrant neighbourhoods.
+
+**The role –** **Dynamics 365 Functional Developer**
+
+
+The Dynamics 365 Functional Developer will have a diverse role from developing and implementing the latest ideas to maintaining and adding new functionalities to existing workflows.
+
+**What you’ll do**
+
+* Build, configure, develop and deploy technical solutions to support business priorities and requirements for new processes (ClickDimensions, SDK, business process flows, flows, conditional branching, mobile task flows, workflows, custom entities, linked entities, forms, dashboards and coding where necessary)
+* Leading or participating in design and architecture sessions with key stakeholders, translating business processes and building requirements for the system
+* Develop integration using ‘out of the box’ capabilities, Web Services API’s and SSIS packages (Kingsway Pro, Visual Studio, SQL Server)
+* Stay on top of Microsoft’s CRM roadmap and ensure that new development isn’t using functionality scheduled to be deprecated.
+* Support knowledge transfer of Dynamics 365 expertise and coding
+
+**What you’ll need**
+
+* 3+years’ Experience in Microsoft Dynamics CRM Developer or Configuration
+* Experience working in an IT team.
+* Experience working in a project team.
+* Knowledge of IT legislation including software licensing, Computer Misuse Act, Data Protection Regulations
+* Understanding of the business of a medium sized Housing Association or Public Sector body
+
+**Our Values**
+
+
+Our **core values** are at the heart of how we work.
+
+* Take the lead.
+* Create energy.
+* Build trust.
+* Be generous.
+* Stay grounded.
+* Remember the little things.
+
+
+We're committed to the wellbeing of our people and in creating an environment that promotes diversity, equity, inclusion and belonging.
+
+
+**Our benefits to you**
+
+* Origin’s ways of working make it easier for you to balance work and home life. You will benefit from flexible working which offers you the opportunity to work from where you are most effective, with the technology and equipment you need, as well as access to flexible space for collaborative working.
+* A generous 25-day holiday allowance plus bank holidays, which increases with time, with the opportunity to buy and sell leave.
+* **Competitive salary of £65,000pa.**
+* 2 additional ‘giving something back’ volunteer days.
+* A pension scheme with contributions up to 8% of your salary
+* Family leave, compassionate leave and enhanced maternity pay.
+* Simply Health cash plan providing money back when you spend on health appointments including physiotherapy, dental and opticians.
+* Interest free loans to help spread the cost of a season ticket or another big purchase.
+* Annual staff conference, team away days and annual team meal allowance
+* Access to Perk Box for fantastic savings on everyday purchases and much more
+* Free employee assistance programme
+* Opportunities to join staff network groups.
+* Refer a friend bonus.
+
+
+We’re also committed to ensuring that our people have access to an excellent range of learning and development opportunities including our induction programme, course sponsorship, leadership development, mentoring and talent schemes along with professional membership if it’s a requirement to your role.
+
+**Tell us your story.**
+
+
+We are looking forward to learning about you. Please help us get to know you by sending your latest CV and covering letter detailing how your skills and experience meet the job description for Job Title outlined above.
+
+**Closing date for applications: Tuesday 30 April 2024**
+
+
+Please note that suitable candidates will be invited to interview throughout the application window and therefore the vacancy may close at short notice. However, all candidates will be advised of the outcome of their application and therefore interested candidates are encouraged to apply at their earliest convenience.",https://uk.indeed.com/cmp/Origin-Housing,https://www.originhousing.org.uk/,"St Richards House
+110 Eversholt St
+London
+NW1 1BS", Construction,201 to 500,$25M to $100M (USD),"Great homes, positive people and strong communities.",https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/836ef405c2173bf13206a2afb075a22e,https://d2q79iu7y748jz.cloudfront.net/s/_headerimage/1960x400/2d64ba6b9d9caf721f3f78d68ed64a59,,
+indeed,https://uk.indeed.com/viewjob?jk=c2f69efbf0ca1425,http://uk.indeed.com/job/software-engineer-c2f69efbf0ca1425,Software Engineer,Emotech LTD,"London, ENG, GB",fulltime,2024-04-12,,,,,True,,"As a Software Engineer, you will be working closely with our research and design teams to bring our AI services to our customers around the globe. These include multi-modal systems, speech AI and animation based services. Our core stack is a collection of services built on Linux with a focus on throughput and reliability. The majority of services are implemented in Rust, however our codebase does contain some C++11, Go and Java code. Additionally, you may work alongside researchers to bring their prototypes and models to production so an understanding of Python and Machine Learning frameworks like TensorFlow and Torch are desirable.
+
+General Description of the Role
+
+As a Software Engineer you should be proficient in few of the above languages as well as driven to produce good quality code. Knowledge of all of the languages isn't necessary as we aim to provide good quality mentoring so a desire to learn is key. We are looking for problem solvers, who have a passion for tackling challenging problems and coming up with practical solutions. You will be collaborating with a cross-functional team of talented scientists, engineers and designers who are equally driven. You should be eager to learn new technologies including languages and frameworks.
+
+As a Software Engineer, your main responsibilities:
+
+* Will work in a dynamic environment to deliver high quality software against tight schedules
+* Collaborate closely with machine learning and design experts
+* Will establish architectural principles, select design patterns
+* Review designs and code done by others and provide constructive feedback
+* Documenting and testing new or altered features for our services
+
+Requirements:
+
+* Minimum of 1 year of software development experience in industry
+* Deep knowledge of a programming language (e.g. Rust, C++11) in a Linux environment; working knowledge of multiple languages
+* Modern media streaming protocols like WebRTC, GRPC, etc
+* Degree in Computer Science or other relevant area
+* Strong grasp of data structures, algorithms and communication protocols
+* Great understanding of TDD, unit tests, end-to-end tests
+* Strong communication skills and ability to communicate deeply technical concepts to people with less software experience
+
+Advantageous:
+
+* Audio/speech applications or computer vision, understanding of basic ML/DL models (SVM, CNN and LSTM etc), Tensorflow, Keras or PyTorch
+* Computer graphics and animation or experience with modern game engines
+* AWS, Hw Cloud, Google Cloud services
+* Docker, Kubernetes, relevant dev-ops knowledge
+
+**What we offer:**  
+Emotech is a London-based awards winning AI startup. We want each member to be well taken care of and have the capability to grow with the team. You are welcome to suggest any other benefits in addition to all of these in the following!
+
+* Autonomy to make vital decisions and offer solutions that have an impact on company development and the AI world
+* Competitive salary package including company equity
+* Performance bonus
+* Pension scheme (NEST)
+* Medical insurance (BUPA UK, private healthcare)
+* Annual Learning & Development Budget
+* Mid-Year Team Reward Trip
+* Team Gatherings
+* Extended Paid Holiday
+* Cycle-To-Work Scheme
+* Workplace Nursery Scheme
+* Potential Work Visa Sponsorship
+* Patent application (registration & legal consultancy)
+* Work with diverse team with extensive domain expertise, some of the brightest & highly reputable minds in AI, software development, mechanics, business and investment
+* Collaboration on various projects with renowned universities, including CMU, UCL, University of Oxford, University of Cambridge, Imperial College London & University of Edinburgh
+* Internal knowledge transfer to explore multi-modality, ASR, NLP, computer vision, software architecture and more
+
+Emotech is an equal opportunity employer. We are committed to ensuring fairness of treatment, dignity, work-life balance and the elimination of all forms of discrimination in the workplace. We are building a diverse culture and workforce where is made up of inclusive groups of diverse people and treating all employees and job applicants equally and irrespective of their race, religion, color, nationality, culture, gender, sexual orientation, age, marital status, or disability.
+
+Thank you for taking the time to apply at Emotech. Our recruitment team aim to review your application within 5 working days, please rest assured that we will contact you directly if we decide to move forward with your application and invite you for an interview. Meanwhile, we encourage you to learn more about Emotech and our solution. You can visit our website https://www.emotech.ai/ to explore more.
+
+Job Types: Full-time, Permanent
+
+Pay: Up to £75,000.00 per year
+
+Benefits:
+
+* Company pension
+* Private medical insurance
+* Referral programme
+* Sick pay
+
+Schedule:
+
+* Flexitime
+* Monday to Friday
+
+Supplemental pay types:
+
+* Performance bonus
+
+Application question(s):
+
+* Do you have commercial hands-on experience in Rust?
+
+Work authorisation:
+
+* United Kingdom (required)
+
+Work Location: Hybrid remote in London, EC2M 1NH",https://uk.indeed.com/cmp/Emotech-Ltd,https://www.heyolly.com,London,,,,,,,,

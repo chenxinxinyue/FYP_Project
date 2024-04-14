@@ -85,34 +85,21 @@ def show_jobs(request):
     print(f"user_id:{user_id}")
     file_path = f"static/file/jobs_{user_id}.csv"
 
-    # Check if the file exists and is not empty
-    if not os.path.exists(file_path) or os.path.getsize(file_path) == 0:
-        context = {'error': 'Job listings not found or file is empty. Please initiate a search first.'}
-        return render(request, 'show_jobs.html', context)
-
     try:
-        # Using a robust reading logic
-        jobs = pd.read_csv(file_path, error_bad_lines=False, warn_bad_lines=True)
-
-        # Check if the DataFrame after reading is empty
+        jobs = pd.read_csv(file_path)
         if jobs.empty:
-            context = {'error': 'No job listings found.'}
+            # 如果DataFrame是空的，设置错误消息
+            context = {'error': 'No job listings found. Please initiate a search first.'}
         else:
             selected_columns = ['job_url', 'title', 'location', 'is_remote']
-            # Ensure all selected columns are in the DataFrame to prevent file incompleteness issues
-            if all(column in jobs.columns for column in selected_columns):
-                jobs = jobs[selected_columns]
-                context = {
-                    'jobs': jobs.to_dict('records'),
-                    # Convert the DataFrame into a list of dictionaries for the template
-                    'columns': selected_columns  # Directly use the list of column names since we are specifying columns
-                }
-            else:
-                context = {'error': 'Some required data columns are missing from the job listings file.'}
-    except pd.errors.EmptyDataError:
-        context = {'error': 'Job listings file is empty. Please initiate a search first.'}
-    except Exception as e:
-        context = {'error': f'An error occurred while processing the job listings: {str(e)}'}
+            jobs = jobs[selected_columns]
+            context = {
+                'jobs': jobs.to_dict('records'),  # 将DataFrame转换为模板所需的字典列表
+                'columns': selected_columns  # 直接使用列名列表，因为我们指定了列
+            }
+    except FileNotFoundError:
+        # 文件不存在的错误处理
+        context = {'error': 'Job listings file not found. Please initiate a search first.'}
 
     return render(request, 'show_jobs.html', context)
 

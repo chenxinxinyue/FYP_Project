@@ -89,6 +89,15 @@
 
             // 其他验证可以在这里添加
         });
+
+        // 为复选框绑定事件
+        document.getElementById('zipRecruiterCheckbox').addEventListener('change', updateCountryOptions);
+        document.getElementById('glassdoorCheckbox').addEventListener('change', updateCountryOptions);
+        document.getElementById('indeedCheckbox').addEventListener('change', updateCountryOptions);
+        document.getElementById('linkedinCheckbox').addEventListener('change', updateCountryOptions);
+
+        // 页面加载时调用函数以设置初始状态
+        document.addEventListener('DOMContentLoaded', updateCountryOptions);
         var countries = {{ countries | safe }};
 
         function updateCountryOptions() {
@@ -106,6 +115,7 @@
                 countrySelect.add(new Option('US/CA', 'US/CA'));
                 countrySelect.value = 'US/CA';
             } else {
+
                 // 如果Glassdoor被选中，只显示带星号的国家选项
                 if (glassdoorChecked) {
                     for (var country of countries) {
@@ -114,23 +124,15 @@
                         }
                     }
                 } else {
-                    // 添加所有国家选项
                     for (var country of countries) {
                         countrySelect.add(new Option(country, country));
                     }
                 }
+                countrySelect.value = 'UK*';
 
             }
         }
 
-        // 为复选框绑定事件
-        document.getElementById('zipRecruiterCheckbox').addEventListener('change', updateCountryOptions);
-        document.getElementById('glassdoorCheckbox').addEventListener('change', updateCountryOptions);
-        document.getElementById('indeedCCheckbox').addEventListener('change', updateCountryOptions);
-        document.getElementById('linkedinCheckbox').addEventListener('change', updateCountryOptions);
-
-        // 页面加载时调用函数以设置初始状态
-        document.addEventListener('DOMContentLoaded', updateCountryOptions);
     </script>
 
 {% endblock %}

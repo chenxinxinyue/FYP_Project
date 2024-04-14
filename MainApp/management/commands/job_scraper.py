@@ -1,7 +1,6 @@
-import csv
-from jobspy import scrape_jobs
-from django.core.management.base import BaseCommand
 import pandas as pd  # Ensure pandas is imported
+from django.core.management.base import BaseCommand
+from jobspy import scrape_jobs
 
 
 class Command(BaseCommand):
@@ -21,35 +20,29 @@ class Command(BaseCommand):
         user_id = options.get('user_id')
         country_indeed = options.get('country_indeed')
         all_jobs = []
-        self.stdout.write(self.style.SUCCESS(f'country_indeed: {country_indeed}'))
-        self.stdout.write(self.style.SUCCESS(f'site_names: {site_names}'))
+        self.stdout.write(self.style.ERROR(f'{country_indeed}'))
 
-        for site_name in site_names:
-            for preference in job_preferences:
-                if site_name.lower() in ['indeed', 'glassdoor']:
-                    jobs = scrape_jobs(
-                        site_name=site_name,
-                        search_term=preference,
-                        location=location,
-                        results_wanted=20,
-                        hours_old=72,
-                        country_indeed=country_indeed,
-                    )
-                    if jobs is not None:
-                        all_jobs.append(jobs)
-                else:
-                    # 对于LinkedIn和ZipRecruiter，不需要国家参数
-                    jobs = scrape_jobs(
-                        site_name=site_name,
-                        search_term=preference,
-                        location=location,
-                        results_wanted=20,
-                        hours_old=72
-                    )
-                    if jobs is not None:
-                        all_jobs.append(jobs)
+        for preference in job_preferences:
+            if site_names and ('indeed' in site_names or 'glassdoor' in site_names):
+                jobs = scrape_jobs(
+                    site_name=site_names,
+                    search_term=preference,
+                    location=location,
+                    results_wanted=20,
+                    hours_old=72,
+                    country_indeed=country_indeed,
+                )
+            else:
+                jobs = scrape_jobs(
+                    site_name=site_names,
+                    search_term=preference,
+                    location=location,
+                    results_wanted=20,
+                    hours_old=72
+                )
 
-            # self.stdout.write(self.style.SUCCESS(f'Found {len(jobs)} jobs for {preference}'))
+            if jobs is not None:
+                all_jobs.append(jobs)
 
         if all_jobs:
             combined_jobs = pd.concat(all_jobs, ignore_index=True)
