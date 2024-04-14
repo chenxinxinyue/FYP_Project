@@ -18,23 +18,38 @@ class Command(BaseCommand):
         location = options['location']
         site_names = options.get('site_names')
         job_preferences = options.get('job_preferences', [])
-        user_id = options.get('user_id')  # Get user ID
-        country_indeed = options.get('country_indeed')  # Get country for Indeed search
-        self.stdout.write(self.style.SUCCESS(f'Preference received: {job_preferences}'))
-
+        user_id = options.get('user_id')
+        country_indeed = options.get('country_indeed')
         all_jobs = []
-        for preference in job_preferences:
-            jobs = scrape_jobs(
-                site_name=site_names,
-                search_term=preference,
-                location=location,
-                results_wanted=20,
-                hours_old=72,
-                country_indeed=country_indeed,
-            )
-            if jobs is not None:
-                all_jobs.append(jobs)
-                self.stdout.write(self.style.SUCCESS(f'Found {len(jobs)} jobs for {preference}'))
+        self.stdout.write(self.style.SUCCESS(f'country_indeed: {country_indeed}'))
+        self.stdout.write(self.style.SUCCESS(f'site_names: {site_names}'))
+
+        for site_name in site_names:
+            for preference in job_preferences:
+                if site_name.lower() in ['indeed', 'glassdoor']:
+                    jobs = scrape_jobs(
+                        site_name=site_name,
+                        search_term=preference,
+                        location=location,
+                        results_wanted=20,
+                        hours_old=72,
+                        country_indeed=country_indeed,
+                    )
+                    if jobs is not None:
+                        all_jobs.append(jobs)
+                else:
+                    # 对于LinkedIn和ZipRecruiter，不需要国家参数
+                    jobs = scrape_jobs(
+                        site_name=site_name,
+                        search_term=preference,
+                        location=location,
+                        results_wanted=20,
+                        hours_old=72
+                    )
+                    if jobs is not None:
+                        all_jobs.append(jobs)
+
+            # self.stdout.write(self.style.SUCCESS(f'Found {len(jobs)} jobs for {preference}'))
 
         if all_jobs:
             combined_jobs = pd.concat(all_jobs, ignore_index=True)

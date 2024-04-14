@@ -12,16 +12,14 @@
     <div class="container">
         <form method="post" action="{% url 'MainApp:find-jobs' %}" id="jobSearchForm">
             {% csrf_token %}
-
             <label for="job-sites">Choose job sites:</label>
 
             <div class="row">
-                <!-- 在每个复选框中添加 onchange 事件调用 updateCountryOptions 函数 -->
                 <div class="col-lg-6">
                     <div class="input-group">
                     <span class="input-group-addon">
                         <input type="checkbox" name="job_sites" id="indeedCheckbox" value="indeed" aria-label="Indeed"
-                              >
+                        >
                     </span>
                         <input type="text" class="form-control" aria-label="Indeed" value="Indeed" readonly>
                     </div><!-- /input-group -->
@@ -32,7 +30,7 @@
                     <span class="input-group-addon">
                         <input type="checkbox" name="job_sites" id="glassdoorCheckbox" value="glassdoor"
                                aria-label="Glassdoor"
-                              >
+                        >
                     </span>
                         <input type="text" class="form-control" aria-label="Glassdoor" value="Glassdoor" readonly>
                     </div><!-- /input-group -->
@@ -55,31 +53,42 @@
                     <span class="input-group-addon">
                         <input type="checkbox" name="job_sites" id="linkedinCheckbox" value="linkedin"
                                aria-label="LinkedIn"
-                              >
+                        >
                     </span>
                         <input type="text" class="form-control" aria-label="LinkedIn" value="LinkedIn" readonly>
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
             </div>
+
             <div>
                 <label for="country" id="countryLabel">Select your country:</label>
-                <select id="country" name="country">
-                    <option value="worldwide" selected>Worldwide</option>
+                <select id="country" name="country" required>
                     {% for country in countries %}
                         <option value="{{ country }}">{{ country }}</option>
                     {% endfor %}
                 </select>
+                (* indicates support for Glassdoor)
             </div>
 
             <div>
                 <label for="address">Input your address:</label>
-                <input type="text" id="address" name="address" placeholder="Enter your address">
-                <button type="submit" id="findJobsButton">Find Jobs</button>
+                <input type="text" id="address" name="address" placeholder="Enter your address" required>
             </div>
+            <button type="submit" id="findJobsButton">Find Jobs</button>
+
         </form>
     </div>
     <script>
-        // 假设 'countries' 数组已经通过Django模板传入JavaScript
+        document.getElementById('jobSearchForm').addEventListener('submit', function (event) {
+            // 检查是否至少选择了一个站点
+            var checkboxes = document.querySelectorAll('input[name="job_sites"]:checked');
+            if (checkboxes.length === 0) {
+                alert('Please select at least one job site.');
+                event.preventDefault(); // 阻止表单提交
+            }
+
+            // 其他验证可以在这里添加
+        });
         var countries = {{ countries | safe }};
 
         function updateCountryOptions() {
@@ -96,13 +105,7 @@
             if (zipRecruiterChecked) {
                 countrySelect.add(new Option('US/CA', 'US/CA'));
                 countrySelect.value = 'US/CA';
-                countrySelect.disabled = true; // 禁用下拉菜单
             } else {
-                countrySelect.disabled = false; // 启用下拉菜单
-
-                // 总是添加一个Worldwide选项
-                countrySelect.add(new Option('Worldwide', 'worldwide'));
-
                 // 如果Glassdoor被选中，只显示带星号的国家选项
                 if (glassdoorChecked) {
                     for (var country of countries) {
@@ -117,19 +120,18 @@
                     }
                 }
 
-                // 设置默认值为Worldwide
-                countrySelect.value = 'worldwide';
             }
         }
 
         // 为复选框绑定事件
         document.getElementById('zipRecruiterCheckbox').addEventListener('change', updateCountryOptions);
         document.getElementById('glassdoorCheckbox').addEventListener('change', updateCountryOptions);
+        document.getElementById('indeedCCheckbox').addEventListener('change', updateCountryOptions);
+        document.getElementById('linkedinCheckbox').addEventListener('change', updateCountryOptions);
 
         // 页面加载时调用函数以设置初始状态
         document.addEventListener('DOMContentLoaded', updateCountryOptions);
     </script>
-
 
 {% endblock %}
 

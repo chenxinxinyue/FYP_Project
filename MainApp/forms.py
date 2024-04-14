@@ -1,9 +1,8 @@
 # forms.py
-import csv
 
 from django import forms
-from django.core.validators import MinValueValidator
-from django.forms import inlineformset_factory, modelformset_factory
+from django.forms import inlineformset_factory
+
 from Authentication.models import CustomUser
 from .models import Study, Experience, CV, Preference
 
@@ -36,6 +35,14 @@ class CVForm(forms.ModelForm):
         model = CV
         fields = ['cv_file']
 
+    def clean_cv_file(self):
+        cv_file = self.cleaned_data.get('cv_file')
+        if cv_file:
+            file_extension = cv_file.name.split('.')[-1].lower()
+            if file_extension not in ['pdf', 'docx', 'doc']:
+                raise forms.ValidationError("Only PDF, DOCX, and DOC formats are allowed.")
+        return cv_file
+
 
 class PreferenceForm(forms.ModelForm):
     class Meta:
@@ -44,12 +51,12 @@ class PreferenceForm(forms.ModelForm):
         widgets = {
             'preference': forms.TextInput(attrs={
                 'id': 'id_preference',
-                'class': 'preference-autocomplete'  # 添加这个类
+                'class': 'preference-autocomplete'  # Add this class
             }),
         }
 
 
-# 定义 Experience 表单集
+# Define Experience formset
 ExperienceFormSet = inlineformset_factory(
     parent_model=CustomUser,
     model=Experience,
@@ -57,7 +64,7 @@ ExperienceFormSet = inlineformset_factory(
     extra=1,
     can_delete=True,
 )
-# 定义 Experience 表单集
+# Define Preference formset
 PreferenceFormSet = inlineformset_factory(
     parent_model=CustomUser,
     model=Preference,
