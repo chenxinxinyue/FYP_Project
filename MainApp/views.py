@@ -41,6 +41,9 @@ def index(request):
     return render(request, 'index.html', {"user": user, "countries": countries})
 
 
+from .tasks import scrape_jobs_task  # 导入Celery任务
+
+
 def find_jobs(request):
     user = request.user
 
@@ -50,32 +53,32 @@ def find_jobs(request):
             form.save()
             location = form.cleaned_data['address']
             site_names = request.POST.getlist('job_sites')
-            country_indeed = request.POST.get('country')
-            if not country_indeed:
-                messages.error(request, 'Please select country you would like')
-                return redirect('MainApp:index')
-            country_indeed = country_indeed.replace('*', '')
+
 
             if not site_names:
-                messages.error(request, 'Please enter the site you would like')
+                messages.error(request, 'Please enter the sites you would like')
                 return redirect('MainApp:index')
 
             if not location:
                 messages.error(request, 'Please enter your location')
                 return redirect('MainApp:index')
+
             job_preferences = Preference.objects.filter(user=user).values_list('preference', flat=True)
             job_preferences_list = list(job_preferences)
-            print(job_preferences_list)
 
             if not job_preferences_list:
-                messages.error(request, 'Preference cannot be empty. Please complete your profile')
+                messages.error(request, 'Preferences cannot be empty. Please complete your profile')
                 return redirect('MainApp:index')
 
-            # 异步执行任务
-            scrape_jobs_task.delay(location, job_preferences_list, user.id, site_names, country_indeed)
-            return redirect('MainApp:show-jobs')
+            try:
+                task = scrape_jobs_task.delay(location, job_preferences_list, user.id, site_names)
+                return redirect('MainApp:show-jobs')
+            except Exception as e:
+                messages.error(request, 'Failed to start job scraping task: ' + str(e))
+                return redirect('MainApp:index')
     else:
         form = CustomUserForm(instance=user)
+
     context = {'form': form}
     return render(request, 'show_jobs.html', context)
 
