@@ -2,7 +2,6 @@ import os
 
 import pandas as pd
 from django.contrib import messages
-from django.core.management import call_command
 from django.http import HttpResponseRedirect, FileResponse, HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -10,6 +9,7 @@ from django.urls import reverse
 from Authentication.forms import CustomUserForm
 from .forms import StudyForm, CVForm, ExperienceFormSet, PreferenceFormSet
 from .models import Job, School, CustomUser, Study, Experience, CV, Preference, Resume, FavoriteJob
+from .tasks import scrape_jobs_task
 from .utils import extract_keywords
 
 
@@ -70,8 +70,9 @@ def find_jobs(request):
             if not job_preferences_list:
                 messages.error(request, 'Preference cannot be empty. Please complete your profile')
                 return redirect('MainApp:index')
-            call_command('job_scraper', location, job_preferences=job_preferences_list, user_id=user.id,
-                         site_names=site_names, country_indeed=country_indeed)
+
+            # 异步执行任务
+            scrape_jobs_task.delay(location, job_preferences_list, user.id, site_names, country_indeed)
             return redirect('MainApp:show-jobs')
     else:
         form = CustomUserForm(instance=user)
