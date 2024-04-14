@@ -14,11 +14,7 @@
             {% csrf_token %}
             <div class="form-section">
                 <h2>Study</h2>
-                <label for="id_degree">Degree:</label>
-                {{ study_form.degree }}
-                <br>
-                <label for="id_school">School:</label>
-                {{ study_form.school }}
+                {{ study_form.as_p }}
             </div>
 
             <div class="form-section">

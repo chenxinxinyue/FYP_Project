@@ -13,40 +13,27 @@
         <form method="post" action="{% url 'MainApp:find-jobs' %}" id="jobSearchForm">
             {% csrf_token %}
             <label for="job-sites">Choose job sites:</label>
-
+            <!-- ... -->
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="input-group">
-                    <span class="input-group-addon">
-                        <input type="checkbox" name="job_sites" id="indeedCheckbox" value="indeed" aria-label="Indeed"
-                        style="transform: scale(1.5);">
-                    </span>
-                        <input type="text" class="form-control" aria-label="Indeed" value="Indeed" readonly>
-                    </div><!-- /input-group -->
+                    <input type="checkbox" name="job_sites" id="indeedCheckbox" value="indeed" class="btn-checkbox"
+                           aria-label="Indeed">
+                    <label for="indeedCheckbox" class="btn btn-default">Indeed</label>
                 </div><!-- /.col-lg-4 -->
 
                 <div class="col-lg-4">
-                    <div class="input-group">
-                    <span class="input-group-addon">
-                        <input type="checkbox" name="job_sites" id="glassdoorCheckbox" value="glassdoor"
-                               aria-label="Glassdoor"
-                        style="transform: scale(1.5);">
-                    </span>
-                        <input type="text" class="form-control" aria-label="Glassdoor" value="Glassdoor" readonly>
-                    </div><!-- /input-group -->
+                    <input type="checkbox" name="job_sites" id="glassdoorCheckbox" value="glassdoor"
+                           class="btn-checkbox" aria-label="Glassdoor">
+                    <label for="glassdoorCheckbox" class="btn btn-default">Glassdoor</label>
                 </div><!-- /.col-lg-4 -->
 
                 <div class="col-lg-4">
-                    <div class="input-group">
-                    <span class="input-group-addon">
-                        <input type="checkbox" name="job_sites" id="linkedinCheckbox" value="linkedin"
-                               aria-label="LinkedIn"
-                        style="transform: scale(1.5);" >
-                    </span>
-                        <input type="text" class="form-control" aria-label="LinkedIn" value="LinkedIn" readonly>
-                    </div><!-- /input-group -->
+                    <input type="checkbox" name="job_sites" id="linkedinCheckbox" value="linkedin" class="btn-checkbox"
+                           aria-label="LinkedIn">
+                    <label for="linkedinCheckbox" class="btn btn-default">LinkedIn</label>
                 </div><!-- /.col-lg-4 -->
             </div>
+            <!-- ... -->
 
             <div>
                 <label for="address">Input your address:</label>

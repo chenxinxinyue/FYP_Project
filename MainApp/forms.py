@@ -14,7 +14,7 @@ class StudyForm(forms.ModelForm):
         ('phd', 'PhD'),
     ]
 
-    degree = forms.ChoiceField(choices=DEGREE_CHOICES)
+    degree = forms.ChoiceField(choices=DEGREE_CHOICES, widget=forms.Select(attrs={'class': 'larger-select'}))
     school = forms.CharField(widget=forms.TextInput(attrs={'id': 'id_school', 'autocomplete': 'off'}))
 
     class Meta:

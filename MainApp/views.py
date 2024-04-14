@@ -82,11 +82,10 @@ def show_jobs(request):
 
     try:
         jobs = pd.read_csv(file_path)
-        print(len(jobs))
 
         if jobs.empty:
             # 如果DataFrame是空的，设置错误消息
-            context = {'error': 'No job listings found. Please initiate a search first.'}
+            context = {'error': 'No job listings found.'}
         else:
             selected_columns = ['job_url', 'title', 'location', 'is_remote']
             jobs = jobs[selected_columns]
