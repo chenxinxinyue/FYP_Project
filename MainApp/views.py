@@ -54,15 +54,6 @@ def find_jobs(request):
             location = form.cleaned_data['address']
             site_names = request.POST.getlist('job_sites')
 
-
-            if not site_names:
-                messages.error(request, 'Please enter the sites you would like')
-                return redirect('MainApp:index')
-
-            if not location:
-                messages.error(request, 'Please enter your location')
-                return redirect('MainApp:index')
-
             job_preferences = Preference.objects.filter(user=user).values_list('preference', flat=True)
             job_preferences_list = list(job_preferences)
 
@@ -86,11 +77,13 @@ def find_jobs(request):
 def show_jobs(request):
     user = request.user
     user_id = user.id
-    print(f"user_id:{user_id}")
+    # print(f"user_id:{user_id}")
     file_path = f"static/file/jobs_{user_id}.csv"
 
     try:
         jobs = pd.read_csv(file_path)
+        print(len(jobs))
+
         if jobs.empty:
             # 如果DataFrame是空的，设置错误消息
             context = {'error': 'No job listings found. Please initiate a search first.'}

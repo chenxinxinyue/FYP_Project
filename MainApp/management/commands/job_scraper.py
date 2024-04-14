@@ -36,11 +36,10 @@ class Command(BaseCommand):
 
         if all_jobs:
             combined_jobs = pd.concat(all_jobs, ignore_index=True)
+            # all_jobs.count()
             # 确保目录存在后保存到 CSV
-            combined_jobs.to_csv("static/file/jobs.csv", quoting=csv.QUOTE_NONNUMERIC, escapechar="\\", index=False)
+            combined_jobs.to_csv(f"static/file/jobs_{user_id}.csv", quoting=csv.QUOTE_NONNUMERIC, escapechar="\\", index=False)
             # 使用用户 ID 构造文件名
-            file_name = f"static/file/jobs_{user_id}.csv"
-            combined_jobs.to_csv(file_name, quoting=csv.QUOTE_NONNUMERIC, escapechar="\\", index=False)
             self.stdout.write(self.style.SUCCESS(
                 f'Successfully scraped job listings for {location} with preferences: {job_preferences}'))
         else:
