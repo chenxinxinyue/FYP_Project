@@ -10,96 +10,126 @@
         <li role="presentation"><a href="{% url 'Authentication:login' %}">Logout</a></li>
     </ul>
     <div class="container">
-        <!-- 弹窗和进度条 -->
-        <div id="progressModal" class="modal" style="display:none;">
-            <div class="modal-content">
-                <h4>Job Searching...</h4>
-                <div class="progress">
-                    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                         aria-valuemax="100" style="width: 0%;">
-                        0%
-                    </div>
-                </div>
-            </div>
-        </div>
         <form method="post" action="{% url 'MainApp:find-jobs' %}" id="jobSearchForm">
             {% csrf_token %}
+
             <label for="job-sites">Choose job sites:</label>
+
             <div class="row">
+                <!-- 在每个复选框中添加 onchange 事件调用 updateCountryOptions 函数 -->
                 <div class="col-lg-6">
                     <div class="input-group">
-            <span class="input-group-addon">
-                <input type="checkbox" name="job_sites" value="linkedin" aria-label="LinkedIn">
-            </span>
-                        <input type="text" class="form-control" aria-label="LinkedIn" value="LinkedIn" readonly>
-                    </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
-                <div class="col-lg-6">
-                    <div class="input-group">
-            <span class="input-group-addon">
-                <input type="checkbox" name="job_sites" value="indeed" aria-label="Indeed">
-            </span>
+                    <span class="input-group-addon">
+                        <input type="checkbox" name="job_sites" id="indeedCheckbox" value="indeed" aria-label="Indeed"
+                              >
+                    </span>
                         <input type="text" class="form-control" aria-label="Indeed" value="Indeed" readonly>
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
+
                 <div class="col-lg-6">
                     <div class="input-group">
-            <span class="input-group-addon">
-                <input type="checkbox" name="job_sites" value="glassdoor" aria-label="Glassdoor">
-            </span>
+                    <span class="input-group-addon">
+                        <input type="checkbox" name="job_sites" id="glassdoorCheckbox" value="glassdoor"
+                               aria-label="Glassdoor"
+                              >
+                    </span>
                         <input type="text" class="form-control" aria-label="Glassdoor" value="Glassdoor" readonly>
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
+
                 <div class="col-lg-6">
                     <div class="input-group">
-            <span class="input-group-addon">
-                <input type="checkbox" name="job_sites" value="zip_recruiter" aria-label="ZipRecruiter">
-            </span>
-                        <input type="text" class="form-control" aria-label="ZipRecruiter" value="ZipRecruiter" readonly>
+                    <span class="input-group-addon">
+                        <input type="checkbox" name="job_sites" id="zipRecruiterCheckbox" value="zip_recruiter"
+                               aria-label="ZipRecruiter">
+                    </span>
+                        <input type="text" class="form-control" aria-label="ZipRecruiter"
+                               value="ZipRecruiter(US/Canada)"
+                               readonly>
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <label for="address">Input your address:</label>
-            <input type="text" id="address" name="address" placeholder="Enter your address">
-            <button type="submit" id="findJobsButton">Find Jobs</button>
+
+                <div class="col-lg-6">
+                    <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="checkbox" name="job_sites" id="linkedinCheckbox" value="linkedin"
+                               aria-label="LinkedIn"
+                              >
+                    </span>
+                        <input type="text" class="form-control" aria-label="LinkedIn" value="LinkedIn" readonly>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div>
+            <div>
+                <label for="country" id="countryLabel">Select your country:</label>
+                <select id="country" name="country">
+                    <option value="worldwide" selected>Worldwide</option>
+                    {% for country in countries %}
+                        <option value="{{ country }}">{{ country }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>
+                <label for="address">Input your address:</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address">
+                <button type="submit" id="findJobsButton">Find Jobs</button>
+            </div>
         </form>
-
     </div>
-
     <script>
-        document.getElementById('jobSearchForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // 阻止表单默认提交
-            var formData = new FormData(this);
-            $.ajax({
-                type: 'POST',
-                url: this.action,
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                    $('#progressModal').show(); // 显示弹窗
-                    updateProgress(response.task_id); // 开始更新进度条
-                }
-            });
-        });
+        // 假设 'countries' 数组已经通过Django模板传入JavaScript
+        var countries = {{ countries | safe }};
 
-        function updateProgress(taskId) {
-            $.ajax({
-                url: '/tasks/' + taskId + '/status/',
-                success: function (data) {
-                    var progress = data.progress;
-                    $('#progressBar').css('width', progress + '%').attr('aria-valuenow', progress).text(progress + '%');
-                    if (progress < 100) {
-                        setTimeout(function () {
-                            updateProgress(taskId);
-                        }, 1000);
-                    } else {
-                        window.location.href = '/MainApp/show-jobs'; // 任务完成后跳转
+        function updateCountryOptions() {
+            var countrySelect = document.getElementById('country');
+            var zipRecruiterChecked = document.getElementById('zipRecruiterCheckbox').checked;
+            var glassdoorChecked = document.getElementById('glassdoorCheckbox').checked;
+
+            // 清除当前的选项
+            while (countrySelect.options.length > 0) {
+                countrySelect.remove(0);
+            }
+
+            // 如果ZipRecruiter被选中
+            if (zipRecruiterChecked) {
+                countrySelect.add(new Option('US/CA', 'US/CA'));
+                countrySelect.value = 'US/CA';
+                countrySelect.disabled = true; // 禁用下拉菜单
+            } else {
+                countrySelect.disabled = false; // 启用下拉菜单
+
+                // 总是添加一个Worldwide选项
+                countrySelect.add(new Option('Worldwide', 'worldwide'));
+
+                // 如果Glassdoor被选中，只显示带星号的国家选项
+                if (glassdoorChecked) {
+                    for (var country of countries) {
+                        if (country.includes('*')) {
+                            countrySelect.add(new Option(country, country));
+                        }
+                    }
+                } else {
+                    // 添加所有国家选项
+                    for (var country of countries) {
+                        countrySelect.add(new Option(country, country));
                     }
                 }
-            });
+
+                // 设置默认值为Worldwide
+                countrySelect.value = 'worldwide';
+            }
         }
 
+        // 为复选框绑定事件
+        document.getElementById('zipRecruiterCheckbox').addEventListener('change', updateCountryOptions);
+        document.getElementById('glassdoorCheckbox').addEventListener('change', updateCountryOptions);
+
+        // 页面加载时调用函数以设置初始状态
+        document.addEventListener('DOMContentLoaded', updateCountryOptions);
     </script>
+
+
 {% endblock %}
 

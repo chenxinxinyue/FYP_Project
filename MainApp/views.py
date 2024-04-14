@@ -26,8 +26,17 @@ def index(request):
         print("User does not exist:", e)
     except Exception as e:
         print("An error occurred:", e)
-
-    return render(request, 'index.html', {"user": user})
+    countries = [
+        "US/CA","WorldWide","Argentina", "Australia*", "Austria*", "Bahrain", "Belgium*", "Brazil*", "Canada*", "Chile",
+        "China", "Colombia", "Costa Rica", "Czech Republic", "Denmark", "Ecuador", "Egypt", "Finland",
+        "France*", "Germany*", "Greece", "Hong Kong*", "Hungary", "India*", "Indonesia", "Ireland*",
+        "Israel", "Italy*", "Japan", "Kuwait", "Luxembourg", "Malaysia", "Mexico*", "Morocco",
+        "Netherlands*", "New Zealand*", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Peru",
+        "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Saudi Arabia", "Singapore*",
+        "South Africa", "South Korea", "Spain*", "Sweden", "Switzerland*", "Taiwan", "Thailand",
+        "Turkey", "Ukraine", "United Arab Emirates", "UK*", "USA*", "Uruguay", "Venezuela", "Vietnam*"
+    ]
+    return render(request, 'index.html', {"user": user, "countries": countries})
 
 
 def profile_view(request):
@@ -141,17 +150,18 @@ def load_file(request, file_name):
         return HttpResponse(f"File not found: {file_path}", status=404)
 
 
-from .tasks import job_scraper_task
-
-
 def find_jobs(request):
     user = request.user
+
     if request.method == 'POST':
         form = CustomUserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
             location = form.cleaned_data['address']
             site_names = request.POST.getlist('job_sites')
+            country_indeed = request.POST.get('country')
+            country_indeed = country_indeed.replace('*', '')
+
             if not site_names:
                 site_names = ["indeed", "linkedin", "zip_recruiter", "glassdoor"]
             if not location:
@@ -162,35 +172,14 @@ def find_jobs(request):
             if not job_preferences_list:
                 messages.error(request, 'Preference cannot be empty. Please complete your profile')
                 return redirect('MainApp:index')
-            # call_command('job_scraper', location, job_preferences=job_preferences_list, user_id=user.id,
-            task = job_scraper_task.delay(location, job_preferences_list, user.id, site_names)
-            return JsonResponse({'task_id': task.id})  # 返回任务 ID
+            call_command('job_scraper', location, job_preferences=job_preferences_list, user_id=user.id,
+                         site_names=site_names, country_indeed=country_indeed)
+
+            return redirect('MainApp:show-jobs')
     else:
         form = CustomUserForm(instance=user)
     context = {'form': form}
     return render(request, 'show_jobs.html', context)
-
-
-def get_task_status(request, task_id):
-    task = AsyncResult(task_id)
-    response_data = {
-        'state': task.state,
-        'progress': 0,
-    }
-
-    if task.state == 'PENDING':
-        response_data['progress'] = 0
-        response_data['status'] = 'Pending...'
-    elif task.state != 'FAILURE':
-        response_data['progress'] = task.info.get('current', 0) * 100 / task.info.get('total', 1)
-        response_data['status'] = task.info.get('status', '')
-        if task.state == 'SUCCESS':
-            response_data['progress'] = 100
-            response_data['status'] = 'Task completed successfully'
-    else:
-        response_data['status'] = str(task.info)  # this is the exception raised
-
-    return JsonResponse(response_data)
 
 
 def show_jobs(request):
