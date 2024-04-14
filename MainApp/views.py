@@ -84,17 +84,15 @@ def show_jobs(request):
         jobs = pd.read_csv(file_path)
 
         if jobs.empty:
-            # 如果DataFrame是空的，设置错误消息
             context = {'error': 'No job listings found.'}
         else:
             selected_columns = ['job_url', 'title', 'location', 'is_remote']
             jobs = jobs[selected_columns]
             context = {
-                'jobs': jobs.to_dict('records'),  # 将DataFrame转换为模板所需的字典列表
-                'columns': selected_columns  # 直接使用列名列表，因为我们指定了列
+                'jobs': jobs.to_dict('records'),
+                'columns': selected_columns
             }
     except FileNotFoundError:
-        # 文件不存在的错误处理
         context = {'error': 'Job listings file not found. Please initiate a search first.'}
 
     return render(request, 'show_jobs.html', context)
