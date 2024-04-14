@@ -1,1 +1,1 @@
-web: gunicorn  shrouded-eyrie-77457.wsgi
+web: gunicorn FYP_Project.wsgi --log-file -
