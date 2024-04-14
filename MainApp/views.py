@@ -1,16 +1,17 @@
+import csv
 import os
 
 import pandas as pd
 from django.contrib import messages
-from django.http import HttpResponseRedirect, FileResponse, HttpResponse, JsonResponse
+from django.http import HttpResponseRedirect, FileResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from Authentication.forms import CustomUserForm
 from .forms import StudyForm, CVForm, ExperienceFormSet, PreferenceFormSet
 from .models import Job, School, CustomUser, Study, Experience, CV, Preference, Resume, FavoriteJob
-from .tasks import scrape_jobs_task
 from .utils import extract_keywords
+from jobspy import scrape_jobs
 
 
 def index(request):
@@ -60,13 +61,25 @@ def find_jobs(request):
             if not job_preferences_list:
                 messages.error(request, 'Preferences cannot be empty. Please complete your profile')
                 return redirect('MainApp:index')
+            all_jobs = []
+            for preference in job_preferences:
+                jobs = scrape_jobs(
+                    site_name=site_names,
+                    search_term=preference,
+                    location=location,
+                    results_wanted=20,
+                    hours_old=72,
+                    country_indeed='UK',
+                )
+            if jobs is not None and not jobs.empty:
+                all_jobs.append(jobs)
 
-            try:
-                task = scrape_jobs_task.delay(location, job_preferences_list, user.id, site_names)
-                return redirect('MainApp:show-jobs')
-            except Exception as e:
-                messages.error(request, 'Failed to start job scraping task: ' + str(e))
-                return redirect('MainApp:index')
+            if all_jobs:
+                combined_jobs = pd.concat(all_jobs, ignore_index=True)
+                combined_jobs.to_csv(f"static/file/jobs_{user.id}.csv", quoting=csv.QUOTE_NONNUMERIC,
+                                     escapechar="\\",
+                                     index=False)
+            return redirect('MainApp:show-jobs')
     else:
         form = CustomUserForm(instance=user)
 
@@ -74,27 +87,42 @@ def find_jobs(request):
     return render(request, 'show_jobs.html', context)
 
 
+from django.http import JsonResponse
+from celery.result import AsyncResult
+
+
+def get_task_status(request, task_id):
+    task_result = AsyncResult(task_id)
+    response = {
+        'state': task_result.state,
+        'result': task_result.result if task_result.state == 'SUCCESS' else None,
+    }
+    if task_result.failed():
+        # 这里捕获异常信息，确保 Celery 任务在出现异常时设置了异常信息
+        response['error'] = str(task_result.result)  # Celery 任务中可能设置的错误信息
+    return JsonResponse(response)
+
+
 def show_jobs(request):
-    user = request.user
-    user_id = user.id
-    # print(f"user_id:{user_id}")
+    user_id = request.user.id
     file_path = f"static/file/jobs_{user_id}.csv"
 
-    try:
-        jobs = pd.read_csv(file_path)
+    if not os.path.exists(file_path) or os.stat(file_path).st_size == 0:
+        messages.error(request, "No job listings file found or file is empty. Please initiate a search first.")
+        return redirect('MainApp:index')
 
-        if jobs.empty:
-            context = {'error': 'No job listings found.'}
-        else:
-            selected_columns = ['job_url', 'title', 'location', 'is_remote']
-            jobs = jobs[selected_columns]
-            context = {
-                'jobs': jobs.to_dict('records'),
-                'columns': selected_columns
-            }
-    except FileNotFoundError:
-        context = {'error': 'Job listings file not found. Please initiate a search first.'}
+    jobs = pd.read_csv(file_path)
+    if jobs.empty:
+        messages.error(request, "No job listings found in the file.")
+        return redirect('MainApp:index')
 
+    # Continue processing if there are jobs
+    selected_columns = ['job_url', 'title', 'location', 'is_remote']
+    jobs = jobs[selected_columns]
+    context = {
+        'jobs': jobs.to_dict('records'),
+        'columns': selected_columns
+    }
     return render(request, 'show_jobs.html', context)
 
 

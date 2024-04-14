@@ -31,15 +31,13 @@ class Command(BaseCommand):
                 country_indeed='UK',
             )
 
-            if jobs is not None:
+            if jobs is not None and not jobs.empty:  # 检查是否非空
                 all_jobs.append(jobs)
 
         if all_jobs:
             combined_jobs = pd.concat(all_jobs, ignore_index=True)
-            # all_jobs.count()
-            # 确保目录存在后保存到 CSV
-            combined_jobs.to_csv(f"static/file/jobs_{user_id}.csv", quoting=csv.QUOTE_NONNUMERIC, escapechar="\\", index=False)
-            # 使用用户 ID 构造文件名
+            combined_jobs.to_csv(f"static/file/jobs_{user_id}.csv", quoting=csv.QUOTE_NONNUMERIC, escapechar="\\",
+                                 index=False)
             self.stdout.write(self.style.SUCCESS(
                 f'Successfully scraped job listings for {location} with preferences: {job_preferences}'))
         else:

@@ -42,19 +42,10 @@
             <button type="submit" id="findJobsButton">Find Jobs</button>
 
         </form>
-        <div id="progressBarContainer" style="display: none;">
-            <label>Job Search Progress:</label>
-            <div class="progress">
-                <div id="jobSearchProgressBar" class="progress-bar" role="progressbar" aria-valuenow="0"
-                     aria-valuemin="0" aria-valuemax="100" style="width:0%">
-                    0%
-                </div>
-            </div>
-        </div>
+
 
     </div>
     <script>
-
         document.getElementById('jobSearchForm').addEventListener('submit', function (event) {
             // 检查是否至少选择了一个站点
             var checkboxes = document.querySelectorAll('input[name="job_sites"]:checked');
@@ -64,9 +55,8 @@
             }
 
         });
-
-
     </script>
+
 
 {% endblock %}
 
