@@ -47,11 +47,11 @@
     </div>
     <script>
         document.getElementById('jobSearchForm').addEventListener('submit', function (event) {
-            // 检查是否至少选择了一个站点
+            // Check if at least one site was selected
             var checkboxes = document.querySelectorAll('input[name="job_sites"]:checked');
             if (checkboxes.length === 0) {
                 alert('Please select at least one job site.');
-                event.preventDefault(); // 阻止表单提交
+                event.preventDefault(); // Prevent form submission
             }
 
         });

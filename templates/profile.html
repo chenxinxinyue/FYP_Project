@@ -70,7 +70,7 @@
     </script>
     <script>
         $(document).ready(function () {
-            // 初始化所有具有 .preference-autocomplete 类的自动补全
+            // Initialize all autocompletions with.preference-autocomplete class
             $('.preference-autocomplete').autocomplete({
                 source: '{% url 'MainApp:get-jobs' %}',
                 minLength: 2,
