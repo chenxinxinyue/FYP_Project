@@ -3,7 +3,7 @@
 {% block content %}
     <a href="{% url 'MainApp:index' %}" class="back-button">Back to Main Page</a>
     {% if jobs %}
-        <table class="jobs-table">
+        <table id="jobs-table" class="jobs-table">
             <thead>
             <tr>
                 <th>Site</th>
@@ -19,12 +19,10 @@
                     <td>{{ job.site }}</td>
                     <td><a href="{{ job.job_url }}">{{ job.title }}</a></td>
                     <td>{{ job.location }}</td>
-                    {#                    <td>{% if job.is_remote %}True{% else %}False{% endif %}</td>#}
                     <td>{{ job.is_remote }}</td>
                     <td>
-                        <button class="favorite-btn" data-job-url="{{ job.job_url }}" data-title="{{ job.title }}"
-                                data-location="{{ job.location }}" data-is-remote="{{ job.is_remote }}"
-                                {% if job.is_favorited_by_user %}style="background-color: yellow;"{% endif %}>
+                        <button class="favorite-btn{% if job.is_favorited_by_user %} favorited{% endif %}" data-job-url="{{ job.job_url }}" data-title="{{ job.title }}"
+                                data-location="{{ job.location }}" data-is-remote="{{ job.is_remote }}">
                             {% if job.is_favorited_by_user %}Unfavorite{% else %}Favorite{% endif %}
                         </button>
                     </td>
@@ -37,8 +35,11 @@
     {% endif %}
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <script>
         $(document).ready(function () {
+            $('#jobs-table').DataTable();
             $('.favorite-btn').click(function () {
                 var btn = $(this);
                 var jobUrl = btn.data('job-url');
@@ -59,9 +60,9 @@
                     },
                     success: function (data) {
                         if (isFavorited) {
-                            btn.removeClass('favorited').text('Favorite').css('background-color', '');
+                            btn.removeClass('favorited').text('Favorite');
                         } else {
-                            btn.addClass('favorited').text('Unfavorite').css('background-color', 'yellow');
+                            btn.addClass('favorited').text('Unfavorite');
                         }
                     },
                     error: function (xhr, textStatus, errorThrown) {

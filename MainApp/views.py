@@ -10,6 +10,8 @@ from django.urls import reverse
 from jobspy import scrape_jobs
 from pandas.errors import EmptyDataError
 
+from pyresparser import ResumeParser
+
 from Authentication.forms import CustomUserForm
 from .forms import StudyForm, CVForm, ExperienceFormSet, PreferenceFormSet
 from .models import Job, School, CustomUser, Study, Experience, CV, Preference, Resume, FavoriteJob
@@ -76,6 +78,14 @@ def find_jobs(request):
 def show_jobs(request):
     user_id = request.user.id
     file_path = f"static/file/jobs_{user_id}.csv"
+    cv_objects = CV.objects.filter(user_id=user_id)
+
+    if cv_objects.exists():
+        cv_object = cv_objects.first()
+        cv_file_path = cv_object.cv_file.path
+    if cv_file_path:
+        data = ResumeParser(cv_file_path).get_extracted_data()
+        skills = data.get('skills', [])
 
     if not os.path.exists(file_path) or os.stat(file_path).st_size == 0:
         messages.error(request, "No job listings file found or file is empty. Please initiate a search first.")
@@ -89,11 +99,27 @@ def show_jobs(request):
         messages.error(request, "No job listings found in the file.")
         return redirect('MainApp:index')
 
-    # Continue processing if there are jobs
+    matching_jobs = []
+    for index, job in jobs.iterrows():
+        print(job['description'])
+
+        if not pd.isna(job['description']):
+            # Count how many skills are present in the description
+            matching_skills = sum(skill.lower() in job['description'].lower() for skill in skills)
+            # If most of the skills are present, consider it a matching job
+            if matching_skills >= 3:
+                matching_jobs.append(job)
+
+    if not matching_jobs:
+        messages.error(request, "No matching jobs found based on your skills.")
+        return redirect('MainApp:index')
+
+    # Select the columns of interest from matching jobs
     selected_columns = ['site', 'job_url', 'title', 'location', 'is_remote']
-    jobs = jobs[selected_columns]
+    matching_jobs = pd.DataFrame(matching_jobs)[selected_columns]
+
     context = {
-        'jobs': jobs.to_dict('records'),
+        'jobs': matching_jobs.to_dict('records'),
         'columns': selected_columns
     }
     return render(request, 'show_jobs.html', context)
