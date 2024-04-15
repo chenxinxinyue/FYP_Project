@@ -84,7 +84,6 @@ sortedcontainers==2.4.0
 soupsieve==2.5
 sqlparse==0.4.4
 srsly==2.4.8
-thinc==7.4.6
 tls-client==1.0.1
 tqdm==4.66.2
 trio==0.25.0
