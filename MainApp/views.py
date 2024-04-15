@@ -101,8 +101,6 @@ def show_jobs(request):
 
     matching_jobs = []
     for index, job in jobs.iterrows():
-        print(job['description'])
-
         if not pd.isna(job['description']):
             # Count how many skills are present in the description
             matching_skills = sum(skill.lower() in job['description'].lower() for skill in skills)
