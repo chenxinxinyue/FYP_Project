@@ -99,25 +99,11 @@ def show_jobs(request):
         messages.error(request, "No job listings found in the file.")
         return redirect('MainApp:index')
 
-    matching_jobs = []
-    for index, job in jobs.iterrows():
-        if not pd.isna(job['description']):
-            # Count how many skills are present in the description
-            matching_skills = sum(skill.lower() in job['description'].lower() for skill in skills)
-            # If most of the skills are present, consider it a matching job
-            if matching_skills >= 3:
-                matching_jobs.append(job)
-
-    if not matching_jobs:
-        messages.error(request, "No matching jobs found based on your skills.")
-        return redirect('MainApp:index')
-
     # Select the columns of interest from matching jobs
     selected_columns = ['site', 'job_url', 'title', 'location', 'is_remote']
-    matching_jobs = pd.DataFrame(matching_jobs)[selected_columns]
 
     context = {
-        'jobs': matching_jobs.to_dict('records'),
+        'jobs': jobs.to_dict('records'),
         'columns': selected_columns
     }
     return render(request, 'show_jobs.html', context)
