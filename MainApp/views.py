@@ -10,8 +10,6 @@ from django.urls import reverse
 from jobspy import scrape_jobs
 from pandas.errors import EmptyDataError
 
-from pyresparser import ResumeParser
-
 from Authentication.forms import CustomUserForm
 from .forms import StudyForm, CVForm, ExperienceFormSet, PreferenceFormSet
 from .models import Job, School, CustomUser, Study, Experience, CV, Preference, Resume, FavoriteJob
@@ -78,14 +76,6 @@ def find_jobs(request):
 def show_jobs(request):
     user_id = request.user.id
     file_path = f"static/file/jobs_{user_id}.csv"
-    cv_objects = CV.objects.filter(user_id=user_id)
-
-    if cv_objects.exists():
-        cv_object = cv_objects.first()
-        cv_file_path = cv_object.cv_file.path
-    if cv_file_path:
-        data = ResumeParser(cv_file_path).get_extracted_data()
-        skills = data.get('skills', [])
 
     if not os.path.exists(file_path) or os.stat(file_path).st_size == 0:
         messages.error(request, "No job listings file found or file is empty. Please initiate a search first.")
