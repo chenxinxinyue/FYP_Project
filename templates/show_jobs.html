@@ -39,7 +39,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <script>
         $(document).ready(function () {
-            $('#jobs-table').DataTable();
+            $('#jobs-table').DataTable({
+                "paging": false, 
+            });
             $('.favorite-btn').click(function () {
                 var btn = $(this);
                 var jobUrl = btn.data('job-url');
