@@ -1,6 +1,7 @@
 asgiref==3.8.1
 async-timeout==4.0.3
 certifi==2024.2.2
+dj-database-url==2.1.0
 Django==4.2.11
 jobspy==0.29.0
 numpy==1.26.4
