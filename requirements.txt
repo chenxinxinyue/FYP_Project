@@ -91,7 +91,6 @@ spacy==2.3.9
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
 sqlparse==0.4.4
-srsly==1.0.7
 thinc==7.4.6
 tls-client==1.0.1
 tqdm==4.66.2
