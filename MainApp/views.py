@@ -4,15 +4,16 @@ import os
 import pandas as pd
 from django.contrib import messages
 from django.http import HttpResponseRedirect, FileResponse, HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from jobspy import scrape_jobs
 from pandas.errors import EmptyDataError
 
 from Authentication.forms import CustomUserForm
 from .forms import StudyForm, CVForm, ExperienceFormSet, PreferenceFormSet
 from .models import Job, School, CustomUser, Study, Experience, CV, Preference, Resume, FavoriteJob
 from .utils import extract_keywords
-from jobspy import scrape_jobs
 
 
 def index(request):
@@ -41,6 +42,7 @@ def find_jobs(request):
             site_names = request.POST.getlist('job_sites')
             job_preferences = Preference.objects.filter(user=user).values_list('preference', flat=True)
 
+            # 根据信息爬取工作列表
             all_jobs = []
             for preference in job_preferences:
                 try:
@@ -62,16 +64,13 @@ def find_jobs(request):
                 combined_jobs.to_csv(f"static/file/jobs_{user.id}.csv", quoting=csv.QUOTE_NONNUMERIC,
                                      escapechar="\\",
                                      index=False)
+            # 这里可以读取用户cv然后结合cv和工作经历筛选工作列表
             return redirect('MainApp:show-jobs')
     else:
         form = CustomUserForm(instance=user)
 
     context = {'form': form}
     return render(request, 'show_jobs.html', context)
-
-
-from django.http import JsonResponse
-from celery.result import AsyncResult
 
 
 def show_jobs(request):
@@ -91,7 +90,7 @@ def show_jobs(request):
         return redirect('MainApp:index')
 
     # Continue processing if there are jobs
-    selected_columns = ['site','job_url', 'title', 'location', 'is_remote']
+    selected_columns = ['site', 'job_url', 'title', 'location', 'is_remote']
     jobs = jobs[selected_columns]
     context = {
         'jobs': jobs.to_dict('records'),
