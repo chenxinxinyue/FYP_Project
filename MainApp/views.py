@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect, FileResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from pandas.errors import EmptyDataError
 
 from Authentication.forms import CustomUserForm
 from .forms import StudyForm, CVForm, ExperienceFormSet, PreferenceFormSet
@@ -26,23 +27,7 @@ def index(request):
     except Exception as e:
         print("An error occurred:", e)
 
-    # Define the list of countries
-
-    countries = [
-        "Argentina", "Australia*", "Austria*", "Bahrain", "Belgium*", "Brazil*", "Canada*",
-        "Chile",
-        "China", "Colombia", "Costa Rica", "Czech Republic", "Denmark", "Ecuador", "Egypt", "Finland",
-        "France*", "Germany*", "Greece", "Hong Kong*", "Hungary", "India*", "Indonesia", "Ireland*",
-        "Israel", "Italy*", "Japan", "Kuwait", "Luxembourg", "Malaysia", "Mexico*", "Morocco",
-        "Netherlands*", "New Zealand*", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Peru",
-        "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Saudi Arabia", "Singapore*",
-        "South Africa", "South Korea", "Spain*", "Sweden", "Switzerland*", "Taiwan", "Thailand",
-        "Turkey", "Ukraine", "United Arab Emirates", "UK*", "USA*", "Uruguay", "Venezuela", "Vietnam*"
-    ]
-    return render(request, 'index.html', {"user": user, "countries": countries})
-
-
-from .tasks import scrape_jobs_task  # 导入Celery任务
+    return render(request, 'index.html', {"user": user})
 
 
 def find_jobs(request):
@@ -54,25 +39,23 @@ def find_jobs(request):
             form.save()
             location = form.cleaned_data['address']
             site_names = request.POST.getlist('job_sites')
-
             job_preferences = Preference.objects.filter(user=user).values_list('preference', flat=True)
-            job_preferences_list = list(job_preferences)
 
-            if not job_preferences_list:
-                messages.error(request, 'Preferences cannot be empty. Please complete your profile')
-                return redirect('MainApp:index')
             all_jobs = []
             for preference in job_preferences:
-                jobs = scrape_jobs(
-                    site_name=site_names,
-                    search_term=preference,
-                    location=location,
-                    results_wanted=20,
-                    hours_old=72,
-                    country_indeed='UK',
-                )
-            if jobs is not None and not jobs.empty:
-                all_jobs.append(jobs)
+                try:
+                    jobs = scrape_jobs(
+                        site_name=site_names,
+                        search_term=preference,
+                        location=location,
+                        results_wanted=20,
+                        hours_old=72,
+                        country_indeed='UK',
+                    )
+                    all_jobs.append(jobs)
+                except ValueError as e:
+                    messages.error(request, str(e))
+                    return redirect('MainApp:index')  # Redirect to a page to update location
 
             if all_jobs:
                 combined_jobs = pd.concat(all_jobs, ignore_index=True)
@@ -91,18 +74,6 @@ from django.http import JsonResponse
 from celery.result import AsyncResult
 
 
-def get_task_status(request, task_id):
-    task_result = AsyncResult(task_id)
-    response = {
-        'state': task_result.state,
-        'result': task_result.result if task_result.state == 'SUCCESS' else None,
-    }
-    if task_result.failed():
-        # 这里捕获异常信息，确保 Celery 任务在出现异常时设置了异常信息
-        response['error'] = str(task_result.result)  # Celery 任务中可能设置的错误信息
-    return JsonResponse(response)
-
-
 def show_jobs(request):
     user_id = request.user.id
     file_path = f"static/file/jobs_{user_id}.csv"
@@ -110,14 +81,17 @@ def show_jobs(request):
     if not os.path.exists(file_path) or os.stat(file_path).st_size == 0:
         messages.error(request, "No job listings file found or file is empty. Please initiate a search first.")
         return redirect('MainApp:index')
-
-    jobs = pd.read_csv(file_path)
+    try:
+        jobs = pd.read_csv(file_path)
+    except EmptyDataError:
+        messages.error(request, "No job found based on your information")
+        return redirect('MainApp:index')
     if jobs.empty:
         messages.error(request, "No job listings found in the file.")
         return redirect('MainApp:index')
 
     # Continue processing if there are jobs
-    selected_columns = ['job_url', 'title', 'location', 'is_remote']
+    selected_columns = ['site','job_url', 'title', 'location', 'is_remote']
     jobs = jobs[selected_columns]
     context = {
         'jobs': jobs.to_dict('records'),

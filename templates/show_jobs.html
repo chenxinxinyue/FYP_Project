@@ -6,6 +6,7 @@
         <table class="jobs-table">
             <thead>
             <tr>
+                <th>Site</th>
                 <th>Job Title</th>
                 <th>Location</th>
                 <th>Is_Remote</th>
@@ -15,6 +16,7 @@
             <tbody>
             {% for job in jobs %}
                 <tr>
+                    <td>{{ job.site }}</td>
                     <td><a href="{{ job.job_url }}">{{ job.title }}</a></td>
                     <td>{{ job.location }}</td>
                     {#                    <td>{% if job.is_remote %}True{% else %}False{% endif %}</td>#}
