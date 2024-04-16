@@ -9,7 +9,6 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from jobspy import scrape_jobs
 from pandas.errors import EmptyDataError
-from pyresparser import ResumeParser
 
 from Authentication.forms import CustomUserForm
 from .forms import StudyForm, CVForm, ExperienceFormSet, PreferenceFormSet
