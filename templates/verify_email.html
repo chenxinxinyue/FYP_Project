@@ -12,6 +12,10 @@
         {% endif %}
         <input type="text" name="verification_code" placeholder="Enter Verification Code" required><br><br>
         <input type="submit" value="Verify">
+        <div>
+            {{ stored_code }}
+            {{ entered_code }}
+        </div>
     </form>
 </div>
 {% endblock %}
