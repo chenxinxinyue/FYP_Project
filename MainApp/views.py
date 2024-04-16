@@ -78,7 +78,8 @@ def show_jobs(request):
     file_path = f"static/file/jobs_{user_id}.csv"
 
     if not os.path.exists(file_path) or os.stat(file_path).st_size == 0:
-        messages.error(request, "No job listings file found or file is empty. Please initiate a search first.")
+        messages.error(request,
+                       "No job listings file found or file is empty. Please check your profile and information.")
         return redirect('MainApp:index')
     try:
         jobs = pd.read_csv(file_path)
