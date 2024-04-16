@@ -76,9 +76,10 @@ def verify_email(request):
     if request.method == 'POST':
         entered_code = str(request.POST.get('verification_code'))
         stored_code = request.session.get('verification_code')
-
+        print(f"entered_code: {entered_code}")
+        print(f"stored_code: {stored_code}")
         # CAPTCHA comparison
-        if stored_code and entered_code == stored_code and request.session.get('verification_timestamp'):
+        if stored_code and entered_code == stored_code:
             user_created = create_user_from_session(request)
             if user_created:
                 messages.success(request, "User created successfully. Please login.")
