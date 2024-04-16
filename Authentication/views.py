@@ -78,8 +78,7 @@ def verify_email(request):
         stored_code = request.session.get('verification_code')
 
         # CAPTCHA comparison
-        if stored_code and entered_code == stored_code and request.session.get('verification_timestamp') and (
-                timezone.now() - request.session.get('verification_timestamp')).seconds < 300:
+        if stored_code and entered_code == stored_code and request.session.get('verification_timestamp'):
             user_created = create_user_from_session(request)
             if user_created:
                 messages.success(request, "User created successfully. Please login.")
@@ -87,7 +86,7 @@ def verify_email(request):
             else:
                 messages.error(request, "An error occurred during user creation.")
         else:
-            messages.error(request, 'Invalid or expired verification code')
+            messages.error(request, 'Invalid verification code')
 
     return render(request, 'verify_email.html')
 
