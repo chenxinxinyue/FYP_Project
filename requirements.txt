@@ -11,3 +11,5 @@ pyresparser==1.0.6
 spacy==3.7.4
 spacy-legacy==3.0.12
 thinc==8.2.3
+en-core-web-sm==3.7.1
+nltk==3.8.1
