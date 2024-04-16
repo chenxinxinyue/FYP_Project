@@ -53,7 +53,7 @@ def register_view(request):
             return render(request, 'register.html', {'error': 'Passwords do not match'})
 
         try:
-            custom_password_validator(password1)
+            validate_password(password1)
         except ValidationError as e:
             return render(request, 'register.html', {'error': '\n'.join(e.messages)})
 
@@ -67,25 +67,27 @@ def register_view(request):
         return redirect(reverse_lazy('Authentication:verify_email'))
 
     return render(request, 'register.html')
-
-
 from django.core.exceptions import ValidationError
 
-
 def custom_password_validator(password):
+    # 检查密码长度是否符合要求
     if len(password) < 8:
         raise ValidationError("Password must be at least 8 characters long.")
 
-    # special_characters = "!@#$%^&*()_-+="
-    # if not any(char in special_characters for char in password):
-    #     raise ValidationError("Password must contain at least one special character.")
+    # 检查密码是否包含特殊字符
+    special_characters = "!@#$%^&*()_-+="
+    if not any(char in special_characters for char in password):
+        raise ValidationError("Password must contain at least one special character.")
 
+    # 检查密码是否包含数字
     if not any(char.isdigit() for char in password):
         raise ValidationError("Password must contain at least one digit.")
 
+    # 检查密码是否包含大写字母
     if not any(char.isupper() for char in password):
         raise ValidationError("Password must contain at least one uppercase letter.")
 
+    # 检查密码是否包含小写字母
     if not any(char.islower() for char in password):
         raise ValidationError("Password must contain at least one lowercase letter.")
 
@@ -94,6 +96,7 @@ from django.contrib import messages
 
 
 def verify_email(request):
+
     if request.method == 'POST':
         entered_code = str(request.POST.get('verification_code'))
         stored_code = request.session.get('verification_code')

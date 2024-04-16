@@ -65,9 +65,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "FYP_Project.wsgi.application"
+
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
+
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.mysql",
