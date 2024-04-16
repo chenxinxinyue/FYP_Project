@@ -79,8 +79,6 @@ def verify_email(request):
     if request.method == 'POST':
         entered_code = str(request.POST.get('verification_code'))
         stored_code = request.session.get('verification_code')
-        print(f"entered_code: {entered_code}")
-        print(f"stored_code: {stored_code}")
         # CAPTCHA comparison
         if stored_code and entered_code == stored_code:
             user_created = create_user_from_session(request)
@@ -92,7 +90,7 @@ def verify_email(request):
         else:
             messages.error(request, 'Invalid verification code')
 
-    return render(request, 'verify_email.html', {"stored_code": stored_code, "entered_code": entered_code})
+    return render(request, 'verify_email.html')
 
 
 def create_user_from_session(request):
