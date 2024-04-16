@@ -1,1 +1,1 @@
-web: gunicorn FYP_Project.wsgi --log-file -
+web: gunicorn FYP_Project.wsgi:application --timeout 600 --log-file -
