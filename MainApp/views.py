@@ -32,97 +32,47 @@ def index(request):
     return render(request, 'index.html', {"user": user})
 
 
-def show_jobs(request):
-    user_id = request.user.id
-    file_path = f"static/file/jobs_{user_id}.csv"
-    cv_objects = CV.objects.filter(user_id=user_id)
+def find_jobs(request):
+    user = request.user
 
-    if cv_objects.exists():
-        cv_object = cv_objects.first()
-        cv_file_path = cv_object.cv_file.path
-    if cv_file_path:
-        data = ResumeParser(cv_file_path).get_extracted_data()
-        skills = data.get('skills', [])
+    if request.method == 'POST':
+        form = CustomUserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            location = form.cleaned_data['address']
+            site_names = request.POST.getlist('job_sites')
+            job_preferences = Preference.objects.filter(user=user).values_list('preference', flat=True)
 
-    if not os.path.exists(file_path) or os.stat(file_path).st_size == 0:
-        messages.error(request, "No job listings file found or file is empty. Please initiate a search first.")
-        return redirect('MainApp:index')
-    try:
-        jobs = pd.read_csv(file_path)
-    except EmptyDataError:
-        messages.error(request, "No job found based on your information")
-        return redirect('MainApp:index')
-    if jobs.empty:
-        messages.error(request, "No job listings found in the file.")
-        return redirect('MainApp:index')
+            # 根据信息爬取工作列表
+            all_jobs = []
+            for preference in job_preferences:
+                try:
+                    jobs = scrape_jobs(
+                        site_name=site_names,
+                        search_term=preference,
+                        location=location,
+                        results_wanted=20,
+                        hours_old=72,
+                        country_indeed='UK',
+                    )
+                    all_jobs.append(jobs)
+                except ValueError as e:
+                    messages.error(request, str(e))
+                    return redirect('MainApp:index')  # Redirect to a page to update location
 
-    matching_jobs = []
-    for index, job in jobs.iterrows():
-        print(job['description'])
+            if all_jobs:
+                combined_jobs = pd.concat(all_jobs, ignore_index=True)
+                combined_jobs.to_csv(f"static/file/jobs_{user.id}.csv", quoting=csv.QUOTE_NONNUMERIC,
+                                     escapechar="\\",
+                                     index=False)
+            # 这里可以读取用户cv然后结合cv和工作经历筛选工作列表
+            return redirect('MainApp:show-jobs')
+    else:
+        form = CustomUserForm(instance=user)
 
-        if not pd.isna(job['description']):
-            # Count how many skills are present in the description
-            matching_skills = sum(skill.lower() in job['description'].lower() for skill in skills)
-            # If most of the skills are present, consider it a matching job
-            if matching_skills >= 3:
-                matching_jobs.append(job)
-
-    if not matching_jobs:
-        messages.error(request, "No matching jobs found based on your skills.")
-        return redirect('MainApp:index')
-
-    # Select the columns of interest from matching jobs
-    selected_columns = ['site', 'job_url', 'title', 'location', 'is_remote']
-    matching_jobs = pd.DataFrame(matching_jobs)[selected_columns]
-
-    context = {
-        'jobs': matching_jobs.to_dict('records'),
-        'columns': selected_columns
-    }
+    context = {'form': form}
     return render(request, 'show_jobs.html', context)
 
-
-# def find_jobs(request):
-#     user = request.user
-#
-#     if request.method == 'POST':
-#         form = CustomUserForm(request.POST, instance=user)
-#         if form.is_valid():
-#             form.save()
-#             location = form.cleaned_data['address']
-#             site_names = request.POST.getlist('job_sites')
-#             job_preferences = Preference.objects.filter(user=user).values_list('preference', flat=True)
-#
-#             # 根据信息爬取工作列表
-#             all_jobs = []
-#             for preference in job_preferences:
-#                 try:
-#                     jobs = scrape_jobs(
-#                         site_name=site_names,
-#                         search_term=preference,
-#                         location=location,
-#                         results_wanted=20,
-#                         hours_old=72,
-#                         country_indeed='UK',
-#                     )
-#                     all_jobs.append(jobs)
-#                 except ValueError as e:
-#                     messages.error(request, str(e))
-#                     return redirect('MainApp:index')  # Redirect to a page to update location
-#
-#             if all_jobs:
-#                 combined_jobs = pd.concat(all_jobs, ignore_index=True)
-#                 combined_jobs.to_csv(f"static/file/jobs_{user.id}.csv", quoting=csv.QUOTE_NONNUMERIC,
-#                                      escapechar="\\",
-#                                      index=False)
-#             # 这里可以读取用户cv然后结合cv和工作经历筛选工作列表
-#             return redirect('MainApp:show-jobs')
-#     else:
-#         form = CustomUserForm(instance=user)
-#
-#     context = {'form': form}
-#     return render(request, 'show_jobs.html', context)
-#
 
 def show_jobs(request):
     user_id = request.user.id
