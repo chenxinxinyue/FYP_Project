@@ -2,13 +2,12 @@
 
 import os
 import random
-from datetime import timezone
 
 import certifi
+from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.tokens import default_token_generator
-from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
@@ -67,36 +66,12 @@ def register_view(request):
         return redirect(reverse_lazy('Authentication:verify_email'))
 
     return render(request, 'register.html')
+
+
 from django.core.exceptions import ValidationError
-
-def custom_password_validator(password):
-    # 检查密码长度是否符合要求
-    if len(password) < 8:
-        raise ValidationError("Password must be at least 8 characters long.")
-
-    # 检查密码是否包含特殊字符
-    special_characters = "!@#$%^&*()_-+="
-    if not any(char in special_characters for char in password):
-        raise ValidationError("Password must contain at least one special character.")
-
-    # 检查密码是否包含数字
-    if not any(char.isdigit() for char in password):
-        raise ValidationError("Password must contain at least one digit.")
-
-    # 检查密码是否包含大写字母
-    if not any(char.isupper() for char in password):
-        raise ValidationError("Password must contain at least one uppercase letter.")
-
-    # 检查密码是否包含小写字母
-    if not any(char.islower() for char in password):
-        raise ValidationError("Password must contain at least one lowercase letter.")
-
-
-from django.contrib import messages
 
 
 def verify_email(request):
-
     if request.method == 'POST':
         entered_code = str(request.POST.get('verification_code'))
         stored_code = request.session.get('verification_code')
