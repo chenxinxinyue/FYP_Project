@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.tokens import default_token_generator
+from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
@@ -37,8 +38,6 @@ def login_view(request):
             return render(request, 'login.html', {'error_message': error_message})
 
     return render(request, 'login.html', {})
-
-
 def register_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -66,11 +65,6 @@ def register_view(request):
         return redirect(reverse_lazy('Authentication:verify_email'))
 
     return render(request, 'register.html')
-
-
-from django.core.exceptions import ValidationError
-
-
 def verify_email(request):
     if request.method == 'POST':
         entered_code = str(request.POST.get('verification_code'))
@@ -87,8 +81,6 @@ def verify_email(request):
             messages.error(request, 'Invalid verification code')
 
     return render(request, 'verify_email.html')
-
-
 def create_user_from_session(request):
     email = request.session.get('email')
     password = request.session.get('password')
@@ -103,16 +95,12 @@ def create_user_from_session(request):
     except Exception as e:
         print("An error occurred while creating the user:", e)
         return False
-
-
 def clear_registration_session(request):
     for key in ['verification_code', 'email', 'password', 'verification_timestamp']:
         try:
             del request.session[key]
         except KeyError:
             pass
-
-
 def password_reset_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -137,8 +125,6 @@ def password_reset_view(request):
         else:
             messages.error(request, 'Please provide an email address.')
     return render(request, 'password_reset.html')
-
-
 def password_reset_confirm_view(request, uidb64, token):
     try:
         uid = str(urlsafe_base64_decode(uidb64), 'utf-8')

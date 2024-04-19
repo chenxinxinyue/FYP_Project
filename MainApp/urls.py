@@ -15,5 +15,4 @@ urlpatterns = [
     path('find_jobs/', views.find_jobs, name='find-jobs'),
     path('show_jobs/', views.show_jobs, name='show-jobs'),
     path('favorite_job/', views.favorite_job, name='favorite-job'),
-
 ]

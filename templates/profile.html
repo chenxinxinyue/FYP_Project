@@ -67,10 +67,7 @@
                     .appendTo(ul);
             };
         });
-    </script>
-    <script>
         $(document).ready(function () {
-            // Initialize all autocompletions with.preference-autocomplete class
             $('.preference-autocomplete').autocomplete({
                 source: '{% url 'MainApp:get-jobs' %}',
                 minLength: 2,

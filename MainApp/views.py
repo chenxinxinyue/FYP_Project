@@ -29,8 +29,6 @@ def index(request):
         print("An error occurred:", e)
 
     return render(request, 'index.html', {"user": user})
-
-
 def find_jobs(request):
     user = request.user
 
@@ -71,8 +69,6 @@ def find_jobs(request):
 
     context = {'form': form}
     return render(request, 'show_jobs.html', context)
-
-
 def show_jobs(request):
     user_id = request.user.id
     file_path = f"static/file/jobs_{user_id}.csv"
@@ -98,8 +94,6 @@ def show_jobs(request):
         'columns': selected_columns
     }
     return render(request, 'show_jobs.html', context)
-
-
 def favorite_job(request):
     if request.method == 'POST':
         job_url = request.POST.get('job_url')
@@ -129,8 +123,6 @@ def favorite_job(request):
         return JsonResponse({'message': 'Operation successful'})
     else:
         return JsonResponse({'error': 'Unauthorized or invalid request!'}, status=401)
-
-
 def profile_view(request):
     user = request.user
     study_instance, _ = Study.objects.get_or_create(user=user)
@@ -171,8 +163,6 @@ def profile_view(request):
         'preference_form': preference_formset,
     }
     return render(request, 'profile.html', context)
-
-
 def load_file(request, file_name):
     # Remove trailing slash if exists in the path
     file_name = file_name.rstrip('/')
@@ -182,22 +172,16 @@ def load_file(request, file_name):
         return FileResponse(open(file_path, 'rb'), as_attachment=True)
     else:
         return HttpResponse(f"File not found: {file_path}", status=404)
-
-
 def get_schools(request):
     term = request.GET.get('term', '')
     schools = School.objects.filter(name__icontains=term)[:10]
     schools_data = [{'label': school.name, 'value': school.name} for school in schools]
     return JsonResponse(schools_data, safe=False)
-
-
 def get_jobs(request):
     term = request.GET.get('term', '')
     jobs = Job.objects.filter(name__icontains=term)[:10]
     jobs_data = [{'label': job.name, 'value': job.name} for job in jobs]
     return JsonResponse(jobs_data, safe=False)
-
-
 def upload_view(request):
     if request.method == 'POST' and request.FILES['file']:
         file = request.FILES['file']
@@ -216,8 +200,6 @@ def upload_view(request):
     else:
         # Handle non-POST request or no file uploaded
         return HttpResponse('Invalid request', status=400)
-
-
 def favorites_view(request):
     if request.method == 'POST':
         id = request.POST.get('id')
@@ -235,8 +217,6 @@ def favorites_view(request):
     else:
         favorite_jobs = FavoriteJob.objects.filter(user=request.user)
         return render(request, 'favorites.html', {'favorite_jobs': favorite_jobs})
-
-
 def jobs_view(request):
     jobs = Job.objects.all()
     return render(request, 'jobs.html', {'jobs': jobs})
