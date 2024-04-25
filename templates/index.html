@@ -3,14 +3,16 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+    
     <ul class="nav nav-pills nav-justified">
         <li role="presentation" class="active"><a href="{% url 'MainApp:index' %}">Home</a></li>
         <li role="presentation"><a href="{% url 'MainApp:profile' %}">Profile</a></li>
         <li role="presentation"><a href="{% url 'MainApp:favorites' %}">Favorites</a></li>
         <li role="presentation"><a href="{% url 'Authentication:login' %}">Logout</a></li>
     </ul>
+    
     <div class="container">
-        <form method="post" action="{% url 'MainApp:find-jobs' %}" id="jobSearchForm">
+        <form method="post" action="{% url 'MainApp:find-jobs' %}" id="jobSearchForm" class="form-section">
             {% csrf_token %}
             <label for="job-sites">Choose job sites:</label>
             <!-- ... -->
@@ -39,11 +41,8 @@
                 <label for="address">Input your address:</label>
                 <input type="text" id="address" name="address" placeholder="Enter your address" required>
             </div>
-            <button type="submit" id="findJobsButton">Find Jobs</button>
-
+            <input type="submit" id="findJobsButton" value="Find Jobs">
         </form>
-
-
     </div>
     <script>
         document.getElementById('jobSearchForm').addEventListener('submit', function (event) {
@@ -53,7 +52,6 @@
                 alert('Please select at least one job site.');
                 event.preventDefault(); // Prevent form submission
             }
-
         });
     </script>
 

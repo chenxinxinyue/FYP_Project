@@ -29,7 +29,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="id" value="{{ job.id }}">
                             <input type="hidden" name="is_favorited" value="true">
-                            <button type="submit">Unfavorite</button>
+                            <input type="submit" value="Unfavorite">
                         </form>
                     </td>
                 </tr>

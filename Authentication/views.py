@@ -37,6 +37,8 @@ def login_view(request):
             return render(request, 'login.html', {'error_message': error_message})
 
     return render(request, 'login.html', {})
+
+
 def register_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -44,15 +46,15 @@ def register_view(request):
         password2 = request.POST.get('confirm_password')
 
         if CustomUser.objects.filter(email=email).exists():
-            return render(request, 'register.html', {'error': 'Email is already registered'})
+            return render(request, 'register.html', {'error_message': 'Email is already registered'})
 
         if password1 != password2:
-            return render(request, 'register.html', {'error': 'Passwords do not match'})
+            return render(request, 'register.html', {'error_message': 'Passwords do not match'})
 
         try:
             validate_password(password1)
         except ValidationError as e:
-            return render(request, 'register.html', {'error': '\n'.join(e.messages)})
+            return render(request, 'register.html', {'error_message': '\n'.join(e.messages)})
 
         verification_code = str(random.randint(100000, 999999))
         send_verification_email_for_register(email, verification_code)
@@ -64,6 +66,8 @@ def register_view(request):
         return redirect(reverse_lazy('Authentication:verify_email'))
 
     return render(request, 'register.html')
+
+
 def verify_email(request):
     if request.method == 'POST':
         entered_code = str(request.POST.get('verification_code'))
@@ -80,6 +84,8 @@ def verify_email(request):
             messages.error(request, 'Invalid verification code')
 
     return render(request, 'verify_email.html')
+
+
 def create_user_from_session(request):
     email = request.session.get('email')
     password = request.session.get('password')
@@ -94,12 +100,16 @@ def create_user_from_session(request):
     except Exception as e:
         print("An error occurred while creating the user:", e)
         return False
+
+
 def clear_registration_session(request):
     for key in ['verification_code', 'email', 'password', 'verification_timestamp']:
         try:
             del request.session[key]
         except KeyError:
             pass
+
+
 def password_reset_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -124,6 +134,8 @@ def password_reset_view(request):
         else:
             messages.error(request, 'Please provide an email address.')
     return render(request, 'password_reset.html')
+
+
 def password_reset_confirm_view(request, uidb64, token):
     try:
         uid = str(urlsafe_base64_decode(uidb64), 'utf-8')
