@@ -48,22 +48,17 @@
             width: 100%;
         }
 
-        button[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
+        {# login,  #}
+        .base_container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        button[type="submit"]:hover {
-            background-color: #555;
-        }
-
+        {# login,  #}
         input[type="text"],
         input[type="password"],
         input[type="submit"],
@@ -87,52 +82,65 @@
             background-color: #555;
         }
 
+        .centered {
+            text-align: center;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+
         .link {
             font-size: 18px;
         }
 
         .container {
-            max-width: 800px; /* 限制容器的最大宽度 */
-            margin: 0 auto; /* 水平居中显示 */
-            padding: 20px;
-            font-family: 'Arial', sans-serif; /* 设置字体 */
+            max-width: 800px;
+            margin: 0 auto;
+        = padding: 20 px;
+            font-family: 'Arial', sans-serif;
         }
 
         .input-group-addon {
-            background: #f5f5f5; /* 设置背景颜色 */
-            border: 1px solid #ddd; /* 设置边框 */
+            background: #f5f5f5;
+            border: 1px solid #ddd;
         }
 
         .form-control, #address {
             border: 1px solid #ccc;
             border-radius: 4px;
-            margin-bottom: 10px; /* 设置底部外边距 */
-            padding: 10px; /* 内边距 */
-            font-size: 14px; /* 字体大小 */
-            height: auto; /* 自动高度 */
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 14px;
+            height: auto;
         }
 
-        .base_container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
 
         .back-button {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #007bff; /* 蓝色 */
-            color: #fff; /* 白色 */
+            background-color: #007bff;
+            color: #fff;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
         .back-button:hover {
-            background-color: #f1f1f1; /* 鼠标悬停时的深蓝色 */
+            background-color: #f1f1f1;
         }
 
         .error-message {
@@ -159,18 +167,18 @@
 
 
         .personal-info span {
-            font-weight: bold; /* 粗体 */
+            font-weight: bold;
         }
 
         .personal-info .link {
             display: block;
-            margin-top: 5px; /* 调整链接之间的间距 */
-            text-decoration: none; /* 链接样式 */
-            color: #333333; /* 链接颜色 */
+            margin-top: 5px;
+            text-decoration: none;
+            color: #333333;
         }
 
         .personal-info .link:hover {
-            color: #ff0000; /* 鼠标悬停时的链接颜色 */
+            color: #ff0000;
         }
 
         .full-width-textarea {
@@ -304,15 +312,13 @@
 
         {# check box in index page#}
         .row {
-            margin:12px;
+            margin: 12px;
         }
 
-        /* 隐藏原始复选框 */
         .btn-checkbox {
             display: none;
         }
 
-        /* 设置按钮样式 */
         .btn-default {
             display: inline-block;
             padding: 20px 30px;
@@ -327,13 +333,11 @@
             transition: all 0.3s;
         }
 
-        /* 鼠标悬停时的样式 */
         .btn-default:hover {
             background-color: #e7e7e7;
             border-color: #adadad;
         }
 
-        /* 当复选框被选中时改变按钮样式 */
         .btn-checkbox:checked + .btn-default {
             background-color: #007bff;
             color: white;
@@ -362,22 +366,23 @@
     {% endblock %}
 </main>
 
+<footer>
+    <p>&copy; {% now "Y" %} CJob. All rights reserved.</p>
+</footer>
 
 <script>
     // get all messages
     const messageElements = document.querySelectorAll('.messages .alert');
 
     messageElements.forEach(messageElement => {
-        // set time count for 3 seconds
+        // set time count for 5 seconds
         setTimeout(() => {
             messageElement.style.display = 'none';
-        }, 3000);
+        }, 5000);
     });
 </script>
+
 <script src="{% static 'select/js/select2.min.js' %}"></script>
 
-<footer>
-    <p>&copy; {% now "Y" %} CJob. All rights reserved.</p>
-</footer>
 </body>
 </html>

@@ -23,7 +23,6 @@ os.environ['SSL_CERT_FILE'] = certifi.where()
 
 def login_view(request):
     if request.method == 'POST':
-
         email = request.POST.get('email')
         password = request.POST.get('password')
 
@@ -31,7 +30,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            print("{} Login Successful".format(user.email))
+            # print("{} Login Successful".format(user.email))
             return redirect(reverse_lazy('MainApp:index'))
         else:
             error_message = "Invalid email or password."

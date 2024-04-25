@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-e*u7&x$495)s4c9klqhxe(ks=sqier_uy(d7qdiahnll27sg8*"
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -65,21 +65,21 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "FYP_Project.wsgi.application"
+#
+# DATABASES = {
+#     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+# }
 
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "db1",
+        "USER": "root",
+        "PASSWORD": "020125",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
+    }
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "db1",
-#         "USER": "root",
-#         "PASSWORD": "020125",
-#         "HOST": "127.0.0.1",
-#         "PORT": "3306",
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -133,8 +133,7 @@ EMAIL_HOST_USER = 'recommendjob@gmail.com'
 EMAIL_HOST_PASSWORD = 'hlpx utwz tpkb fvtu'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-import os
-
+# Set up Celery's info
 CELERY_BROKER_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
 CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
 # settings.py

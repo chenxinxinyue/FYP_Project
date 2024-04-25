@@ -3,18 +3,24 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<div class="base_container">
-    <form method="post">
-        {% csrf_token %}
-        <h2>Login to CJob</h2>
-        {% if error_message %}
-            <p style="color: red;">{{ error_message }}</p>
-        {% endif %}
-        <input type="text" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <a href="{% url 'Authentication:password_reset' %}">Forgot password?</a>
-        <input type="submit" value="Sign In">
-        <a href="{% url 'Authentication:register' %}">Don't have an account? Register</a>
-    </form>
-</div>
+    <div class="base_container">
+        <form method="post">
+            {% csrf_token %}
+            <h2 class="centered">Login to CJob</h2>
+            {% if error_message %}
+                {# set the error paragraph #}
+                <p style="color: red;">{{ error_message }}</p>
+            {% endif %}
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <div>
+                <a href="{% url 'Authentication:password_reset' %}">Forgot password?</a>
+            </div>
+            <input type="submit" value="Sign In">
+            <div>
+                <a href="{% url 'Authentication:register' %}">Don't have an account? Register</a>
+            </div>
+        
+        </form>
+    </div>
 {% endblock %}
